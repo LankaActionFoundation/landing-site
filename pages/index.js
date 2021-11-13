@@ -272,7 +272,7 @@ export default function Home() {
 
       {/* 2nd section */}
       <section className="bg-brandRed w-full">
-        <div className="w-full pt-10 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+        <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
           <div className="w-full px-3 xl:px-3">
             <h4 className="text-xl w-full text-center lg:text-left md:text-2xl text-white">
               What we do
@@ -303,8 +303,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="my-10 w-full h-full px-3 lg:p-0 grid md:grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-10">
-            <div className="lg:-ml-20 lg:w-60 lg:h-60 w-full h-full bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
+          <div className="mt-10 lg:mt-0 w-full h-full px-3 lg:p-0 grid md:grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-10">
+            <div className="lg:-ml-20 h-[250px] w-full bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
               <svg
                 aria-hidden="true"
                 className="w-20 h-20 text-customYellow"
@@ -321,7 +321,8 @@ export default function Home() {
                 Medical Services
               </h1>
             </div>
-            <div className="lg:-ml-20 lg:w-60 lg:h-60 w-full h-full bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
+
+            <div className="lg:-ml-20 w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
               <svg
                 className="w-20 h-20 text-customYellow"
                 preserveAspectRatio="xMidYMid meet"
@@ -343,7 +344,8 @@ export default function Home() {
                 Orphanages Care
               </h1>
             </div>
-            <div className="lg:w-60 lg:h-60 w-full h-full bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
+
+            <div className="w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
               <svg
                 className="w-20 h-20 text-customYellow"
                 preserveAspectRatio="xMidYMid meet"
@@ -359,7 +361,7 @@ export default function Home() {
               </h1>
             </div>
 
-            <div className="lg:w-60 lg:h-60 w-full h-full bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
+            <div className="w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
               <svg
                 className="w-20 h-20 text-customYellow"
                 preserveAspectRatio="xMidYMid meet"
