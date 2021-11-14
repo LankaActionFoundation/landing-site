@@ -6,7 +6,7 @@ import FilledButton from "../buttons/FilledButton";
 
 const Navbar = () => {
   return (
-    <nav className="w-full fixed top-0 z-50 backdrop-filter backdrop-blur-lg text-white">
+    <nav className="w-full fixed top-0 z-50 bg-black/70 backdrop-filter backdrop-blur-lg text-white">
       <div
         className="
             w-full
