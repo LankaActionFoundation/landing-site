@@ -556,7 +556,7 @@ export default function Home() {
               </FilledButton>
             </div>
           </div>
-          <div className="mt-10 flex items-center justify-center gap-10">
+          <div className="mt-10 flex flex-col flex-wrap md:flex-row items-center justify-center gap-10">
             <div className="bg-gray-100 p-5 rounded-lg">
               <img className="w-32 h-32" src="./charity-logo.png" alt="" />
             </div>
