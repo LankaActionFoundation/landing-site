@@ -18,6 +18,10 @@ const FilledButton = ({ color, focusOffset, children }) => {
         "bg-customYellow hover:bg-customYellowHoverLight focus-visible:ring-customYellow"
       }
       ${
+        color === "green" &&
+        "bg-customGreen hover:bg-customGreenHoverLight focus-visible:ring-customGreen"
+      }
+      ${
         focusOffset === "white"
           ? "focus-visible:ring-offset-white "
           : "focus-visible:ring-offset-black "

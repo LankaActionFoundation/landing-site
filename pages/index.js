@@ -6,6 +6,7 @@ import Select from "../components/inputs/Select";
 import TextInput from "../components/inputs/TextInput";
 import Navbar from "../components/layout/Navbar";
 import { Switch } from "@headlessui/react";
+import DonationCard from "../components/DonationCard";
 
 export default function Home() {
   const [amounts, setAmounts] = useState([100, 500, 1000]);
@@ -438,6 +439,140 @@ export default function Home() {
         </div>
       </section>
       {/* end of 2nd section */}
+
+      {/* 3rd section */}
+      <section className="bg-white w-full">
+        <div className="w-full max-w-6xl mx-auto py-10 px-3 lg:px-0">
+          <h5 className="w-full block text-center text-base md:text-lg text-gray-800">
+            Give a hand to make
+          </h5>
+
+          <h2 className="mt-5 text-3xl md:text-6xl font-title text-gray-800 w-full max-w-lg mx-auto block text-center font-bold">
+            You can help lots of people by donating little
+          </h2>
+
+          <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
+            <DonationCard
+              widthFull
+              title="New Chance for children"
+              subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                      commodi corrupti, unde dolores autem consequatur? Quae officiis
+                      ducimus eos officia!"
+              thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              raised={70000}
+              goal={500000}
+            />
+            <DonationCard
+              widthFull
+              title="New Chance for children"
+              subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                      commodi corrupti, unde dolores autem consequatur? Quae officiis
+                      ducimus eos officia!"
+              thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              raised={70000}
+              goal={500000}
+            />
+            <DonationCard
+              widthFull
+              title="New Chance for children"
+              subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                      commodi corrupti, unde dolores autem consequatur? Quae officiis
+                      ducimus eos officia!"
+              thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              raised={70000}
+              goal={500000}
+            />
+          </div>
+        </div>
+      </section>
+      {/* end of 3rd section */}
+
+      {/* 4th section */}
+      <section className="bg-brandRed w-full">
+        <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
+          <h2 className="mt-5 text-3xl md:text-6xl font-title text-white w-full mx-auto block text-center font-bold">
+            We're on a mission of big changes.
+            <br />
+            To help people and the world
+          </h2>
+
+          <h5 className="w-full my-10 max-w-5xl mx-auto block text-center text-base md:text-lg text-white">
+            We're focused on providing attordable volunteer travel experiences
+            that are responsible. Our programs. heighten global awareness and
+            cultural understandings through the skills and expertise taken by
+            the volunteers to their host communities.
+          </h5>
+
+          <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
+            <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
+              <h1 className="text-2xl md:text-5xl font-bold text-customYellow">
+                $50K
+              </h1>
+              <h2 className="mt-1 text-xl md:text-3xl text-customYellow/90">
+                Raised
+              </h2>
+            </div>
+
+            <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
+              <h1 className="text-2xl md:text-5xl font-bold text-white/80">
+                300+
+              </h1>
+              <h2 className="mt-1 text-xl md:text-3xl text-white/80">
+                Volunteers
+              </h2>
+            </div>
+
+            <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
+              <h1 className="text-2xl md:text-5xl font-bold text-white/80">
+                48+
+              </h1>
+              <h2 className="mt-1 text-xl md:text-3xl text-white/80">
+                Countries
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* end of 4th section */}
+
+      {/* 5th section */}
+      <section className="bg-white w-full">
+        <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
+          <div className="w-full mt-5 flex flex-col md:flex-row items-start justify-between gap-10">
+            <div className="w-full">
+              <h2 className="text-5xl md:text-7xl font-title text-gray-800 font-bold">
+                Become Support Partner
+              </h2>
+              <h3 className="mt-[10px] text-sm md:text-lg">
+                Provide financing support to help individuals build livelihood
+              </h3>
+            </div>
+
+            <div className="md:mt-5 w-full md:w-auto">
+              <FilledButton className="w-full" color="green">
+                <span className="px-5 text-white uppercase whitespace-nowrap">
+                  Get in touch
+                </span>
+              </FilledButton>
+            </div>
+          </div>
+          <div className="mt-10 flex items-center justify-center gap-10">
+            <div className="bg-gray-100 p-5 rounded-lg">
+              <img className="w-32 h-32" src="./charity-logo.png" alt="" />
+            </div>
+            <div className="bg-gray-100 p-5 rounded-lg">
+              <img className="w-32 h-32" src="./charity-logo.png" alt="" />
+            </div>
+            <div className="bg-gray-100 p-5 rounded-lg">
+              <img className="w-32 h-32" src="./charity-logo.png" alt="" />
+            </div>
+            <div className="bg-gray-100 p-5 rounded-lg">
+              <img className="w-32 h-32" src="./charity-logo.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* end of 5th section */}
     </div>
   );
 }
