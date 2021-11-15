@@ -1,6 +1,15 @@
 import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
-const TextInput = ({ label, error, placeholder, value, handler }) => {
+const TextInput = ({
+  type = "text",
+  label,
+  error,
+  placeholder,
+  onBlur,
+  value,
+  handler,
+}) => {
   const textInput = useRef(null);
 
   useEffect(() => {
@@ -28,6 +37,8 @@ const TextInput = ({ label, error, placeholder, value, handler }) => {
         <input
           id={label}
           value={value}
+          type={type}
+          onBlur={onBlur}
           onChange={handler}
           placeholder={placeholder}
           className={`

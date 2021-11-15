@@ -2,10 +2,10 @@ import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
-const PageWithNavAndFooter = ({ children }) => {
+const PageWithNavAndFooter = ({ color, children }) => {
   return (
     <>
-      <Navbar />
+      <Navbar color={color} />
       {children}
       <Footer />
     </>

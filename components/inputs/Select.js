@@ -34,7 +34,7 @@ const Select = ({ label, error = "", options = [], handler }) => {
                 ref={selectButton}
                 id={label + "_select"}
                 className={`
-                relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-sm 
+                relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-xl shadow-sm 
                 border border-gray-300 cursor-default
                 focus:outline-none
                 sm:text-sm

@@ -24,7 +24,7 @@ const PopoverBtn = ({ name = "Nav link", links = [] }) => {
             leaveTo="opacity-0 translate-y-1"
           >
             {links.length > 0 && (
-              <Popover.Panel className="absolute mt-3 z-10 bg-white p-1 rounded-xl">
+              <Popover.Panel className="absolute mt-3 z-10 bg-white p-1 rounded-xl shadow-xl">
                 <div className="flex items-start justify-start flex-col text-gray-800">
                   {links.map((link) => (
                     <Link key={link} href={link.url}>

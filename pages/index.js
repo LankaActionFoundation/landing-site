@@ -20,7 +20,7 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <PageWithNavAndFooter>
+      <PageWithNavAndFooter color="bg-black/70">
         {/* hero */}
         <section className="h-screen">
           {/* bg image */}
@@ -50,10 +50,10 @@ export default function Home() {
             />
 
             {/* hero */}
-            <div className="absolute mt-40 top-0 inset-x-0 z-30">
+            <div className="absolute mt-16 md:mt-40 top-0 inset-x-0 z-30">
               <div className="w-full mt-5 py-3 px-3 xl:px-0 max-w-6xl mx-auto">
-                <h4 className="text-xl md:text-2xl text-white">
-                  <span className="text-lg md:text-xl text-customYellow">
+                <h4 className="text-base md:text-2xl text-white">
+                  <span className="text-base md:text-xl text-customYellow">
                     #name{" "}
                   </span>
                   Nonprofit Foundation
@@ -160,7 +160,7 @@ export default function Home() {
                           }}
                           className="ml-3 text-xs md:text-sm text-gray-800 font-medium uppercase flex items-center justify-center gap-2 cursor-pointer"
                         >
-                          Single Donation
+                          Monthly Donation
                           <div
                             className={`p-3 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out ${
                               isMonthlyDonation && "bg-customYellow"
@@ -272,7 +272,7 @@ export default function Home() {
         {/* 2nd section */}
         <section className="bg-brandRed w-full">
           <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
-            <div className="w-full px-3 xl:px-3">
+            <div className="mt-20 md:mt-0 w-full px-3 xl:px-3">
               <h4 className="text-xl w-full text-center lg:text-left md:text-2xl text-white">
                 What we do
                 <div className="mt-2 flex items-center lg:justify-start justify-center">
@@ -571,8 +571,8 @@ export default function Home() {
             </div>
 
             <div className="mt-20">
-              <div className="w-full flex flex-col md:flex-row items-center justify-between">
-                <h2 className="text-3xl md:text-4xl font-title text-gray-800 font-bold">
+              <div className="w-full flex flex-col md:flex-row items-start justify-between">
+                <h2 className="text-3xl md:text-6xl font-title text-gray-800 font-bold">
                   Latest Articles
                 </h2>
 
