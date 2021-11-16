@@ -9,8 +9,41 @@ import { Switch } from "@headlessui/react";
 
 export default function Donation() {
   const [amounts, setAmounts] = useState([100, 500, 1000]);
-  const [selectedAmount, setSelectedAmount] = useState("");
   const [isMonthlyDonation, setIsMonthlyDonation] = useState(false);
+
+  const [selectedAmount, setSelectedAmount] = useState("");
+  const [isselectedAmountTouched, setIsselectedAmountTouched] = useState(false);
+  const [selectedAmountError, setSelectedAmountError] = useState("");
+
+  useEffect(() => {
+    const numberOnly = /^[0-9]*$/;
+    if (selectedAmount.length > 0 && !selectedAmount.match(numberOnly)) {
+      setSelectedAmountError("Amount has to be a number");
+    } else {
+      if (isselectedAmountTouched && selectedAmount.length <= 0) {
+        setSelectedAmountError("Amount cannot be empty");
+      } else {
+        setSelectedAmountError("");
+      }
+    }
+  }, [selectedAmount, isselectedAmountTouched]);
+
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [isphoneNumberTouched, setIsphoneNumberTouched] = useState(false);
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+
+  useEffect(() => {
+    const numberOnly = /^[0-9+]*$/;
+    if (phoneNumber.length > 0 && !phoneNumber.match(numberOnly)) {
+      setPhoneNumberError("Phone number has to be a number and without spaces");
+    } else {
+      if (isphoneNumberTouched && phoneNumber.length <= 0) {
+        setPhoneNumberError("Phone number cannot be empty");
+      } else {
+        setPhoneNumberError("");
+      }
+    }
+  }, [phoneNumber, isphoneNumberTouched]);
 
   const [firstName, setFirstName] = useState("");
   const [isfirstNameTouched, setIsfirstNameTouched] = useState(false);
@@ -24,6 +57,18 @@ export default function Donation() {
     }
   }, [firstName, isfirstNameTouched]);
 
+  const [address, setAddress] = useState("");
+  const [isaddressTouched, setIsaddressTouched] = useState(false);
+  const [addressError, setAddressError] = useState("");
+
+  useEffect(() => {
+    if (isaddressTouched && address.length <= 0) {
+      setAddressError("Address cannot be empty");
+    } else {
+      setAddressError("");
+    }
+  }, [address, isaddressTouched]);
+
   const [lastName, setLastName] = useState("");
   const [islastNameTouched, setIslastNameTouched] = useState(false);
   const [lastNameError, setLastNameError] = useState("");
@@ -35,6 +80,58 @@ export default function Donation() {
       setLastNameError("");
     }
   }, [lastName, islastNameTouched]);
+
+  const [email, setEmail] = useState("");
+  const [isemailTouched, setIsemailTouched] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  useEffect(() => {
+    if (isemailTouched && email.length <= 0) {
+      setEmailError("Email cannot be empty");
+    } else if (isemailTouched && !email.match(mailformat)) {
+      setEmailError("Email format is not applicable");
+    } else {
+      setEmailError("");
+    }
+  }, [email, isemailTouched]);
+
+  const [city, setCity] = useState("");
+  const [iscityTouched, setIscityTouched] = useState(false);
+  const [cityError, setCityError] = useState("");
+
+  useEffect(() => {
+    if (iscityTouched && city.length <= 0) {
+      setCityError("city cannot be empty");
+    } else {
+      setCityError("");
+    }
+  }, [city, iscityTouched]);
+
+  const [postalCode, setPostalCode] = useState("");
+  const [ispostalCodeTouched, setIspostalCodeTouched] = useState(false);
+  const [postalCodeError, setPostalCodeError] = useState("");
+
+  useEffect(() => {
+    if (ispostalCodeTouched && postalCode.length <= 0) {
+      setPostalCodeError("Postal Code cannot be empty");
+    } else {
+      setPostalCodeError("");
+    }
+  }, [postalCode, ispostalCodeTouched]);
+
+  const [province, setProvince] = useState("");
+  const [isprovinceTouched, setIsprovinceTouched] = useState(false);
+  const [provinceError, setProvinceError] = useState("");
+
+  useEffect(() => {
+    if (isprovinceTouched && province.length <= 0) {
+      setProvinceError("Province cannot be empty");
+    } else {
+      setProvinceError("");
+    }
+  }, [province, isprovinceTouched]);
 
   return (
     <PageWithNavAndFooter color="bg-blue-900/50">
@@ -249,6 +346,8 @@ export default function Donation() {
                     handler={(e) => {
                       setSelectedAmount(e.target.value);
                     }}
+                    onBlur={() => setIsselectedAmountTouched(true)}
+                    error={selectedAmountError}
                   />
                 </div>
               </div>
@@ -280,21 +379,49 @@ export default function Donation() {
                       label="Email"
                       type="email"
                       placeholder="Enter your Email"
+                      value={email}
+                      onBlur={() => setIsemailTouched(true)}
+                      handler={(e) => setEmail(e.target.value)}
+                      error={emailError}
                     />
                     <TextInput
                       label="Phone number"
                       type="tel"
                       placeholder="+## ### ####"
+                      value={phoneNumber}
+                      handler={(e) => {
+                        setPhoneNumber(e.target.value);
+                      }}
+                      onBlur={() => setIsphoneNumberTouched(true)}
+                      error={phoneNumberError}
                     />
                   </div>
 
-                  <TextInput label="Address" placeholder="Enter your address" />
+                  <TextInput
+                    label="Address"
+                    placeholder="Enter your address"
+                    value={address}
+                    onBlur={() => setIsaddressTouched(true)}
+                    handler={(e) => setAddress(e.target.value)}
+                    error={addressError}
+                  />
 
                   <div className="w-full flex items-center justify-between gap-5">
-                    <TextInput label="City" placeholder="Enter your city" />
+                    <TextInput
+                      label="City"
+                      placeholder="Enter your city"
+                      value={city}
+                      onBlur={() => setIscityTouched(true)}
+                      handler={(e) => setCity(e.target.value)}
+                      error={cityError}
+                    />
                     <TextInput
                       label="Postal code"
                       placeholder="Enter your postal code"
+                      value={postalCode}
+                      onBlur={() => setIspostalCodeTouched(true)}
+                      handler={(e) => setPostalCode(e.target.value)}
+                      error={postalCodeError}
                     />
                   </div>
 
@@ -310,6 +437,10 @@ export default function Donation() {
                     <TextInput
                       label="Province/State"
                       placeholder="Province/State"
+                      value={province}
+                      onBlur={() => setIsprovinceTouched(true)}
+                      handler={(e) => setProvince(e.target.value)}
+                      error={provinceError}
                     />
                   </div>
                 </div>
