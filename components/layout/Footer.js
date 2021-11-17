@@ -25,8 +25,8 @@ const Footer = () => {
     },
   ]);
   return (
-    <footer className="pattern w-full">
-      <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
+    <footer className="pattern w-full pb-10 px-3 xl:px-0">
+      <div className="w-full max-w-6xl mx-auto pt-20 pb-10 px-3 xl:px-0 border-b border-gray-300 border-opacity-60">
         <div className="w-full flex flex-col md:flex-row items-start justify-between gap-20">
           <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
             <svg
@@ -216,6 +216,16 @@ const Footer = () => {
             </div>
           </div>
           {/* end of links */}
+        </div>
+      </div>
+
+      <div className="w-full max-w-6xl mx-auto pt-5">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between text-sm text-white">
+          <h4>&copy; copyrights {new Date().getFullYear()} by donation</h4>
+          <div className="mt-2 md:mt-0 flex items-center justify-center gap-5">
+            <h4>Privacy policy</h4>
+            <h4>Terms and use</h4>
+          </div>
         </div>
       </div>
     </footer>
