@@ -1,6 +1,9 @@
+import { useRouter } from "next/dist/client/router";
 import React, { useEffect, useState } from "react";
 
-const CustomPagination = ({ pageCount = 10 }) => {
+const CustomPagination = ({ currentPage, handler, pageCount = 3 }) => {
+  const router = useRouter();
+  const [selectedPage, setSelectedPage] = useState(currentPage);
   const [pages, setPages] = useState([]);
 
   useEffect(() => {
@@ -9,10 +12,19 @@ const CustomPagination = ({ pageCount = 10 }) => {
       arr.push(index);
     }
     setPages(arr);
-    console.log({ pages });
+    setSelectedPage(currentPage);
   }, []);
 
-  const [selectedPage, setSelectedPage] = useState(1);
+  useEffect(() => {
+    setSelectedPage(currentPage);
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (router) {
+      handler(selectedPage);
+    }
+  }, [selectedPage]);
+
   return (
     <div className="w-full flex flex-wrap items-start justify-center gap-2 md:h-16">
       {pages.map((val) => (
@@ -22,7 +34,7 @@ const CustomPagination = ({ pageCount = 10 }) => {
             setSelectedPage(val);
           }}
           className={`relative focus:outline-none ${
-            val === selectedPage ? "bg-customYellow h-16" : "h-10"
+            val === selectedPage ? "bg-customYellow h-16 shadow-lg" : "h-10"
           } p-1 w-10 rounded-full flex items-start justify-center outline-none transition-all duration-300`}
         >
           <span

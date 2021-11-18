@@ -1,10 +1,9 @@
 import { useRouter } from "next/dist/client/router";
 import React from "react";
-import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
 import Head from "next/head";
+import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
 
 const IndividualBlog = () => {
-  const router = useRouter();
   return (
     <>
       <Head>

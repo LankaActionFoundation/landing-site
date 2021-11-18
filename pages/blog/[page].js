@@ -1,9 +1,32 @@
-import React from "react";
+import { useRouter } from "next/dist/client/router";
+import React, { useEffect, useState } from "react";
 import BlogCard from "../../components/BlogCard";
 import CustomPagination from "../../components/inputs/CustomPagination";
 import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
+import Loading from "../../components/Loading";
 
-const index = () => {
+const Blogs = () => {
+  const router = useRouter();
+  const [currentPage, setCurrentPage] = useState();
+  const [pageCount, setPageCount] = useState(5);
+
+  useEffect(() => {
+    if (router.query.page || currentPage) {
+      const page = parseInt(router.query.page);
+      if (page <= pageCount) {
+        setCurrentPage(page);
+      } else {
+        setCurrentPage(1);
+      }
+    }
+  }, [router]);
+
+  const handlePageNavigate = (page) => {
+    if (page) {
+      router.push(`/blog/${page}`);
+    }
+  };
+
   return (
     <PageWithNavAndFooter>
       <div className="relative min-h-screen">
@@ -50,14 +73,21 @@ const index = () => {
             />
           ))}
         </div>
+        {/* <div className="w-full flex items-center justify-center">
+          <Loading />
+        </div> */}
       </div>
       <div className="w-full max-w-6xl mx-auto py-10">
         <div className="w-full flex items-center justify-center">
-          <CustomPagination />
+          <CustomPagination
+            currentPage={currentPage}
+            handler={handlePageNavigate}
+            pageCount={pageCount}
+          />
         </div>
       </div>
     </PageWithNavAndFooter>
   );
 };
 
-export default index;
+export default Blogs;
