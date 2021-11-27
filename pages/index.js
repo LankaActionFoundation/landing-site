@@ -72,7 +72,7 @@ export default function Home() {
                 </h1>
 
                 {/* card */}
-                <div className="hidden md:block mt-10 rounded-3xl p-2 bg-white/20 backdrop-filter backdrop-blur-sm">
+                <div className="hidden md:block mt-10 rounded-3xl p-2 bg-white/20  border border-white/30 backdrop-filter backdrop-blur-sm">
                   <div className="rounded-2xl w-full mx-auto p-5 bg-white shadow-lg">
                     <div className="w-full flex items-center justify-center">
                       <div className="py-5 pb-10 flex items-center justify-center">

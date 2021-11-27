@@ -1,8 +1,9 @@
 import React from "react";
 
-const FilledButton = ({ color, focusOffset, children }) => {
+const FilledButton = ({ type = "button", color, focusOffset, children }) => {
   return (
     <button
+      type={type}
       className={`
       w-full
       px-2 py-2 rounded-xl
@@ -16,6 +17,10 @@ const FilledButton = ({ color, focusOffset, children }) => {
       ${
         color === "yellow" &&
         "bg-customYellow hover:bg-customYellowHoverLight focus-visible:ring-customYellow"
+      }
+      ${
+        color === "blue" &&
+        "bg-customBlue hover:bg-customBlueHoverLight focus-visible:ring-customBlue"
       }
       ${
         color === "green" &&

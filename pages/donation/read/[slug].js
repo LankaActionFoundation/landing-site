@@ -72,7 +72,7 @@ const IndividualDonation = () => {
             </h3>
 
             {/* card */}
-            <div className="absolute mx-3 xl:mx-0 bottom-0 mb-5 md:-mb-40 shadow-xl w-full md:block  rounded-3xl p-2 bg-white/20 backdrop-filter backdrop-blur-sm">
+            <div className="absolute mx-3 xl:mx-0 bottom-0 mb-5 md:-mb-40 shadow-xl w-full md:block border border-white/30  rounded-3xl p-2 bg-white/20 backdrop-filter backdrop-blur-sm">
               <div className="rounded-2xl w-full mx-auto p-5 bg-white shadow-lg">
                 {/* percent */}
                 <div className="w-full flex justify-between mb-5">
