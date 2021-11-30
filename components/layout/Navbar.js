@@ -4,7 +4,68 @@ import Link from "next/link";
 import PopoverBtn from "../buttons/PopoverBtn";
 import FilledButton from "../buttons/FilledButton";
 
+import axios from "axios";
+import router from "next/router";
+import Spinner from "../Spinner";
+
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(null);
+
+  const profile = async () => {
+    try {
+      setErrors(null);
+      setLoading(true);
+      const { data: profile } = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/users/profile`,
+        {
+          withCredentials: true,
+        }
+      );
+      setUser(profile);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setUser(null);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        setErrors(err);
+      }
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      setErrors(null);
+      setLoading(true);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/users/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      setUser(null);
+      document.cookie = "sessionId=; Max-Age=-99999999;";
+      setLoading(false);
+      router.push("/");
+    } catch (error) {
+      setLoading(false);
+      setUser(null);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        setErrors(err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    profile();
+  }, []);
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isNavScrolled, setIsNavScrolled] = useState(false);
 
@@ -170,34 +231,64 @@ const Navbar = () => {
           {/*end of info */}
 
           <div className="w-full md:w-auto flex items-center justify-between md:justify-start gap-5">
-            <div className="flex items-center justify-center gap-2 flex-shrink-0">
-              <svg
-                className="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
-                  fill="currentColor"
-                />
-              </svg>
+            {loading && (
+              <div className="w-8 h-8">
+                <Spinner />
+              </div>
+            )}
+            {!user && !loading && (
+              <div className="flex items-center justify-center gap-2 flex-shrink-0">
+                <svg
+                  className="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="currentColor"
+                  />
+                </svg>
 
-              <span className=" text-sm">
-                <Link href="#">
-                  <span className="hover:underline cursor-pointer">
-                    {" "}
-                    Sign in
-                  </span>
-                </Link>{" "}
-                |{" "}
-                <Link href="#">
-                  <span className="hover:underline cursor-pointer">
-                    Register
-                  </span>
-                </Link>
-              </span>
-            </div>
+                <span className=" text-sm">
+                  <Link href="/signin">
+                    <span className="hover:underline cursor-pointer">
+                      {" "}
+                      Sign in
+                    </span>
+                  </Link>{" "}
+                  |{" "}
+                  <Link href="/register">
+                    <span className="hover:underline cursor-pointer">
+                      Register
+                    </span>
+                  </Link>
+                </span>
+              </div>
+            )}
+
+            {user && !loading && (
+              <div className="flex items-center justify-center gap-2">
+                <svg
+                  className="w-6 h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <h3 className="text-white text-sm">{user.firstName}</h3>
+                <button
+                  onClick={handleLogout}
+                  className="mx-3 focus:outline-none focus:underline hover:underline text-white text-sm"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
 
             {/* donate */}
             <div className="w-32">

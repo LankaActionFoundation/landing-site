@@ -8,6 +8,7 @@
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@lottiefiles/react-lottie-player": "^3.4.1",
+    "axios": "^0.24.0",
     "dateformat": "^5.0.2",
     "gsap": "^3.8.0",
     "next": "latest",

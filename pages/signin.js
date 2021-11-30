@@ -4,7 +4,11 @@ import FilledButton from "../components/buttons/FilledButton";
 import Loading from "../components/Loading";
 import Link from "next/link";
 
-const signin = () => {
+import axios from "axios";
+import { useRouter } from "next/router";
+
+const Signin = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState([]);
   const [triggerSubmit, setTriggerSubmit] = useState(false);
@@ -19,8 +23,45 @@ const signin = () => {
   const [isPasswordFocussed, setIsPasswordFocussed] = useState(false);
   const [isPasswordTouched, setIsPasswordTouched] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(false);
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  useEffect(() => {
+    if (errors) {
+      setEmailError(true);
+      setPasswordError(true);
+      setIsPasswordTouched(true);
+      setIsEmailTouched(true);
+
+      setError([errors]);
+    }
+  }, [errors]);
+
+  const signin = async (payload) => {
+    try {
+      setErrors(null);
+      setLoading(true);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/users/signin`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+      router.push("/");
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        setErrors(err);
+      }
+    }
+  };
 
   useEffect(() => {
     if (emailError) {
@@ -44,8 +85,16 @@ const signin = () => {
 
   useEffect(() => {
     if (triggerSubmit) {
+      setTriggerSubmit(false);
       if (error.length <= 0) {
-        console.log({ email, password });
+        let payload = {
+          usernameOrEmail: email,
+          password,
+        };
+        console.log(payload);
+        setErrors(null);
+        setError("");
+        signin(payload);
       }
     }
   }, [triggerSubmit, error]);
@@ -201,6 +250,7 @@ const signin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     checkForAllErrors();
+    setError([]);
     setTriggerSubmit(true);
   };
 
@@ -243,7 +293,7 @@ const signin = () => {
             </ul>
           </div>
 
-          {true && (
+          {!loading && (
             <div className="w-full h-[450px] p-10 px-10 flex flex-col items-center justify-center">
               {/* logo */}
               <svg className="w-14 h-14" viewBox="0 0 387 260" fill="none">
@@ -502,7 +552,7 @@ const signin = () => {
             </div>
           )}
 
-          {false && (
+          {loading && (
             <div className="h-[450px] flex items-center justify-center">
               <Loading />
             </div>
@@ -521,4 +571,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default Signin;

@@ -2,8 +2,14 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import gsap from "gsap";
 
-const Select = ({ label, error = "", options = [], handler }) => {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+const Select = ({
+  label,
+  error = "",
+  options = [],
+  handler,
+  selectedIndex = 0,
+}) => {
+  const [selectedOption, setSelectedOption] = useState(options[selectedIndex]);
   const selectButton = useRef(null);
 
   useEffect(() => {
@@ -110,10 +116,10 @@ const Select = ({ label, error = "", options = [], handler }) => {
                             focus:outline-none
                             sm:text-sm"
                 >
-                  {options.map((option) => (
+                  {options.map((option, i) => (
                     <Listbox.Option
-                      key={option.id}
-                      disabled={option.unavailable}
+                      key={i}
+                      //disabled={option.unavailable}
                       value={option}
                       as="div"
                     >
