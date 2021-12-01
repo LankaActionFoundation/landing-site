@@ -35,7 +35,6 @@ const Signin = () => {
       setPasswordError(true);
       setIsPasswordTouched(true);
       setIsEmailTouched(true);
-
       setError([errors]);
     }
   }, [errors]);
@@ -93,7 +92,7 @@ const Signin = () => {
         };
         console.log(payload);
         setErrors(null);
-        setError("");
+        setError([]);
         signin(payload);
       }
     }

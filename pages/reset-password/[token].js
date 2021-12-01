@@ -1,12 +1,16 @@
 import gsap from "gsap";
 import React, { useEffect, useRef, useState } from "react";
-import FilledButton from "../components/buttons/FilledButton";
-import Loading from "../components/Loading";
+import FilledButton from "../../components/buttons/FilledButton";
+import Loading from "../../components/Loading";
 import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
+
+import axios from "axios";
 
 const reset_password = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfPassword, setShowConfPassword] = useState(false);
+  const [showConfPassword, setConfShowPassword] = useState(false);
   const [error, setError] = useState([]);
   const [triggerSubmit, setTriggerSubmit] = useState(false);
 
@@ -20,8 +24,48 @@ const reset_password = () => {
   const [isConfPasswordFocussed, setIsConfPasswordFocussed] = useState(false);
   const [isConfPasswordTouched, setIsConfPasswordTouched] = useState(false);
 
+  const [token, setToken] = useState(null);
+
   const passwordRef = useRef(null);
   const confPasswordRef = useRef(null);
+
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(false);
+
+  useEffect(() => {
+    if (errors) {
+      setError([errors]);
+    }
+  }, [errors]);
+
+  const resetPassword = async (payload) => {
+    try {
+      setErrors(null);
+      setLoading(true);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/users/reset-password/${token}`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+      router.push(`/`);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        setErrors(err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (router?.query?.token) {
+      setToken(router?.query?.token);
+    }
+  }, [router]);
 
   useEffect(() => {
     if (confPasswordError) {
@@ -46,7 +90,7 @@ const reset_password = () => {
   useEffect(() => {
     if (triggerSubmit) {
       if (error.length <= 0) {
-        console.log({ password, confPassword });
+        resetPassword({ password });
       }
     }
   }, [triggerSubmit, error]);
@@ -54,14 +98,18 @@ const reset_password = () => {
   useEffect(() => {
     setTriggerSubmit(false);
     if (isPasswordTouched) {
-      checkPasswordError(password, setPasswordError);
+      checkPasswordError(password, setPasswordError, setIsPasswordFocussed);
     }
   }, [password]);
 
   useEffect(() => {
     setTriggerSubmit(false);
     if (isConfPasswordTouched) {
-      checkPasswordError(confPassword, setConfPasswordError);
+      checkPasswordError(
+        confPassword,
+        setConfPasswordError,
+        setIsConfPasswordFocussed
+      );
     }
   }, [confPassword]);
 
@@ -214,7 +262,7 @@ const reset_password = () => {
             </ul>
           </div>
 
-          {true && (
+          {!loading && (
             <div className="w-full h-[450px] p-10 px-10 flex flex-col items-center justify-center">
               {/* logo */}
               <svg className="w-14 h-14" viewBox="0 0 387 260" fill="none">
@@ -534,7 +582,7 @@ const reset_password = () => {
             </div>
           )}
 
-          {false && (
+          {loading && (
             <div className="h-[450px] flex items-center justify-center">
               <Loading />
             </div>

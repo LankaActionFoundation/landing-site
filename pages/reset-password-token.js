@@ -4,7 +4,11 @@ import FilledButton from "../components/buttons/FilledButton";
 import Loading from "../components/Loading";
 import Link from "next/link";
 
+import axios from "axios";
+import { useRouter } from "next/dist/client/router";
+
 const reset_password_token = () => {
+  const router = useRouter();
   const [error, setError] = useState([]);
   const [triggerSubmit, setTriggerSubmit] = useState(false);
 
@@ -14,6 +18,41 @@ const reset_password_token = () => {
   const [isEmailTouched, setIsEmailTouched] = useState(false);
 
   const emailRef = useRef(null);
+
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState(null);
+
+  useEffect(() => {
+    if (errors) {
+      setEmailError(true);
+      setIsEmailTouched(true);
+      setIsEmailFocussed(true);
+      setError([errors]);
+    }
+  }, [errors]);
+
+  const sendToken = async (payload) => {
+    try {
+      setErrors(null);
+      setLoading(true);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/users/send-reset-password-token`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
+      router.push("/signin");
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        setErrors(err);
+      }
+    }
+  };
 
   useEffect(() => {
     if (emailError) {
@@ -27,8 +66,11 @@ const reset_password_token = () => {
 
   useEffect(() => {
     if (triggerSubmit) {
+      setTriggerSubmit(false);
       if (error.length <= 0) {
         console.log({ email });
+        setErrors(null);
+        sendToken({ email });
       }
     }
   }, [triggerSubmit, error]);
@@ -86,6 +128,9 @@ const reset_password_token = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     checkForAllErrors();
+    if (error[0] === "user not found!") {
+      setError([]);
+    }
     setTriggerSubmit(true);
   };
 
@@ -118,7 +163,7 @@ const reset_password_token = () => {
             </ul>
           </div>
 
-          {true && (
+          {!loading && (
             <div className="w-full h-[450px] p-10 px-10 flex flex-col items-center justify-center">
               {/* logo */}
               <svg className="w-14 h-14" viewBox="0 0 387 260" fill="none">
@@ -195,27 +240,27 @@ const reset_password_token = () => {
                 <div
                   ref={emailRef}
                   className={`
-                            px-3
-                            py-1
-                            w-full
-                            flex
-                            items-center
-                            justify-start
-                            border border-gray-300
-                            rounded-xl
-                            overflow-hidden
-                            focus:outline-none
-                            ${
-                              !emailError && isEmailFocussed
-                                ? "ring-2 ring-customBlue border-transparent"
-                                : ""
-                            }
-                            ${
-                              emailError && isEmailFocussed
-                                ? "ring-2 ring-customRed border-transparent"
-                                : ""
-                            }
-                          `}
+                      px-3
+                      py-1
+                      w-full
+                      flex
+                      items-center
+                      justify-start
+                      border border-gray-300
+                      rounded-xl
+                      overflow-hidden
+                      focus:outline-none
+                      ${
+                        !emailError && isEmailFocussed
+                          ? "ring-2 ring-customBlue border-transparent"
+                          : ""
+                      }
+                      ${
+                        emailError && isEmailFocussed
+                          ? "ring-2 ring-customRed border-transparent"
+                          : ""
+                      }
+                `}
                 >
                   <svg
                     className={`w-5 h-5 
@@ -256,13 +301,13 @@ const reset_password_token = () => {
                   color={"blue"}
                   class="mt-2 py-3 flex items-center justify-center"
                 >
-                  Login
+                  Send email
                 </FilledButton>
               </form>
             </div>
           )}
 
-          {false && (
+          {loading && (
             <div className="h-[450px] flex items-center justify-center">
               <Loading />
             </div>
