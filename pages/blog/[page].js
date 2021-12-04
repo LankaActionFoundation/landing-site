@@ -4,11 +4,14 @@ import BlogCard from "../../components/BlogCard";
 import CustomPagination from "../../components/inputs/CustomPagination";
 import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
 import Loading from "../../components/Loading";
+import axios from "axios";
 
 const Blogs = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState();
-  const [pageCount, setPageCount] = useState(5);
+  const [pageCount, setPageCount] = useState(10);
+  const [loading, setLoading] = useState(false);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     if (router.query.page || currentPage) {
@@ -20,6 +23,36 @@ const Blogs = () => {
       }
     }
   }, [router]);
+
+  const fetchBlogs = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/blogs/get_all_blogs?page=${currentPage}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setBlogs(data.data);
+      setPageCount(data.pages);
+      console.log(data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        console.log({ err });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (currentPage) {
+      fetchBlogs();
+    }
+  }, [currentPage]);
 
   const handlePageNavigate = (page) => {
     if (page) {
@@ -58,34 +91,39 @@ const Blogs = () => {
       </div>
 
       <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
-        <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((val) => (
-            <BlogCard
-              key={val}
-              widthFull
-              title="New Chance for children"
-              subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
-              thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              category="photo"
-              date="2021-10-30T05:46:08.353+00:00"
+        {!loading && (
+          <div className="px-3 items-start justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {blogs.map((blog) => (
+              <BlogCard
+                key={blog._id}
+                widthFull
+                title={blog.title}
+                subTitle={blog.subtitle}
+                thumbnail={blog.thumbnail}
+                category="photo"
+                slug={blog.slug}
+                date="2021-10-30T05:46:08.353+00:00"
+              />
+            ))}
+          </div>
+        )}
+        {loading && (
+          <div className="w-full flex items-center justify-center">
+            <Loading />
+          </div>
+        )}
+      </div>
+      {!loading && (
+        <div className="w-full max-w-6xl mx-auto py-10">
+          <div className="w-full flex items-center justify-center">
+            <CustomPagination
+              currentPage={currentPage}
+              handler={handlePageNavigate}
+              pageCount={pageCount}
             />
-          ))}
+          </div>
         </div>
-        {/* <div className="w-full flex items-center justify-center">
-          <Loading />
-        </div> */}
-      </div>
-      <div className="w-full max-w-6xl mx-auto py-10">
-        <div className="w-full flex items-center justify-center">
-          <CustomPagination
-            currentPage={currentPage}
-            handler={handlePageNavigate}
-            pageCount={pageCount}
-          />
-        </div>
-      </div>
+      )}
     </PageWithNavAndFooter>
   );
 };

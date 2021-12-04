@@ -6,7 +6,7 @@ const formatDate = (date) => {
   return dateFormat(date, "mmmm dS, yyyy");
 };
 
-const BlogCard = ({
+const EventCard = ({
   title,
   subTitle,
   thumbnail,
@@ -116,7 +116,7 @@ const BlogCard = ({
         </div>
 
         {/* <!-- title --> */}
-        <Link href={`/blog/read/${slug}`}>
+        <Link href={`/event/read/${slug}`}>
           <h2 className="mt-5 cursor-pointer hover:underline text-lg md:text-xl font-bold text-gray-800">
             {title}
           </h2>
@@ -132,4 +132,4 @@ const BlogCard = ({
   );
 };
 
-export default BlogCard;
+export default EventCard;

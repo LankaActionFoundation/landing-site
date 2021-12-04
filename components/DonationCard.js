@@ -1,5 +1,6 @@
 import React from "react";
 import Progress from "./Progress";
+import Link from "next/link";
 
 const calcPercentage = (amount, goal) => {
   return Math.floor((amount * 100) / goal);
@@ -20,6 +21,7 @@ const DonationCard = ({
   raised,
   goal,
   thumbnail,
+  slug,
   widthFull = false,
 }) => {
   return (
@@ -55,7 +57,7 @@ const DonationCard = ({
               {removeDecimal(formatter.format(raised))}
             </h5>
           </div>
-          <h5 className="text-xs text-gray-700">453</h5>
+          {/* <h5 className="text-xs text-gray-700">453</h5> */}
         </div>
 
         <div className="w-full mt-2">
@@ -71,9 +73,11 @@ const DonationCard = ({
 
         {/* 
             <!-- title --> */}
-        <h2 className="mt-5 text-lg md:text-xl font-bold text-gray-800">
-          {title}
-        </h2>
+        <Link href={`/donation/read/${slug}`}>
+          <h2 className="mt-5 cursor-pointer hover:underline text-lg md:text-xl font-bold text-gray-800">
+            {title}
+          </h2>
+        </Link>
         {/* <!-- end of title --> */}
 
         {/* <!-- sub title --> */}

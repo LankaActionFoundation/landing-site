@@ -13,11 +13,11 @@ const CustomPagination = ({ currentPage, handler, pageCount = 3 }) => {
     }
     setPages(arr);
     setSelectedPage(currentPage);
-  }, []);
+  }, [currentPage, pageCount]);
 
   useEffect(() => {
     setSelectedPage(currentPage);
-  }, [currentPage]);
+  }, [currentPage, pageCount]);
 
   useEffect(() => {
     if (router) {
