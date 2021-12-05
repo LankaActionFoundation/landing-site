@@ -202,7 +202,7 @@ const IndividualDonation = () => {
                         }
                       `}
                   >
-                    {tab.name}
+                    {tab.name.split("_").join(" ")}
                   </button>
                 ))}
               </div>

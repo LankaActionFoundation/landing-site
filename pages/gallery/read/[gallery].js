@@ -1,28 +1,67 @@
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
+import Loading from "../../../components/Loading";
+import axios from "axios";
+import CustomPagination from "../../../components/inputs/CustomPagination";
 
 const SingleGallery = () => {
-  const [images, setImages] = useState([
-    "https://images.unsplash.com/photo-1637248921272-55cb27d12a31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
-    "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
-    "https://images.unsplash.com/photo-1637452313272-9f5855b5f2bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "https://images.unsplash.com/photo-1637478847587-1740c47f65dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "https://images.unsplash.com/photo-1637355054940-b18363493271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-    "https://images.unsplash.com/photo-1637406301895-1ca32a5d0a16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-    "https://images.unsplash.com/photo-1637319975981-d02f99a7a6e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-    "https://images.unsplash.com/photo-1637323856940-58b83b43aa10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1011&q=80",
-    "https://images.unsplash.com/photo-1637406305183-ff6d191b5880?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=786&q=80",
-    "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
-    "https://images.unsplash.com/photo-1637452313272-9f5855b5f2bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "https://images.unsplash.com/photo-1637478847587-1740c47f65dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "https://images.unsplash.com/photo-1637355054940-b18363493271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-    "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80",
-    "https://images.unsplash.com/photo-1637452313272-9f5855b5f2bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "https://images.unsplash.com/photo-1637478847587-1740c47f65dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    "https://images.unsplash.com/photo-1637355054940-b18363493271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-  ]);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [pageCount, setPageCount] = useState(5);
+  const [id, setId] = useState(null);
+  const [title, setTitle] = useState("");
+  const router = useRouter();
+
+  const handlePageNavigate = (page) => {
+    if (page) {
+      setCurrentPage(page);
+    }
+  };
+
+  useEffect(() => {
+    if (router.query.gallery) {
+      const gallery = router.query.gallery;
+      setId(gallery);
+      // if (page <= pageCount) {
+      //   setCurrentPage(page);
+      // } else {
+      //   setCurrentPage(1);
+      // }
+    }
+  }, [router]);
+
+  const fetchGallery = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/folder/get_user_folder_medias/${id}?page=${currentPage}`,
+        {
+          withCredentials: true,
+        }
+      );
+      setImages(data.medias);
+      setTitle(data.title);
+      setPageCount(data.pages);
+      console.log(data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        console.log({ err });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (id) {
+      fetchGallery();
+    }
+  }, [id, currentPage]);
 
   return (
     <>
@@ -66,9 +105,10 @@ const SingleGallery = () => {
       )}
 
       <PageWithNavAndFooter>
-        <div className="relative min-h-[70vh]">
-          <div
-            className="
+        {!loading && title && (
+          <div className="relative min-h-[70vh]">
+            <div
+              className="
             w-full
             h-full
             top-0
@@ -79,40 +119,55 @@ const SingleGallery = () => {
             via-black/20
             to-black/5
           "
-          ></div>
+            ></div>
 
-          <img
-            className="w-full h-full absolute top-0 z-20 object-cover"
-            src="https://images.unsplash.com/photo-1637355054941-c0426714da57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt="cover"
-          />
+            <img
+              className="w-full h-full absolute top-0 z-20 object-cover"
+              src="https://images.unsplash.com/photo-1637355054941-c0426714da57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+              alt="cover"
+            />
 
-          <div className="absolute inset-0 z-30 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
-            <h1 className="text-white text-6xl font-title md:text-8xl text-center">
-              Deepavali Festival
-            </h1>
+            <div className="absolute inset-0 z-30 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
+              <h1 className="text-white text-6xl font-title md:text-8xl text-center">
+                {title}
+              </h1>
+            </div>
           </div>
-        </div>
+        )}
 
         <section className="min-h-screen">
           <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
-            <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              {images.map((image) => (
-                <div
-                  onClick={() => {
-                    setSelectedImage(image);
-                  }}
-                  className="w-full h-full cursor-pointer"
-                >
-                  <img src={image} alt="" className="w-full h-full" />
-                </div>
-              ))}
-            </div>
-            {/* <div className="w-full flex items-center justify-center">
+            {!loading && images.length > 0 && (
+              <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                {images.map((image) => (
+                  <div
+                    onClick={() => {
+                      setSelectedImage(image.url);
+                    }}
+                    className="w-full h-full cursor-pointer"
+                  >
+                    <img src={image.url} alt="" className="w-full h-full" />
+                  </div>
+                ))}
+              </div>
+            )}
+            {loading && (
+              <div className="w-full flex items-center justify-center">
                 <Loading />
-              </div> 
-            */}
+              </div>
+            )}
           </div>
+          {!loading && (
+            <div className="w-full max-w-6xl mx-auto py-10">
+              <div className="w-full flex items-center justify-center">
+                <CustomPagination
+                  currentPage={currentPage}
+                  handler={handlePageNavigate}
+                  pageCount={pageCount}
+                />
+              </div>
+            </div>
+          )}
         </section>
       </PageWithNavAndFooter>
     </>

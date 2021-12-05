@@ -291,13 +291,15 @@ const Navbar = () => {
             )}
 
             {/* donate */}
-            <div className="w-32">
-              <FilledButton color="yellow">
-                <span className="uppercase text-sm font-bold text-black">
-                  Donate
-                </span>
-              </FilledButton>
-            </div>
+            <Link href="/donate">
+              <div className="w-32">
+                <FilledButton color="yellow">
+                  <span className="uppercase text-sm font-bold text-black">
+                    Donate
+                  </span>
+                </FilledButton>
+              </div>
+            </Link>
             {/* end of donate */}
           </div>
         </div>
@@ -351,66 +353,68 @@ const Navbar = () => {
               </svg>
             </div>
 
-            <svg
-              className="hidden md:block md:w-14 md:h-14"
-              viewBox="0 0 387 260"
-              fill="none"
-            >
-              <path
-                d="M195.341 14.1154L202.707 34.0232L203.489 36.1357L205.601 36.9174L225.509 44.284L205.601 51.6505L203.489 52.4322L202.707 54.5447L195.341 74.4525L187.974 54.5447L187.192 52.4322L185.08 51.6505L165.172 44.284L185.08 36.9174L187.192 36.1357L187.974 34.0232L195.341 14.1154Z"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M364.643 85.0689C339.545 61.3161 291.591 45.6304 257.083 71.1758C224.367 98.9621 211.851 139.03 234.003 177.399"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M330.394 154.775C313.02 154.775 298.936 140.276 298.936 122.391"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M364.629 84.8416L381.283 65.9512V130.718"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M330.394 154.827V177.231L359.856 199.186L381.283 183.504V127.943"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M351.173 115.378L358.013 122.218"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M4.99996 24.4927L235.232 254.725"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M98.0725 44.0869L254.826 200.841"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M49.087 137.159L151.957 240.029"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-            </svg>
+            <Link href="/">
+              <svg
+                className="hidden md:block md:w-14 md:h-14"
+                viewBox="0 0 387 260"
+                fill="none"
+              >
+                <path
+                  d="M195.341 14.1154L202.707 34.0232L203.489 36.1357L205.601 36.9174L225.509 44.284L205.601 51.6505L203.489 52.4322L202.707 54.5447L195.341 74.4525L187.974 54.5447L187.192 52.4322L185.08 51.6505L165.172 44.284L185.08 36.9174L187.192 36.1357L187.974 34.0232L195.341 14.1154Z"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M364.643 85.0689C339.545 61.3161 291.591 45.6304 257.083 71.1758C224.367 98.9621 211.851 139.03 234.003 177.399"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M330.394 154.775C313.02 154.775 298.936 140.276 298.936 122.391"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M364.629 84.8416L381.283 65.9512V130.718"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M330.394 154.827V177.231L359.856 199.186L381.283 183.504V127.943"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M351.173 115.378L358.013 122.218"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M4.99996 24.4927L235.232 254.725"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M98.0725 44.0869L254.826 200.841"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M49.087 137.159L151.957 240.029"
+                  stroke="currentColor"
+                  strokeWidth="9.7971"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </Link>
           </div>
 
           {/* links */}
@@ -431,9 +435,9 @@ const Navbar = () => {
             <PopoverBtn
               name="Our work"
               links={[
-                { name: "Mission,Vission,Focus", url: "/#" },
-                { name: "Our Impact", url: "/#" },
-                { name: "Partners", url: "/#" },
+                { name: "Gallery", url: "/gallery/1" },
+                { name: "Case Donations", url: "/donation/1" },
+                { name: "Events", url: "/event/1" },
                 {
                   name: "Accountability and transparency",
                   url: "/#",

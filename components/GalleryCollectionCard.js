@@ -1,12 +1,23 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 const GalleryCollectionCard = ({
   images = [1, 2],
   title = "Marking World humanitarian day 2021",
+  id,
 }) => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push(`/gallery/read/${id}`);
+  };
+
   return (
-    <div className="relative w-full h-80 hover:shadow-2xl rounded-3xl overflow-hidden cursor-pointer">
-      <div className="absolute inset-0 rounded-3xl z-30 bg-gradient-to-b from-transparent  to-black/80"></div>
+    <div
+      onClick={handleClick}
+      className="relative w-full h-80 hover:shadow-2xl rounded-3xl overflow-hidden cursor-pointer"
+    >
+      <div className="absolute inset-0 rounded-3xl z-30 bg-gradient-to-b from-transparent to-black/80"></div>
+
       <div className="px-5 py-5 absolute z-40 inset-x-0 bottom-0 rounded-3xl">
         <h3 className="text-white text-3xl font-title">{title}</h3>
       </div>
@@ -14,14 +25,18 @@ const GalleryCollectionCard = ({
       <div className="absolute inset-0 z-20 w-full border border-gray-300 grid grid-cols-2 grid-rows-2 rounded-3xl overflow-hidden">
         {images.map((image) => (
           <div className="h-44 w-full overflow-hidden">
-            <img className="w-full h-full object-cover" src={image} alt="" />
+            <img
+              className="w-full h-full object-cover"
+              src={image.url}
+              alt=""
+            />
           </div>
         ))}
       </div>
 
       <div className="absolute inset-0 z-10 w-full border border-gray-300 grid grid-cols-2 grid-rows-2 rounded-3xl overflow-hidden">
-        {[1, 2, 3, 4].map(() => (
-          <div className="h-44 w-full overflow-hidden">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="h-44 w-full overflow-hidden">
             <div className="w-full h-full bg-gray-300 flex items-center justify-center">
               <svg
                 className="text-white w-12 h-12"
