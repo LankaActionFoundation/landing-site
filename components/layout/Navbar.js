@@ -419,7 +419,12 @@ const Navbar = () => {
 
           {/* links */}
           <div className="hidden md:flex items-center justify-center">
-            <PopoverBtn
+            <Link href="/about">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                About us
+              </button>
+            </Link>
+            {/* <PopoverBtn
               name="About us"
               links={[
                 { name: "Mission,Vission,Focus", url: "/#" },
@@ -430,46 +435,40 @@ const Navbar = () => {
                   url: "/#",
                 },
               ]}
-            />
+            /> */}
 
             <PopoverBtn
               name="Our work"
               links={[
-                { name: "Gallery", url: "/gallery/1" },
-                { name: "Case Donations", url: "/donation/1" },
-                { name: "Events", url: "/event/1" },
+                { name: "Water for everyone", url: "/water-for-everyone" },
                 {
-                  name: "Accountability and transparency",
-                  url: "/#",
+                  name: "Rural education program",
+                  url: "/rural-education-program",
                 },
+                { name: "Sponsor a child", url: "/sponsor-a-child" },
               ]}
             />
 
             <PopoverBtn
-              name="How can you help"
+              name="Get involved"
               links={[
-                { name: "Mission,Vission,Focus", url: "/#" },
-                { name: "Our Impact", url: "/#" },
-                { name: "Partners", url: "/#" },
-                {
-                  name: "Accountability and transparency",
-                  url: "/#",
-                },
+                { name: "Volunteer", url: "/volunteer" },
+                { name: "Careers", url: "/#" },
+                { name: "Become an ally", url: "/become-an-ally" },
               ]}
             />
 
-            <PopoverBtn
-              name="The latest"
-              links={[
-                { name: "Mission,Vission,Focus", url: "/#" },
-                { name: "Our Impact", url: "/#" },
-                { name: "Partners", url: "/#" },
-                {
-                  name: "Accountability and transparency",
-                  url: "/#",
-                },
-              ]}
-            />
+            <Link href="donation/1">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                Fundraise
+              </button>
+            </Link>
+
+            <Link href="/blog/1">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                Blog
+              </button>
+            </Link>
           </div>
           {/* end of links */}
 
