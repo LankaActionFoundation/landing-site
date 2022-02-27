@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="font-body">
       <Head>
-        <title>Create Next App</title>
+        <title>Lanka Action Foundation</title>
       </Head>
 
       <PageWithNavAndFooter color="bg-black/70">

@@ -106,77 +106,86 @@ const Navbar = () => {
           className={`w-60 flex-1 h-full fixed top-0 left-0 z-[101] p-5 overflow-y-auto`}
         >
           <div className="">
-            <svg
-              className="w-14 h-14 text-white"
-              viewBox="0 0 387 260"
-              fill="none"
-            >
-              <path
-                d="M195.341 14.1154L202.707 34.0232L203.489 36.1357L205.601 36.9174L225.509 44.284L205.601 51.6505L203.489 52.4322L202.707 54.5447L195.341 74.4525L187.974 54.5447L187.192 52.4322L185.08 51.6505L165.172 44.284L185.08 36.9174L187.192 36.1357L187.974 34.0232L195.341 14.1154Z"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M364.643 85.0689C339.545 61.3161 291.591 45.6304 257.083 71.1758C224.367 98.9621 211.851 139.03 234.003 177.399"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M330.394 154.775C313.02 154.775 298.936 140.276 298.936 122.391"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M364.629 84.8416L381.283 65.9512V130.718"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M330.394 154.827V177.231L359.856 199.186L381.283 183.504V127.943"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M351.173 115.378L358.013 122.218"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M4.99996 24.4927L235.232 254.725"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M98.0725 44.0869L254.826 200.841"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-              <path
-                d="M49.087 137.159L151.957 240.029"
-                stroke="currentColor"
-                strokeWidth="9.7971"
-                strokeLinecap="round"
-              />
-            </svg>
+            <Link href="/">
+              <img src="/Logo.png" className="w-12 h-12 object-cover" alt="" />
+            </Link>
           </div>
 
-          <div className="mt-10">
-            <h3 className="text-white text-xs font-bold tracking-wide uppercase">
-              About us
-            </h3>
-            <div className="ml-5 mt-5 flex flex-col items-start justify-center gap-5">
+          <div className="mt-10 flex flex-col gap-5">
+            <Link href="/about">
+              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
+                About us
+              </h3>
+            </Link>
+            {/* <div className="ml-5 mt-5 flex flex-col items-start justify-center gap-5">
               <h3 className="text-white text-sm">Vision, Mission,Focus</h3>
               <h3 className="text-white text-sm">Our Impact</h3>
               <h3 className="text-white text-sm">Partners</h3>
+            </div> */}
+
+            <h3 className="text-white text-xs font-bold tracking-wide uppercase">
+              Our Work
+            </h3>
+
+            <div className="ml-5 flex flex-col items-start justify-center gap-5">
+              <Link href="/water-for-everyone">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Conserve every life with clean water
+                </h3>
+              </Link>
+              <Link href="/rural-education-program">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Bright tomorrow with Bright education
+                </h3>
+              </Link>
+              <Link href="/sponsor-a-child">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  New hope for little heart
+                </h3>
+              </Link>
             </div>
+            <h3 className="text-white text-xs font-bold tracking-wide uppercase">
+              Get Involved
+            </h3>
+
+            <div className="ml-5 flex flex-col items-start justify-center gap-5">
+              <Link href="/volunteer">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Volunteer
+                </h3>
+              </Link>
+              <Link href="/#">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Careers
+                </h3>
+              </Link>
+              <Link href="/become-an-ally">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Become an ally
+                </h3>
+              </Link>
+            </div>
+
+            <Link href="/donation/1">
+              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
+                Fundraise
+              </h3>
+            </Link>
+            <Link href="/event/1">
+              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
+                News & Events
+              </h3>
+            </Link>
+            <Link href="/blog/1">
+              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
+                Blog
+              </h3>
+            </Link>
+            <Link href="/gallery/1">
+              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
+                Gallery
+              </h3>
+            </Link>
           </div>
         </nav>
       )}
@@ -211,7 +220,7 @@ const Navbar = () => {
                     fill="currentColor"
                   />
                 </svg>
-                <h6 className="text-xs  italic">comapny@email.com</h6>
+                <h6 className="text-xs  italic">hello@lankaaction.com</h6>
               </span>
             </div>
 
@@ -224,7 +233,9 @@ const Navbar = () => {
                   />
                 </svg>
 
-                <h6 className="text-xs italic">Colombo, Srilanka</h6>
+                <h6 className="text-xs italic">
+                  645, Wiliam Gopallawa Mawatha, Kandy, Sri Lanka.
+                </h6>
               </span>
             </div>
           </div>
@@ -292,10 +303,10 @@ const Navbar = () => {
 
             {/* donate */}
             <Link href="/donate">
-              <div className="w-32">
+              <div className="w-32 md:w-auto">
                 <FilledButton color="yellow">
-                  <span className="uppercase text-sm font-bold text-black">
-                    Donate
+                  <span className="uppercase whitespace-nowrap text-sm font-bold text-black">
+                    Be the reason behind someone's smile
                   </span>
                 </FilledButton>
               </div>
@@ -352,68 +363,9 @@ const Navbar = () => {
                 ></path>
               </svg>
             </div>
-
+            {/* logo */}
             <Link href="/">
-              <svg
-                className="hidden md:block md:w-14 md:h-14"
-                viewBox="0 0 387 260"
-                fill="none"
-              >
-                <path
-                  d="M195.341 14.1154L202.707 34.0232L203.489 36.1357L205.601 36.9174L225.509 44.284L205.601 51.6505L203.489 52.4322L202.707 54.5447L195.341 74.4525L187.974 54.5447L187.192 52.4322L185.08 51.6505L165.172 44.284L185.08 36.9174L187.192 36.1357L187.974 34.0232L195.341 14.1154Z"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M364.643 85.0689C339.545 61.3161 291.591 45.6304 257.083 71.1758C224.367 98.9621 211.851 139.03 234.003 177.399"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M330.394 154.775C313.02 154.775 298.936 140.276 298.936 122.391"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M364.629 84.8416L381.283 65.9512V130.718"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M330.394 154.827V177.231L359.856 199.186L381.283 183.504V127.943"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M351.173 115.378L358.013 122.218"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M4.99996 24.4927L235.232 254.725"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M98.0725 44.0869L254.826 200.841"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M49.087 137.159L151.957 240.029"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <img src="/Logo.png" className="w-12 h-12 object-cover" alt="" />
             </Link>
           </div>
 
@@ -440,12 +392,15 @@ const Navbar = () => {
             <PopoverBtn
               name="Our work"
               links={[
-                { name: "Water for everyone", url: "/water-for-everyone" },
                 {
-                  name: "Rural education program",
+                  name: "Conserve every life with clean water",
+                  url: "/water-for-everyone",
+                },
+                {
+                  name: "Bright tomorrow with Bright education",
                   url: "/rural-education-program",
                 },
-                { name: "Sponsor a child", url: "/sponsor-a-child" },
+                { name: "New hope for little heart", url: "/sponsor-a-child" },
               ]}
             />
 
@@ -458,15 +413,31 @@ const Navbar = () => {
               ]}
             />
 
-            <Link href="donation/1">
+            <Link href="/donation/1">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 Fundraise
+              </button>
+            </Link>
+
+            <Link href="/event/1">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                News & Events
               </button>
             </Link>
 
             <Link href="/blog/1">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 Blog
+              </button>
+            </Link>
+            <Link href="/gallery/1">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                Gallery
+              </button>
+            </Link>
+            <Link href="/vision-mission">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                Vision & Mission
               </button>
             </Link>
           </div>
@@ -504,7 +475,7 @@ const Navbar = () => {
 
               <div className="flex flex-col items-start justify-start">
                 <h6 className="text-xs text-gray-200">Call Anytime</h6>
-                <h6 className="text-sm text-customYellow">666 6666 666</h6>
+                <h6 className="text-sm text-customYellow">0812064264</h6>
               </div>
             </div>
           </div>

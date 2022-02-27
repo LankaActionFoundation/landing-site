@@ -1,8 +1,12 @@
+import Head from "next/head";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
 
 export default function About() {
   return (
     <PageWithNavAndFooter>
+      <Head>
+        <title>Lanka Action Foundation | Rural education program</title>
+      </Head>
       <div className="w-full min-h-[200vh] md:min-h-[160vh] relative h-full z-20">
         <div
           className="

@@ -9,7 +9,7 @@ import EventCard from "../../components/EventCard";
 const Donations = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState();
-  const [pageCount, setPageCount] = useState(5);
+  const [pageCount, setPageCount] = useState(1);
   const [events, setEvents] = useState(null);
   const [loading, setLoading] = useState(false);
 

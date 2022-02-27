@@ -1,9 +1,13 @@
+import Head from "next/head";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
 
 export default function About() {
   return (
     <PageWithNavAndFooter>
       <div className="w-full min-h-[200vh] md:min-h-[160vh] relative h-full z-20">
+        <Head>
+          <title>Lanka Action Foundation | Volunteer</title>
+        </Head>
         <div
           className="
             w-full
@@ -34,6 +38,11 @@ export default function About() {
               Volunteer
             </h1>
             <h4 className="text-white text-base font-body max-w-3xl mx-auto text-left tracking-wide">
+              Because as a child of the universe you has to fulfill your
+              responsibility, you need to actively engage to uplift the
+              community and you want to change the world to a better place.
+            </h4>
+            <h4 className="mt-5 text-white text-base font-body max-w-3xl mx-auto text-left tracking-wide">
               We are always looking for locals on the island to help support
               Lanka Vision. We need people on sites to collect information,
               distribute goods, meet other locals for community development, and

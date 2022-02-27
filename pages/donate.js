@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
 
 import FilledButton from "../components/buttons/FilledButton";
-
+import Head from "next/head";
 import Select from "../components/inputs/Select";
 import TextInput from "../components/inputs/TextInput";
 import { Switch } from "@headlessui/react";
@@ -135,6 +135,9 @@ export default function Donation() {
 
   return (
     <PageWithNavAndFooter color="bg-blue-900/50">
+      <Head>
+        <title>Lanka Action Foundation | Donate</title>
+      </Head>
       <div className="w-full min-h-[200vh] md:min-h-[160vh] relative h-full z-20">
         <div
           className="
