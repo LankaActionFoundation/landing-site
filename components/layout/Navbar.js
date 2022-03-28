@@ -8,7 +8,7 @@ import axios from "axios";
 import router from "next/router";
 import Spinner from "../Spinner";
 
-const Navbar = () => {
+const Navbar = ({ color }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
@@ -112,38 +112,35 @@ const Navbar = () => {
           </div>
 
           <div className="mt-10 flex flex-col gap-5">
-            <Link href="/about">
-              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
-                About us
-              </h3>
-            </Link>
-            {/* <div className="ml-5 mt-5 flex flex-col items-start justify-center gap-5">
-              <h3 className="text-white text-sm">Vision, Mission,Focus</h3>
-              <h3 className="text-white text-sm">Our Impact</h3>
-              <h3 className="text-white text-sm">Partners</h3>
-            </div> */}
-
             <h3 className="text-white text-xs font-bold tracking-wide uppercase">
-              Our Work
+              About us
             </h3>
 
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
-              <Link href="/water-for-everyone">
+              <Link href="/vision-mission">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Conserve every life with clean water
-                </h3>
-              </Link>
-              <Link href="/rural-education-program">
-                <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Bright tomorrow with Bright education
-                </h3>
-              </Link>
-              <Link href="/sponsor-a-child">
-                <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  New hope for little heart
+                  Vision Mission
                 </h3>
               </Link>
             </div>
+
+            <h3 className="text-white text-xs font-bold tracking-wide uppercase">
+              Projects
+            </h3>
+
+            <div className="ml-5 flex flex-col items-start justify-center gap-5">
+              <Link href="/donation/upcomming-projects/1">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Upcomming projects
+                </h3>
+              </Link>
+              <Link href="/donation/past-projects/1">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Past projects
+                </h3>
+              </Link>
+            </div>
+
             <h3 className="text-white text-xs font-bold tracking-wide uppercase">
               Get Involved
             </h3>
@@ -166,16 +163,23 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <Link href="/donation/1">
-              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
-                Fundraise
-              </h3>
-            </Link>
-            <Link href="/event/1">
-              <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
-                News & Events
-              </h3>
-            </Link>
+            <h3 className="text-white text-xs font-bold tracking-wide uppercase">
+              Events
+            </h3>
+
+            <div className="ml-5 flex flex-col items-start justify-center gap-5">
+              <Link href="/volunteer">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Upcomming events
+                </h3>
+              </Link>
+              <Link href="/volunteer">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Host an event
+                </h3>
+              </Link>
+            </div>
+
             <Link href="/blog/1">
               <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
                 Blog
@@ -193,6 +197,8 @@ const Navbar = () => {
       <nav
         className={`w-full fixed top-0 z-50 ${
           !isNavScrolled ? "bg-transparent" : "bg-black/70"
+        }  ${
+          color !== "black" ? "bg-black/70" : "bg-black"
         } backdrop-filter backdrop-blur-lg text-white`}
       >
         <div
@@ -304,9 +310,9 @@ const Navbar = () => {
             {/* donate */}
             <Link href="/donate">
               <div className="w-32 md:w-auto">
-                <FilledButton color="yellow">
+                <FilledButton color="orange">
                   <span className="uppercase whitespace-nowrap text-sm font-bold text-black">
-                    Be the reason behind someone's smile
+                    Donate now
                   </span>
                 </FilledButton>
               </div>
@@ -371,36 +377,24 @@ const Navbar = () => {
 
           {/* links */}
           <div className="hidden md:flex items-center justify-center">
-            <Link href="/about">
+            {/* <Link href="/about">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 About us
               </button>
-            </Link>
-            {/* <PopoverBtn
+            </Link> */}
+            <PopoverBtn
               name="About us"
-              links={[
-                { name: "Mission,Vission,Focus", url: "/#" },
-                { name: "Our Impact", url: "/#" },
-                { name: "Partners", url: "/#" },
-                {
-                  name: "Accountability and transparency",
-                  url: "/#",
-                },
-              ]}
-            /> */}
+              links={[{ name: "Mission,Vission", url: "/vision-mission" }]}
+            />
 
             <PopoverBtn
-              name="Our work"
+              name="Projects"
               links={[
                 {
-                  name: "Conserve every life with clean water",
-                  url: "/water-for-everyone",
+                  name: "Upcomming projects",
+                  url: "/donation/upcomming-projects/1",
                 },
-                {
-                  name: "Bright tomorrow with Bright education",
-                  url: "/rural-education-program",
-                },
-                { name: "New hope for little heart", url: "/sponsor-a-child" },
+                { name: "Past projects", url: "/donation/past-projects/1" },
               ]}
             />
 
@@ -412,18 +406,13 @@ const Navbar = () => {
                 { name: "Become an ally", url: "/become-an-ally" },
               ]}
             />
-
-            <Link href="/donation/1">
-              <button className="px-3 py-2 text-sm text-white rounded-xl ">
-                Fundraise
-              </button>
-            </Link>
-
-            <Link href="/event/1">
-              <button className="px-3 py-2 text-sm text-white rounded-xl ">
-                News & Events
-              </button>
-            </Link>
+            <PopoverBtn
+              name="Events"
+              links={[
+                { name: "Upcomming events", url: "/events/1" },
+                { name: "Host an page", url: "/#" },
+              ]}
+            />
 
             <Link href="/blog/1">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
@@ -433,11 +422,6 @@ const Navbar = () => {
             <Link href="/gallery/1">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 Gallery
-              </button>
-            </Link>
-            <Link href="/vision-mission">
-              <button className="px-3 py-2 text-sm text-white rounded-xl ">
-                Vision & Mission
               </button>
             </Link>
           </div>
@@ -475,7 +459,7 @@ const Navbar = () => {
 
               <div className="flex flex-col items-start justify-start">
                 <h6 className="text-xs text-gray-200">Call Anytime</h6>
-                <h6 className="text-sm text-customYellow">0812064264</h6>
+                <h6 className="text-sm text-brandOrange">0812064264</h6>
               </div>
             </div>
           </div>

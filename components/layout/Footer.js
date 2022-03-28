@@ -9,6 +9,7 @@ const Footer = () => {
         { name: "News and Article", url: "/blog/1" },
         { name: "Latest Events", url: "/event/1" },
         { name: "Contact", url: "#" },
+        { name: "Careers", url: "/careers" },
       ],
     },
 
@@ -118,9 +119,9 @@ const Footer = () => {
                 </h5>
               </div>
 
-              <div className="mt-3 flex items-center text-center md:text-left w-full justify-center gap-2">
+              <div className="mt-3 flex items-start text-center md:text-left w-full justify-center gap-2">
                 <svg
-                  className="text-customGreen w-5 h-5"
+                  className="text-customGreen w-5 h-5 flex-shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                 >
@@ -149,11 +150,11 @@ const Footer = () => {
                   ></path>
                 </svg>
 
-                <h5 className="text-sm text-white whitespace-nowrap">
+                <h5 className="text-sm text-white">
                   645, Wiliam Gopallawa Mawatha, Kandy, Sri Lanka.
                 </h5>
               </div>
-              <div className="mt-5 flex items-center justify-start gap-3">
+              <div className="w-full mt-5 flex items-center justify-center md:justify-center gap-3">
                 <a
                   target="blank"
                   href="https://www.facebook.com/Lanka-Vision-Action-Foundation-107342631884683/?ref=pages_you_manage"

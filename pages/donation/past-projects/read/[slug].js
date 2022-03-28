@@ -273,15 +273,6 @@ const IndividualDonation = () => {
                       </div>
                     </div>
                     <div className="hidden md:flex items-start justify-center gap-5">
-                      <Select
-                        label="Choose donation kind"
-                        handler={(e) => console.log("selected", e)}
-                        options={[
-                          { id: 1, name: "Test", unavailable: false },
-                          { id: 2, name: "Test2", unavailable: false },
-                        ]}
-                      />
-
                       {/* amounts select */}
                       <div className="flex-shrink-0 flex flex-col items-start justify-center">
                         <h4 className=" text-sm font-medium text-gray-700">
@@ -327,7 +318,7 @@ const IndividualDonation = () => {
                         />
                       </div>
 
-                      <div className="mt-[23px] w-full max-w-sm ">
+                      <div className="mt-[23px] w-32">
                         <FilledButton
                           className="w-full"
                           color="yellow"

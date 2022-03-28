@@ -8,6 +8,7 @@ import { Switch } from "@headlessui/react";
 import DonationCard from "../components/DonationCard";
 import BlogCard from "../components/BlogCard";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
+import CircularDonationCard from "../components/CircularDonationCard";
 
 export default function Home() {
   const [amounts, setAmounts] = useState([100, 500, 1000]);
@@ -35,7 +36,7 @@ export default function Home() {
             bg-gradient-to-b
             from-black/90
             via-black/50
-            to-brandRed
+            to-brandTealDark
           "
             ></div>
             {/* 
@@ -43,28 +44,37 @@ export default function Home() {
             via-tempA/70
             to-tempB/30
         https://images.pexels.com/photos/1098769/pexels-photo-1098769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260 */}
-            <img
+            {/* <img
               className="w-full h-full absolute top-0 z-20 object-cover"
               src="https://images.unsplash.com/photo-1508034944108-cba919dfb023?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2020&q=80"
               alt="cover"
-            />
+            /> */}
+
+            <video
+              muted={true}
+              loop={true}
+              autoPlay={true}
+              className="w-full h-full absolute top-0 z-20"
+            >
+              <source type="video/mp4" src="./sample-video.mp4"></source>
+            </video>
 
             {/* hero */}
             <div className="absolute mt-16 md:mt-40 top-0 inset-x-0 z-30">
               <div className="w-full mt-5 py-3 px-3 xl:px-0 max-w-6xl mx-auto">
                 <h4 className="text-base md:text-2xl text-white">
-                  <span className="text-base md:text-xl text-customYellow">
-                    #name{" "}
+                  <span className="text-base md:text-xl text-brandOrange">
+                    Lanka Action Foundation{" "}
                   </span>
                   Nonprofit Foundation
                 </h4>
 
                 <h1 className="mt-6 mb-14 font-title text-5xl md:text-6xl tracking-wide font-bold text-white">
-                  <span className="text-customYellow text-6xl md:text-7xl">
+                  <span className="text-brandOrange text-6xl md:text-7xl">
                     Improving the lives
                   </span>{" "}
                   of children families, and communities and
-                  <span className="text-customYellow text-6xl md:text-7xl">
+                  <span className="text-brandOrange text-6xl md:text-7xl">
                     {" "}
                     restoring and protecting
                   </span>{" "}
@@ -84,7 +94,7 @@ export default function Home() {
                         >
                           <div
                             className={`p-3 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out ${
-                              !isMonthlyDonation && "bg-customYellow"
+                              !isMonthlyDonation && "bg-brandOrange text-white"
                             }`}
                           >
                             <svg
@@ -163,7 +173,7 @@ export default function Home() {
                           Monthly Donation
                           <div
                             className={`p-3 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out ${
-                              isMonthlyDonation && "bg-customYellow"
+                              isMonthlyDonation && "bg-brandOrange text-white"
                             }`}
                           >
                             <svg
@@ -220,12 +230,12 @@ export default function Home() {
                                 transition-transform
                                 duration-100
                                 border-2 border-gray-300 
-                                text-gray-800 focus:outline-none 
-                                focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-white hover:bg-customYellowHoverLight hover:border-customYellow focus-visible:ring-customYellow
+                                 focus:outline-none 
+                                focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-white hover:bg-brandOrange hover:text-white hover:border-brandOrange focus-visible:ring-brandOrange
                                 ${
                                   parseInt(selectedAmount) === amount
-                                    ? "bg-customYellow border-customYellow"
-                                    : "bg-transparent"
+                                    ? "bg-brandOrange border-brandOrange text-white"
+                                    : "bg-transparent text-gray-800"
                                 }
                                 `}
                             >
@@ -249,7 +259,7 @@ export default function Home() {
                       <div className="mt-[23px] w-full max-w-sm ">
                         <FilledButton
                           className="w-full"
-                          color="yellow"
+                          color="orange"
                           focusOffset="white"
                         >
                           <span className="text-sm text-gray-800 font-semibold">
@@ -270,7 +280,7 @@ export default function Home() {
         {/* end of hero */}
 
         {/* 2nd section */}
-        <section className="bg-brandRed w-full">
+        <section className="bg-brandTealDark w-full">
           <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
             <div className="mt-20 md:mt-0 w-full px-3 xl:px-3">
               <h4 className="text-xl w-full text-center lg:text-left md:text-2xl text-white">
@@ -293,7 +303,7 @@ export default function Home() {
 
                   <div className="mt-5 w-full flex items-center lg:justify-start justify-center">
                     <div className="w-full max-w-xs lg:w-36 ">
-                      <FilledButton color="yellow">
+                      <FilledButton color="orange">
                         <span className="text-black">Donate now</span>
                       </FilledButton>
                     </div>
@@ -306,7 +316,7 @@ export default function Home() {
               <div className="lg:-ml-20 h-[250px] w-full bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
                   aria-hidden="true"
-                  className="w-20 h-20 text-customYellow"
+                  className="w-20 h-20 text-white"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 576 512"
                 >
@@ -323,7 +333,7 @@ export default function Home() {
 
               <div className="lg:-ml-20 w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
-                  className="w-20 h-20 text-customYellow"
+                  className="w-20 h-20 text-brandOrange"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 16 16"
                 >
@@ -346,7 +356,7 @@ export default function Home() {
 
               <div className="w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
-                  className="w-20 h-20 text-customYellow"
+                  className="w-20 h-20 text-brandOrange"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 16 16"
                 >
@@ -362,7 +372,7 @@ export default function Home() {
 
               <div className="w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
-                  className="w-20 h-20 text-customYellow"
+                  className="w-20 h-20 text-brandOrange"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 20 20"
                 >
@@ -450,32 +460,23 @@ export default function Home() {
             </h2>
 
             <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
-              <DonationCard
+              <CircularDonationCard
                 widthFull
                 title="New Chance for children"
-                subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
                 thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 raised={70000}
                 goal={500000}
               />
-              <DonationCard
+              <CircularDonationCard
                 widthFull
                 title="New Chance for children"
-                subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
                 thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 raised={70000}
                 goal={500000}
               />
-              <DonationCard
+              <CircularDonationCard
                 widthFull
                 title="New Chance for children"
-                subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
                 thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 raised={70000}
                 goal={500000}
@@ -486,7 +487,7 @@ export default function Home() {
         {/* end of 3rd section */}
 
         {/* 4th section */}
-        <section className="bg-brandRed w-full">
+        <section className="bg-brandTealDark w-full">
           <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
             <h2 className="mt-5 text-3xl md:text-6xl font-title text-white w-full mx-auto block text-center font-bold">
               We're on a mission of big changes.
@@ -503,10 +504,10 @@ export default function Home() {
 
             <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
               <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
-                <h1 className="text-2xl md:text-5xl font-bold text-customYellow">
+                <h1 className="text-2xl md:text-5xl font-bold text-brandOrange">
                   $50K
                 </h1>
-                <h2 className="mt-1 text-xl md:text-3xl text-customYellow/90">
+                <h2 className="mt-1 text-xl md:text-3xl text-brandOrange/90">
                   Raised
                 </h2>
               </div>
@@ -535,8 +536,8 @@ export default function Home() {
 
         {/* 5th section */}
         <section className="bg-white w-full">
-          <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
-            <div className="w-full mt-5 flex flex-col md:flex-row items-start justify-between gap-10">
+          <div className="w-full pb-20 max-w-6xl mx-auto px-3 lg:px-0">
+            {/* <div className="w-full mt-5 flex flex-col md:flex-row items-start justify-between gap-10">
               <div className="w-full">
                 <h2 className="text-5xl md:text-7xl font-title text-gray-800 font-bold">
                   Become Support Partner
@@ -568,7 +569,7 @@ export default function Home() {
               <div className="bg-gray-100 p-5 rounded-lg">
                 <img className="w-32 h-32" src="./charity-logo.png" alt="" />
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-20">
               <div className="w-full flex flex-col md:flex-row items-start justify-between">

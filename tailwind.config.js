@@ -10,6 +10,12 @@ module.exports = {
       },
 
       colors: {
+        brandOrange: "#f37823",
+        brandTealDark: "#1f6e7a",
+        brandGreenLight: "#8caa44",
+        brandTealLight: "#2a9fc2",
+        brandGreenDark: "#669447",
+        brandButter: "#dbc067",
         brandTeal: "#00534F",
         brandYellow: "#ffbd2a",
         brandRed: "#951B39",
@@ -59,6 +65,8 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    //require("@tailwindcss/forms")
+    require("@tailwindcss/forms")({
+      strategy: "class",
+    }),
   ],
 };

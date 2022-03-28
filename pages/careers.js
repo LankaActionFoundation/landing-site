@@ -1,24 +1,60 @@
 import Head from "next/head";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import FilledButton from "../components/buttons/FilledButton";
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
-import VolunteerSVG from "../components/VolunteerSVG";
+import Input from "../components/inputs/Input";
+import Select2 from "../components/inputs/Select2";
+import countries from "../components/countries";
 import { Formik } from "formik";
 import * as yup from "yup";
-import Input from "../components/inputs/Input";
 import TextArea from "../components/inputs/TestArea";
 import { Datepicker } from "../components/inputs/Datepicker";
 import axios from "axios";
+import Link from "next/link";
+export default function Careers() {
+  const [cvFile, setCvFile] = useState(null);
+  const [fileError, setFileError] = useState(null);
+  const [done, setDone] = useState(false);
 
-export default function Ally() {
+  const createCareer = async (formData) => {
+    const { data } = await axios.post(
+      `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/career`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    if (data) {
+      setDone(true);
+    }
+  };
+
+  const handleCv = (e) => {
+    setFileError(null);
+    const file = e.target.files[0];
+    if (file.type === "application/pdf") {
+      setCvFile(file);
+    } else {
+      resetFile();
+      setFileError("Invalid file type");
+    }
+  };
+
+  const resetFile = () => {
+    document.getElementById("cv").value = null;
+    setCvFile(null);
+  };
+
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const personalInformationSchema = yup.object({
     firstName: yup.string().required("First name is required"),
     lastName: yup.string().required("Last name is required"),
-    nic: yup.string().required("NIC is required"),
     phone: yup
       .string()
       .matches(phoneRegExp, "Phone number is not valid")
@@ -27,65 +63,44 @@ export default function Ally() {
       .string()
       .email("Invalid email format")
       .required("Email is required"),
-    dob: yup.date().required("Date of birth is required"),
     address: yup.string().required("Address is required"),
+    country: yup.string().required("Country is required"),
     city: yup.string().required("City is required"),
     state: yup.string().required("State is required"),
-    country: yup.string().required("Country is required"),
   });
-
-  const createAlly = async (form) => {
-    const { data } = await axios.post(
-      `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/ally`,
-      form
-    );
-
-    console.log(data);
-  };
-
   return (
     <>
       <Navbar color="black" />
-      <div className="mt-32 p-5 2xl:px-0 min-h-screen">
-        <div className="mb-10 w-full max-w-4xl mx-auto">
-          <VolunteerSVG />
-        </div>
-        <h1 className="text-3xl md:text-7xl text-center text-gray-800 font-bold">
-          Become an Ally
-        </h1>
 
-        <div className="w-full text-base max-w-xl mx-auto tracking-wide leading-snug">
-          <p className="mt-5 text-gray-900">
-            Partners like our donors and volunteers are the pillars of Lanka
-            Vision Action Foundation; fundamental to the organization and
-            support of our mission . Our partners are individuals or
-            organizations committed to longterm support. Some create programs
-            within their business structures to constantly give back while
-            others make it a point to provide resource or commitment long-term.
-            Healthcare practitioners, educators, manufacturers of supplies, and
-            so forth - we need your support, get involved today!
-          </p>
-        </div>
-
-        <div className="w-full mt-10 mb-20 max-w-xl mx-auto">
+      <div className="w-full max-w-screen-lg mx-auto mt-32 p-5 py-20 2xl:px-0 min-h-screen">
+        {!done && (
           <Formik
             initialValues={{
               firstName: "",
               lastName: "",
-              nic: "",
               phone: "",
               email: "",
-              dob: new Date(),
               address: "",
               city: "",
               state: "",
               country: "Sri Lanka",
             }}
             validationSchema={personalInformationSchema}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              createAlly({ ...values });
-              setSubmitting(false);
-              resetForm();
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              if (cvFile) {
+                var formData = new FormData();
+                const data = JSON.stringify(values);
+                formData.append("file", cvFile);
+                formData.set("data", data);
+                if (formData.get("data")) {
+                  console.log(formData.get("data"));
+                  createCareer(formData);
+                  resetForm();
+                  setCvFile(null);
+                  document.getElementById("cv").value = null;
+                  setSubmitting(false);
+                }
+              }
             }}
           >
             {({
@@ -102,7 +117,7 @@ export default function Ally() {
                 onSubmit={handleSubmit}
               >
                 <h3 className="w-full px-5 py-5 pb-3 border-b text-xl font-semibold text-gray-800 ">
-                  Become an Ally form
+                  Career form
                 </h3>
                 <div className="w-full p-5 flex flex-col gap-5">
                   <div className="flex flex-col md:flex-row items-start justify-center gap-5">
@@ -135,29 +150,6 @@ export default function Ally() {
                           ? errors.lastName
                           : ""
                       }
-                    />
-                  </div>
-                  <div className="flex flex-col md:flex-row items-start justify-center gap-5">
-                    <Input
-                      name="Nic"
-                      label="Nic"
-                      placeholder="Nic"
-                      value={values.nic}
-                      isTouched={touched.nic}
-                      onChange={handleChange("nic")}
-                      onBlur={handleBlur("nic")}
-                      error={
-                        errors.nic && touched.nic && errors.nic
-                          ? errors.nic
-                          : ""
-                      }
-                    />
-                    <Datepicker
-                      label="Date of birth"
-                      st_date={values.dob}
-                      onChange={(e) => {
-                        values.dob = e;
-                      }}
                     />
                   </div>
                   <div className="flex flex-col md:flex-row items-start justify-center gap-5">
@@ -250,6 +242,29 @@ export default function Ally() {
                       }
                     />
                   </div>
+                  <label
+                    className="inline-flex flex-shrink-0 whitespace-nowrap gap-2 text-sm font-medium text-gray-800"
+                    htmlFor="cv"
+                  >
+                    Upload your CV (only pdf is allowed)
+                  </label>
+                  <label className="block">
+                    <span className="sr-only">Choose profile photo</span>
+                    <input
+                      id="cv"
+                      type="file"
+                      onChange={handleCv}
+                      className="block w-full text-sm text-slate-500
+                      file:mr-4 file:py-2 file:px-4
+                      file:cursor-pointer
+                      file:rounded-lg file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-blue-50 file:text-brandTealDark
+                      hover:file:bg-blue-100
+                    "
+                    />
+                    <p className="mt-2 text-xs text-red-600">{fileError}</p>
+                  </label>
                 </div>
                 <div className="w-full flex gap-3 justify-end py-4 px-5 bg-brandTealLight/20 border-t rounded-b-lg">
                   <div className="">
@@ -261,6 +276,18 @@ export default function Ally() {
               </form>
             )}
           </Formik>
+        )}
+
+        <div className="h-[60vh] w-full flex flex-col items-center justify-center">
+          <h1 className="text-xl font-bold text-gray-800">
+            Form has been submitted. Good luck
+          </h1>
+
+          <Link href="/">
+            <div className="mt-5">
+              <FilledButton color="blue">Return to home</FilledButton>
+            </div>
+          </Link>
         </div>
       </div>
       <Footer />

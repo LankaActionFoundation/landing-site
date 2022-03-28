@@ -113,7 +113,7 @@ const Blogs = () => {
           </div>
         )}
       </div>
-      {!loading && (
+      {!loading && pageCount > 1 && (
         <div className="w-full max-w-6xl mx-auto py-10">
           <div className="w-full flex items-center justify-center">
             <CustomPagination

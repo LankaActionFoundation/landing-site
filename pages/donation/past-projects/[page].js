@@ -1,9 +1,9 @@
 import { useRouter } from "next/dist/client/router";
 import React, { useEffect, useState } from "react";
-import DonationCard from "../../components/DonationCard";
-import CustomPagination from "../../components/inputs/CustomPagination";
-import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
-import Loading from "../../components/Loading";
+import DonationCard from "../../../components/DonationCard";
+import CustomPagination from "../../../components/inputs/CustomPagination";
+import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
+import Loading from "../../../components/Loading";
 import axios from "axios";
 
 const Donations = () => {
@@ -28,7 +28,7 @@ const Donations = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/donation/get_all_donations?page=${currentPage}`,
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/donation/get_all_past_donations?page=${currentPage}`,
         {
           withCredentials: true,
         }
@@ -55,7 +55,7 @@ const Donations = () => {
 
   const handlePageNavigate = (page) => {
     if (page) {
-      router.push(`/donation/${page}`);
+      router.push(`/donation/past-projects/${page}`);
     }
   };
 

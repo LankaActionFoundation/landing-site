@@ -68,17 +68,13 @@ const SingleGallery = () => {
       {selectedImage.length > 0 && (
         <div
           onClick={() => setSelectedImage("")}
-          className="w-full h-full z-[300] fixed inset-0 bg-black/70 backdrop-filter backdrop-blur-xl p-3 md:p-20"
+          className="w-screen h-full z-[300] fixed inset-0 bg-black/70 backdrop-filter backdrop-blur-xl"
         >
           <button
             onClick={() => setSelectedImage("")}
-            className="focus:outline-none outline-none fixed top-0 right-0 z-[500] w-8 h-8 mt-1 mr-1 md:mt-10 md:mr-10 text-white"
+            className="fixed top-0 right-0 z-[500] w-8 h-8 mt-10 mr-10 focus:outline-none bg-gray-600 outline-none rounded-md md:mt-10 md:mr-10 text-white"
           >
-            <svg
-              className="fixed top-0 right-0 z-[500] w-8 h-8 mt-10 mr-10 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
+            <svg className=" text-white" fill="none" viewBox="0 0 24 24">
               <path
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -96,11 +92,21 @@ const SingleGallery = () => {
             </svg>
           </button>
 
-          <img
-            src={selectedImage}
-            alt=""
-            className="object-contain w-full h-full"
-          />
+          <div className="w-full flex flex-col md:flex-row items-start justify-center h-full">
+            <img
+              src={selectedImage}
+              alt=""
+              className="object-contain md:object-cover w-full h-full md:w-4/6 md:h-full"
+            />
+
+            <div className="w-full md:w-2/6 flex-shrink-0 md:h-screen overflow-y-auto">
+              <p className="p-5 md:p-5 md:mt-20 w-full flex-shrink-0 whitespace-pre-line text-white">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Molestiae, sapiente quasi nulla est totam vero reprehenderit ab.
+                Esse assumenda tenetur minima recusandae eveniet nulla sapiente
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
@@ -146,7 +152,11 @@ const SingleGallery = () => {
                     }}
                     className="w-full h-full cursor-pointer"
                   >
-                    <img src={image.url} alt="" className="w-full h-full" />
+                    <img
+                      src={image.url}
+                      alt=""
+                      className="w-full h-full rounded-lg"
+                    />
                   </div>
                 ))}
               </div>
