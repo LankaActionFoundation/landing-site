@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
-import Progress from "../../../components/Progress";
-import TextInput from "../../../components/inputs/TextInput";
-import FilledButton from "../../../components/buttons/FilledButton";
+import PageWithNavAndFooter from "../../../../components/layout/PageWithNavAndFooter";
+import Progress from "../../../../components/Progress";
+import TextInput from "../../../../components/inputs/TextInput";
+import FilledButton from "../../../../components/buttons/FilledButton";
 import { Switch } from "@headlessui/react";
-import Select from "../../../components/inputs/Select";
+import Select from "../../../../components/inputs/Select";
 import { useRouter } from "next/router";
-import Loading from "../../../components/Loading";
+import Loading from "../../../../components/Loading";
 import axios from "axios";
 
 const formatter = new Intl.NumberFormat("en-US", {
