@@ -151,7 +151,7 @@ const Navbar = ({ color }) => {
                   Volunteer
                 </h3>
               </Link>
-              <Link href="/#">
+              <Link href="/careers">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
                   Careers
                 </h3>
@@ -168,12 +168,12 @@ const Navbar = ({ color }) => {
             </h3>
 
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
-              <Link href="/volunteer">
+              <Link href="/event/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
                   Upcomming events
                 </h3>
               </Link>
-              <Link href="/volunteer">
+              <Link href="/">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
                   Host an event
                 </h3>
@@ -402,14 +402,14 @@ const Navbar = ({ color }) => {
               name="Get involved"
               links={[
                 { name: "Volunteer", url: "/volunteer" },
-                { name: "Careers", url: "/#" },
+                { name: "Careers", url: "/careers" },
                 { name: "Become an ally", url: "/become-an-ally" },
               ]}
             />
             <PopoverBtn
               name="Events"
               links={[
-                { name: "Upcomming events", url: "/events/1" },
+                { name: "Upcomming events", url: "/event/1" },
                 { name: "Host an page", url: "/#" },
               ]}
             />
