@@ -23,7 +23,7 @@ const FilledButton = ({
       border-2 border-transparent text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 
       ${
         color === "yellow" &&
-        "bg-customYellow hover:bg-customYellowHoverLight focus-visible:ring-customYellow"
+        "bg-brandYellow hover:bg-brandYellow/80 focus-visible:ring-brandYellow"
       }
       ${
         color === "teal" &&

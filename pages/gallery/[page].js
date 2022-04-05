@@ -61,7 +61,7 @@ const index = () => {
 
   return (
     <PageWithNavAndFooter>
-      <div className="relative min-h-screen">
+      {/* <div className="relative min-h-screen">
         <div
           className="
             w-full
@@ -95,9 +95,9 @@ const index = () => {
             possimus cumque. Sint hic natus beatae labore!
           </h3>
         </div>
-      </div>
+      </div> */}
 
-      <section className="min-h-screen">
+      <section className="min-h-screen mt-20">
         <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
           <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {galleries.map((gallery) => (
@@ -111,11 +111,13 @@ const index = () => {
           </div>
           <div className="w-full max-w-6xl mx-auto py-10">
             <div className="w-full flex items-center justify-center">
-              <CustomPagination
-                currentPage={currentPage}
-                handler={handlePageNavigate}
-                pageCount={pageCount}
-              />
+              {!loading && (
+                <CustomPagination
+                  currentPage={currentPage}
+                  handler={handlePageNavigate}
+                  pageCount={pageCount}
+                />
+              )}
             </div>
           </div>
           {/* <div className="w-full flex items-center justify-center">

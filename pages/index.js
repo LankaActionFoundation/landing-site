@@ -39,17 +39,6 @@ export default function Home() {
             to-brandTealDark
           "
             ></div>
-            {/* 
-            from-tempA/100
-            via-tempA/70
-            to-tempB/30
-        https://images.pexels.com/photos/1098769/pexels-photo-1098769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260 */}
-            {/* <img
-              className="w-full h-full absolute top-0 z-20 object-cover"
-              src="https://images.unsplash.com/photo-1508034944108-cba919dfb023?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2020&q=80"
-              alt="cover"
-            /> */}
-
             <video
               muted={true}
               loop={true}
@@ -82,194 +71,7 @@ export default function Home() {
                 </h1>
 
                 {/* card */}
-                <div className="hidden md:block mt-10 rounded-3xl p-2 bg-white/20  border border-white/30 backdrop-filter backdrop-blur-sm">
-                  <div className="rounded-2xl w-full mx-auto p-5 bg-white shadow-lg">
-                    <div className="w-full flex items-center justify-center">
-                      <div className="py-5 pb-10 flex items-center justify-center">
-                        <h3
-                          onClick={() => {
-                            setIsMonthlyDonation(false);
-                          }}
-                          className="mr-3 text-xs md:text-sm text-gray-800 font-medium uppercase flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                          <div
-                            className={`p-3 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out ${
-                              !isMonthlyDonation && "bg-brandOrange text-white"
-                            }`}
-                          >
-                            <svg
-                              aria-hidden="true"
-                              className="w-6 h-6"
-                              preserveAspectRatio="xMidYMid meet"
-                              viewBox="0 0 24 24"
-                            >
-                              <g strokeWidth="1.5" fill="none">
-                                <path
-                                  d="M17 17H8c-1.667 0-5-1-5-5"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M8 7h8c1.667 0 5 1 5 5c0 1.494-.465 2.57-1.135 3.331"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M14.5 14.5L17 17l-2.5 2.5"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M4 8V3L2 4"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </g>
-                            </svg>
-                          </div>
-                          Single Donation
-                        </h3>
-                        <Switch
-                          checked={isMonthlyDonation}
-                          onChange={setIsMonthlyDonation}
-                          className={`${
-                            isMonthlyDonation ? "bg-gray-300" : "bg-gray-300"
-                          }
-                      relative 
-                      inline-flex flex-shrink-0 
-                      h-[38px] w-[74px] 
-                      border-2 border-transparent 
-                      rounded-full cursor-pointer 
-                      transition-colors ease-in-out duration-200 
-                      focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75
-                      `}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={`${
-                              isMonthlyDonation
-                                ? "translate-x-9"
-                                : "translate-x-0"
-                            }
-                        pointer-events-none inline-block 
-                        h-[34px] w-[34px] 
-                        rounded-full 
-                        bg-white shadow-lg 
-                        transform ring-0 
-                        transition ease-in-out duration-200
-                        `}
-                          />
-                        </Switch>
-                        <h3
-                          onClick={() => {
-                            setIsMonthlyDonation(true);
-                          }}
-                          className="ml-3 text-xs md:text-sm text-gray-800 font-medium uppercase flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                          Monthly Donation
-                          <div
-                            className={`p-3 rounded-full flex items-center justify-center transition-colors duration-300 ease-in-out ${
-                              isMonthlyDonation && "bg-brandOrange text-white"
-                            }`}
-                          >
-                            <svg
-                              aria-hidden="true"
-                              className="w-6 h-6"
-                              preserveAspectRatio="xMidYMid meet"
-                              viewBox="0 0 24 24"
-                            >
-                              <g strokeWidth="1.5" fill="none">
-                                <path
-                                  d="M17 17H8c-1.667 0-5-1-5-5s3.333-5 5-5h8c1.667 0 5 1 5 5c0 1.494-.465 2.57-1.135 3.331"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M14.5 14.5L17 17l-2.5 2.5"
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </g>
-                            </svg>
-                          </div>
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="flex items-start justify-center gap-5">
-                      <Select
-                        label="Choose donation kind"
-                        handler={(e) => console.log("selected", e)}
-                        options={[
-                          { id: 1, name: "Test", unavailable: false },
-                          { id: 2, name: "Test2", unavailable: false },
-                        ]}
-                      />
 
-                      {/* amounts select */}
-                      <div className="flex-shrink-0 flex flex-col items-start justify-center">
-                        <h4 className=" text-sm font-medium text-gray-700">
-                          Set Amount
-                        </h4>
-
-                        <div className="mt-1 flex items-center justify-center gap-2">
-                          {amounts.map((amount) => (
-                            <button
-                              key={amount}
-                              onClick={() => setSelectedAmount(amount)}
-                              className={`px-2 py-2 rounded-xl
-                                font-medium
-                                text-sm
-                                transform
-                                active:scale-[0.98]
-                                transition-transform
-                                duration-100
-                                border-2 border-gray-300 
-                                 focus:outline-none 
-                                focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-white hover:bg-brandOrange hover:text-white hover:border-brandOrange focus-visible:ring-brandOrange
-                                ${
-                                  parseInt(selectedAmount) === amount
-                                    ? "bg-brandOrange border-brandOrange text-white"
-                                    : "bg-transparent text-gray-800"
-                                }
-                                `}
-                            >
-                              $ {amount}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                      {/* end of amounts select */}
-                      <div className="w-full max-w-sm">
-                        <TextInput
-                          label="Amount"
-                          placeholder="Or enter amount"
-                          value={selectedAmount}
-                          handler={(e) => {
-                            setSelectedAmount(e.target.value);
-                          }}
-                        />
-                      </div>
-
-                      <div className="mt-[23px] w-full max-w-sm ">
-                        <FilledButton
-                          className="w-full"
-                          color="orange"
-                          focusOffset="white"
-                        >
-                          <span className="text-sm text-gray-800 font-semibold">
-                            Donate
-                          </span>
-                        </FilledButton>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 {/* end of card */}
               </div>
             </div>
@@ -280,6 +82,62 @@ export default function Home() {
         {/* end of hero */}
 
         {/* 2nd section */}
+        <section className="bg-white w-full">
+          <div className="w-full max-w-6xl mx-auto py-10 px-3 lg:px-0">
+            {/* <h5 className="w-full block text-center text-base md:text-lg text-gray-800">
+              Give a hand to make
+            </h5> */}
+
+            <h2 className="mt-5 text-3xl md:text-4xl font-title text-gray-800 w-full max-w-lg xl:max-w-none mx-auto block text-center font-bold">
+              The smallest donation can change someone’s life. <br />
+              You can be the reason someone eats a meal today. <br />
+              You can be the turning point in someone’s life
+            </h2>
+
+            <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
+              <CircularDonationCard
+                widthFull
+                title="New Chance for children"
+                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                raised={70000}
+                goal={500000}
+              />
+              <CircularDonationCard
+                widthFull
+                title="New Chance for children"
+                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                raised={70000}
+                goal={500000}
+              />
+              <CircularDonationCard
+                widthFull
+                title="New Chance for children"
+                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                raised={70000}
+                goal={500000}
+              />
+            </div>
+          </div>
+          <div className="bg-brandLightBlue">
+            <div className="hidden py-5 px-3 lg:px-0 w-full max-w-6xl mx-auto md:flex items-center justify-center gap-20">
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">100% transparent</li>
+              </ul>
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">Dedicated</li>
+              </ul>
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">Compassionate</li>
+              </ul>
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">Respected</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        {/* end of 2nd section */}
+
+        {/* 3rd section */}
         <section className="bg-brandTealDark w-full">
           <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
             <div className="mt-20 md:mt-0 w-full px-3 xl:px-3">
@@ -303,7 +161,7 @@ export default function Home() {
 
                   <div className="mt-5 w-full flex items-center lg:justify-start justify-center">
                     <div className="w-full max-w-xs lg:w-36 ">
-                      <FilledButton color="orange">
+                      <FilledButton color="yellow">
                         <span className="text-black">Donate now</span>
                       </FilledButton>
                     </div>
@@ -333,7 +191,7 @@ export default function Home() {
 
               <div className="lg:-ml-20 w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
-                  className="w-20 h-20 text-brandOrange"
+                  className="w-20 h-20 text-white"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 16 16"
                 >
@@ -356,7 +214,7 @@ export default function Home() {
 
               <div className="w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
-                  className="w-20 h-20 text-brandOrange"
+                  className="w-20 h-20 text-white"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 16 16"
                 >
@@ -372,7 +230,7 @@ export default function Home() {
 
               <div className="w-full h-[250px] bg-white/10 p-5 flex flex-col items-center justify-center rounded-2xl">
                 <svg
-                  className="w-20 h-20 text-brandOrange"
+                  className="w-20 h-20 text-white"
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 20 20"
                 >
@@ -388,101 +246,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div className="bg-brandLightBlue">
-            <div className="hidden py-5 px-3 lg:px-0 w-full max-w-6xl mx-auto md:flex items-center justify-center gap-20">
-              <div className="flex items-center justify-center gap-2">
-                <svg
-                  className="w-5 h-5 text-gray-800"
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    d="M176 68a12 12 0 1 1-12-12a12 12 0 0 1 12 12zm-50.879 61.854a7.999 7.999 0 0 0-11.267 1.024l-40 48a8 8 0 1 0 12.291 10.244l40-48a7.999 7.999 0 0 0-1.024-11.268zM240 80a8 8 0 0 1-3.563 6.656L216 100.281V120a104.118 104.118 0 0 1-104 104H8a8 8 0 0 1-6.247-12.998L96 93.194V76a60.01 60.01 0 0 1 117.207-18.145l23.23 15.489A8 8 0 0 1 240 80zm-22.422 0l-15.682-10.456a8.001 8.001 0 0 1-3.306-4.645A44.007 44.007 0 0 0 112 76v20a8 8 0 0 1-1.753 4.998L24.645 208H112a88.1 88.1 0 0 0 88-88V96a8 8 0 0 1 3.562-6.656z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <h3 className="text-sm text-gray-800">Inspiration</h3>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <svg
-                  className="w-5 h-5 text-gray-800"
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    d="M176 68a12 12 0 1 1-12-12a12 12 0 0 1 12 12zm-50.879 61.854a7.999 7.999 0 0 0-11.267 1.024l-40 48a8 8 0 1 0 12.291 10.244l40-48a7.999 7.999 0 0 0-1.024-11.268zM240 80a8 8 0 0 1-3.563 6.656L216 100.281V120a104.118 104.118 0 0 1-104 104H8a8 8 0 0 1-6.247-12.998L96 93.194V76a60.01 60.01 0 0 1 117.207-18.145l23.23 15.489A8 8 0 0 1 240 80zm-22.422 0l-15.682-10.456a8.001 8.001 0 0 1-3.306-4.645A44.007 44.007 0 0 0 112 76v20a8 8 0 0 1-1.753 4.998L24.645 208H112a88.1 88.1 0 0 0 88-88V96a8 8 0 0 1 3.562-6.656z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <h3 className="text-sm text-gray-800">Inspiration</h3>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <svg
-                  className="w-5 h-5 text-gray-800"
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    d="M176 68a12 12 0 1 1-12-12a12 12 0 0 1 12 12zm-50.879 61.854a7.999 7.999 0 0 0-11.267 1.024l-40 48a8 8 0 1 0 12.291 10.244l40-48a7.999 7.999 0 0 0-1.024-11.268zM240 80a8 8 0 0 1-3.563 6.656L216 100.281V120a104.118 104.118 0 0 1-104 104H8a8 8 0 0 1-6.247-12.998L96 93.194V76a60.01 60.01 0 0 1 117.207-18.145l23.23 15.489A8 8 0 0 1 240 80zm-22.422 0l-15.682-10.456a8.001 8.001 0 0 1-3.306-4.645A44.007 44.007 0 0 0 112 76v20a8 8 0 0 1-1.753 4.998L24.645 208H112a88.1 88.1 0 0 0 88-88V96a8 8 0 0 1 3.562-6.656z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <h3 className="text-sm text-gray-800">Inspiration</h3>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <svg
-                  className="w-5 h-5 text-gray-800"
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    d="M176 68a12 12 0 1 1-12-12a12 12 0 0 1 12 12zm-50.879 61.854a7.999 7.999 0 0 0-11.267 1.024l-40 48a8 8 0 1 0 12.291 10.244l40-48a7.999 7.999 0 0 0-1.024-11.268zM240 80a8 8 0 0 1-3.563 6.656L216 100.281V120a104.118 104.118 0 0 1-104 104H8a8 8 0 0 1-6.247-12.998L96 93.194V76a60.01 60.01 0 0 1 117.207-18.145l23.23 15.489A8 8 0 0 1 240 80zm-22.422 0l-15.682-10.456a8.001 8.001 0 0 1-3.306-4.645A44.007 44.007 0 0 0 112 76v20a8 8 0 0 1-1.753 4.998L24.645 208H112a88.1 88.1 0 0 0 88-88V96a8 8 0 0 1 3.562-6.656z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <h3 className="text-sm text-gray-800">Inspiration</h3>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* end of 2nd section */}
-
-        {/* 3rd section */}
-        <section className="bg-white w-full">
-          <div className="w-full max-w-6xl mx-auto py-10 px-3 lg:px-0">
-            <h5 className="w-full block text-center text-base md:text-lg text-gray-800">
-              Give a hand to make
-            </h5>
-
-            <h2 className="mt-5 text-3xl md:text-6xl font-title text-gray-800 w-full max-w-lg mx-auto block text-center font-bold">
-              You can help lots of people by donating little
-            </h2>
-
-            <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
-              <CircularDonationCard
-                widthFull
-                title="New Chance for children"
-                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                raised={70000}
-                goal={500000}
-              />
-              <CircularDonationCard
-                widthFull
-                title="New Chance for children"
-                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                raised={70000}
-                goal={500000}
-              />
-              <CircularDonationCard
-                widthFull
-                title="New Chance for children"
-                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                raised={70000}
-                goal={500000}
-              />
-            </div>
-          </div>
         </section>
         {/* end of 3rd section */}
 
@@ -490,30 +253,28 @@ export default function Home() {
         <section className="bg-brandTealDark w-full">
           <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
             <h2 className="mt-5 text-3xl md:text-6xl font-title text-white w-full mx-auto block text-center font-bold">
-              We're on a mission of big changes.
-              <br />
-              To help people and the world
+              LVAF takes massive action for massive change. Abolishing poverty,
+              one community at a time.
             </h2>
 
             <h5 className="w-full my-10 max-w-5xl mx-auto block text-center text-base md:text-lg text-white">
-              We're focused on providing attordable volunteer travel experiences
-              that are responsible. Our programs. heighten global awareness and
-              cultural understandings through the skills and expertise taken by
-              the volunteers to their host communities.
+              We’re focused on providing better education, health facilities,
+              and basic necessities including food and water. Our goal is to
+              furnish better conditions for future generations.
             </h5>
 
             <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10">
               <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
-                <h1 className="text-2xl md:text-5xl font-bold text-brandOrange">
+                <h1 className="text-2xl md:text-5xl font-bold text-white">
                   $50K
                 </h1>
-                <h2 className="mt-1 text-xl md:text-3xl text-brandOrange/90">
+                <h2 className="mt-1 text-xl md:text-3xl text-white/80">
                   Raised
                 </h2>
               </div>
 
               <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
-                <h1 className="text-2xl md:text-5xl font-bold text-white/80">
+                <h1 className="text-2xl md:text-5xl font-bold text-white">
                   300+
                 </h1>
                 <h2 className="mt-1 text-xl md:text-3xl text-white/80">
@@ -522,7 +283,7 @@ export default function Home() {
               </div>
 
               <div className="w-full py-20 bg-white/10 p-5 rounded-xl flex items-center justify-center flex-col">
-                <h1 className="text-2xl md:text-5xl font-bold text-white/80">
+                <h1 className="text-2xl md:text-5xl font-bold text-white">
                   48+
                 </h1>
                 <h2 className="mt-1 text-xl md:text-3xl text-white/80">

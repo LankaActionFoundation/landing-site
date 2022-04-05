@@ -61,7 +61,7 @@ const Donations = () => {
 
   return (
     <PageWithNavAndFooter>
-      <div className="relative min-h-screen">
+      {/* <div className="relative min-h-screen">
         <div
           className="
             w-full
@@ -95,9 +95,9 @@ const Donations = () => {
             possimus cumque. Sint hic natus beatae labore!
           </h3>
         </div>
-      </div>
+      </div> */}
 
-      <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
+      <div className="w-full mt-20 max-w-6xl mx-auto py-20 px-3 xl:px-0">
         {!loading && events && (
           <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {events.map((event) => (

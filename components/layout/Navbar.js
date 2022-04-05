@@ -112,26 +112,20 @@ const Navbar = ({ color }) => {
           </div>
 
           <div className="mt-10 flex flex-col gap-5">
-            <h3 className="text-white text-xs font-bold tracking-wide uppercase">
-              About us
-            </h3>
-
-            <div className="ml-5 flex flex-col items-start justify-center gap-5">
-              <Link href="/vision-mission">
-                <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Vision Mission
-                </h3>
-              </Link>
-            </div>
+            <Link href="/about">
+              <h3 className="text-white cursor-pointer hover:underline text-xs font-bold tracking-wide uppercase">
+                About us
+              </h3>
+            </Link>
 
             <h3 className="text-white text-xs font-bold tracking-wide uppercase">
               Projects
             </h3>
 
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
-              <Link href="/donation/upcomming-projects/1">
+              <Link href="/donation/upcoming-projects/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Upcomming projects
+                  Upcoming projects
                 </h3>
               </Link>
               <Link href="/donation/past-projects/1">
@@ -170,7 +164,7 @@ const Navbar = ({ color }) => {
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
               <Link href="/event/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Upcomming events
+                  Upcoming events
                 </h3>
               </Link>
               <Link href="/">
@@ -308,7 +302,10 @@ const Navbar = ({ color }) => {
             )}
 
             {/* donate */}
-            <Link href="/donate">
+            <a
+              target="_blank"
+              href="https://www.gofundme.com/f/help-sri-lanka-free-them-from-labour?utm_source=customer&utm_medium=copy_link_all&utm_campaign=p_cp+share-sheet"
+            >
               <div className="w-32 md:w-auto">
                 <FilledButton color="orange">
                   <span className="uppercase whitespace-nowrap text-sm font-bold text-black">
@@ -316,7 +313,7 @@ const Navbar = ({ color }) => {
                   </span>
                 </FilledButton>
               </div>
-            </Link>
+            </a>
             {/* end of donate */}
           </div>
         </div>
@@ -377,22 +374,22 @@ const Navbar = ({ color }) => {
 
           {/* links */}
           <div className="hidden md:flex items-center justify-center">
-            {/* <Link href="/about">
+            <Link href="/about">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 About us
               </button>
-            </Link> */}
-            <PopoverBtn
+            </Link>
+            {/* <PopoverBtn
               name="About us"
-              links={[{ name: "Mission,Vission", url: "/vision-mission" }]}
-            />
+              links={[{ name: "Mission,Visvoion", url: "/vision-mission" }]}
+            /> */}
 
             <PopoverBtn
               name="Projects"
               links={[
                 {
-                  name: "Upcomming projects",
-                  url: "/donation/upcomming-projects/1",
+                  name: "Upcoming projects",
+                  url: "/donation/upcoming-projects/1",
                 },
                 { name: "Past projects", url: "/donation/past-projects/1" },
               ]}
@@ -409,8 +406,8 @@ const Navbar = ({ color }) => {
             <PopoverBtn
               name="Events"
               links={[
-                { name: "Upcomming events", url: "/event/1" },
-                { name: "Host an page", url: "/#" },
+                { name: "upcoming events", url: "/event/1" },
+                { name: "Host an Event", url: "/#" },
               ]}
             />
 

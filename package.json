@@ -7,11 +7,12 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
-    "@tailwindcss/forms": "^0.5.0",
     "@lottiefiles/react-lottie-player": "^3.4.1",
+    "@tailwindcss/forms": "^0.5.0",
     "axios": "^0.24.0",
     "dateformat": "^5.0.2",
     "formik": "^2.2.9",
+    "froala-editor": "^4.0.10",
     "gsap": "^3.8.0",
     "html-react-parser": "^1.4.9",
     "next": "latest",

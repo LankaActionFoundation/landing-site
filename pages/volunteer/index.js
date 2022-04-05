@@ -53,14 +53,16 @@ export default function Volunteer() {
 
           <div className="mt-5 w-full flex justify-between gap-10">
             <div className="w-full">
-              <Link href="/volunteer/local-form">
-                <FilledButton color="orange">Local Form</FilledButton>
+              <Link href="/volunteer/international-form">
+                <FilledButton color="green">
+                  International Volunteer
+                </FilledButton>
               </Link>
             </div>
 
             <div className="w-full">
-              <Link href="/volunteer/international-form">
-                <FilledButton color="green">International Form</FilledButton>
+              <Link href="/volunteer/local-form">
+                <FilledButton color="orange">Local Volunteer</FilledButton>
               </Link>
             </div>
           </div>

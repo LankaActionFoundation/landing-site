@@ -16,9 +16,9 @@ export default function Ally() {
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const personalInformationSchema = yup.object({
+    nameOfBusiness: yup.string().required("Name of business is required"),
     firstName: yup.string().required("First name is required"),
     lastName: yup.string().required("Last name is required"),
-    nic: yup.string().required("NIC is required"),
     phone: yup
       .string()
       .matches(phoneRegExp, "Phone number is not valid")
@@ -27,8 +27,6 @@ export default function Ally() {
       .string()
       .email("Invalid email format")
       .required("Email is required"),
-    dob: yup.date().required("Date of birth is required"),
-    address: yup.string().required("Address is required"),
     city: yup.string().required("City is required"),
     state: yup.string().required("State is required"),
     country: yup.string().required("Country is required"),
@@ -40,7 +38,7 @@ export default function Ally() {
       form
     );
 
-    console.log(data);
+    //console.log(data);
   };
 
   return (
@@ -70,13 +68,11 @@ export default function Ally() {
         <div className="w-full mt-10 mb-20 max-w-xl mx-auto">
           <Formik
             initialValues={{
+              nameOfBusiness: "",
               firstName: "",
               lastName: "",
-              nic: "",
               phone: "",
               email: "",
-              dob: new Date(),
-              address: "",
               city: "",
               state: "",
               country: "Sri Lanka",
@@ -105,6 +101,22 @@ export default function Ally() {
                   Become an Ally form
                 </h3>
                 <div className="w-full p-5 flex flex-col gap-5">
+                  <Input
+                    name="Name of business"
+                    label="Name of business"
+                    placeholder="Name of business"
+                    value={values.nameOfBusiness}
+                    isTouched={touched.nameOfBusiness}
+                    onChange={handleChange("nameOfBusiness")}
+                    onBlur={handleBlur("nameOfBusiness")}
+                    error={
+                      errors.nameOfBusiness &&
+                      touched.nameOfBusiness &&
+                      errors.nameOfBusiness
+                        ? errors.nameOfBusiness
+                        : ""
+                    }
+                  />
                   <div className="flex flex-col md:flex-row items-start justify-center gap-5">
                     <Input
                       name="First name"
@@ -137,7 +149,7 @@ export default function Ally() {
                       }
                     />
                   </div>
-                  <div className="flex flex-col md:flex-row items-start justify-center gap-5">
+                  {/* <div className="flex flex-col md:flex-row items-start justify-center gap-5">
                     <Input
                       name="Nic"
                       label="Nic"
@@ -159,7 +171,7 @@ export default function Ally() {
                         values.dob = e;
                       }}
                     />
-                  </div>
+                  </div> */}
                   <div className="flex flex-col md:flex-row items-start justify-center gap-5">
                     <Input
                       name="Phone"
@@ -190,7 +202,7 @@ export default function Ally() {
                       }
                     />
                   </div>
-                  <div className="flex flex-col md:flex-row items-start justify-center gap-5">
+                  {/* <div className="flex flex-col md:flex-row items-start justify-center gap-5">
                     <Input
                       name="Address"
                       label="Address"
@@ -205,7 +217,7 @@ export default function Ally() {
                           : ""
                       }
                     />
-                  </div>
+                  </div> */}
                   <div className="mb-5 flex flex-col md:flex-row items-start justify-center gap-5">
                     <Input
                       name="Country"

@@ -269,7 +269,7 @@ export default function Careers() {
                 <div className="w-full flex gap-3 justify-end py-4 px-5 bg-brandTealLight/20 border-t rounded-b-lg">
                   <div className="">
                     <FilledButton type="submit" color="teal">
-                      <span className="text-sm font-medium">Save</span>
+                      <span className="text-sm font-medium">Send</span>
                     </FilledButton>
                   </div>
                 </div>
@@ -278,17 +278,19 @@ export default function Careers() {
           </Formik>
         )}
 
-        <div className="h-[60vh] w-full flex flex-col items-center justify-center">
-          <h1 className="text-xl font-bold text-gray-800">
-            Form has been submitted. Good luck
-          </h1>
+        {done && (
+          <div className="h-[60vh] w-full flex flex-col items-center justify-center">
+            <h1 className="text-xl font-bold text-gray-800">
+              Form has been submitted. Good luck
+            </h1>
 
-          <Link href="/">
-            <div className="mt-5">
-              <FilledButton color="blue">Return to home</FilledButton>
-            </div>
-          </Link>
-        </div>
+            <Link href="/">
+              <div className="mt-5">
+                <FilledButton color="blue">Return to home</FilledButton>
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
       <Footer />
     </>

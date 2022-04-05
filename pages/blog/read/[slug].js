@@ -27,13 +27,11 @@ const IndividualBlog = () => {
           withCredentials: true,
         }
       );
-      console.log({ data });
       setBlog(data);
       console.log(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.log(error);
       router.push("/blog/1");
       if (error?.response?.data?.msg) {
         let err = error.response.data.msg;
@@ -51,12 +49,7 @@ const IndividualBlog = () => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <link
-          href="../css/froala_style.min.css"
-          rel="stylesheet"
-          type="text/css"
-        />
+        <title>{slug}</title>
       </Head>
 
       <PageWithNavAndFooter>

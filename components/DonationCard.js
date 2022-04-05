@@ -16,6 +16,7 @@ const removeDecimal = (amount) => {
 };
 
 const DonationCard = ({
+  type,
   title,
   subTitle,
   raised,
@@ -73,7 +74,13 @@ const DonationCard = ({
 
         {/* 
             <!-- title --> */}
-        <Link href={`/donation/read/${slug}`}>
+        <Link
+          href={`${
+            type === "upcoming"
+              ? `/donation/upcoming-projects/read/${slug}`
+              : `/donation/past-projects/read/${slug}`
+          }`}
+        >
           <h2 className="mt-5 cursor-pointer hover:underline text-lg md:text-xl font-bold text-gray-800">
             {title}
           </h2>
