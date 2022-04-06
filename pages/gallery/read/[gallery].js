@@ -8,7 +8,11 @@ import CustomPagination from "../../../components/inputs/CustomPagination";
 const SingleGallery = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [images, setImages] = useState([]);
-  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState({
+    url: "",
+    caption: "",
+    desc: "",
+  });
   const [loading, setLoading] = useState(false);
   const [pageCount, setPageCount] = useState(5);
   const [id, setId] = useState(null);
@@ -65,13 +69,13 @@ const SingleGallery = () => {
 
   return (
     <>
-      {selectedImage.length > 0 && (
+      {selectedImage.url.length > 0 && (
         <div
-          onClick={() => setSelectedImage("")}
+          onClick={() => setSelectedImage({ url: "", caption: "", desc: "" })}
           className="w-screen h-full z-[300] fixed inset-0 bg-black/70 backdrop-filter backdrop-blur-xl"
         >
           <button
-            onClick={() => setSelectedImage("")}
+            onClick={() => setSelectedImage({ url: "", caption: "", desc: "" })}
             className="fixed top-0 right-0 z-[500] w-8 h-8 mt-10 mr-10 focus:outline-none bg-gray-600 outline-none rounded-md md:mt-10 md:mr-10 text-white"
           >
             <svg className=" text-white" fill="none" viewBox="0 0 24 24">
@@ -94,16 +98,14 @@ const SingleGallery = () => {
 
           <div className="w-full flex flex-col md:flex-row items-start justify-center h-full">
             <img
-              src={selectedImage}
+              src={selectedImage.url}
               alt=""
               className="object-contain md:object-cover w-full h-full md:w-4/6 md:h-full"
             />
 
             <div className="w-full md:w-2/6 flex-shrink-0 md:h-screen overflow-y-auto">
-              <p className="p-5 md:p-5 md:mt-20 w-full flex-shrink-0 whitespace-pre-line text-white">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Molestiae, sapiente quasi nulla est totam vero reprehenderit ab.
-                Esse assumenda tenetur minima recusandae eveniet nulla sapiente
+              <p className="p-5 pb-20 md:pb-0 md:p-5 md:mt-20 w-full flex-shrink-0 whitespace-pre-line text-white">
+                {selectedImage.desc}
               </p>
             </div>
           </div>
@@ -111,44 +113,24 @@ const SingleGallery = () => {
       )}
 
       <PageWithNavAndFooter>
-        {!loading && title && (
-          <div className="relative min-h-[70vh]">
-            <div
-              className="
-            w-full
-            h-full
-            top-0
-            absolute
-            z-30
-            bg-gradient-to-b
-            from-black
-            via-black/20
-            to-black/5
-          "
-            ></div>
-
-            <img
-              className="w-full h-full absolute top-0 z-20 object-cover"
-              src="https://images.unsplash.com/photo-1637355054941-c0426714da57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt="cover"
-            />
-
-            <div className="absolute inset-0 z-30 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
-              <h1 className="text-white text-6xl font-title md:text-8xl text-center">
-                {title}
-              </h1>
-            </div>
-          </div>
-        )}
-
         <section className="min-h-screen">
+          <div className=" mt-48 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
+            <h1 className="text-gray-800 text-6xl font-title md:text-8xl text-center">
+              {title}
+            </h1>
+          </div>
+
           <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
             {!loading && images.length > 0 && (
               <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {images.map((image) => (
                   <div
                     onClick={() => {
-                      setSelectedImage(image.url);
+                      setSelectedImage({
+                        url: image.url,
+                        caption: image.caption,
+                        desc: image.description,
+                      });
                     }}
                     className="w-full h-full cursor-pointer"
                   >
