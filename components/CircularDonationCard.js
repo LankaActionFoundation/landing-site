@@ -17,11 +17,11 @@ const removeDecimal = (amount) => {
 };
 
 const CircularDonationCard = ({
+  slug,
   title,
   raised,
   goal,
   thumbnail,
-  slug,
   widthFull = false,
 }) => {
   return (
@@ -78,7 +78,9 @@ const CircularDonationCard = ({
         </h2>
 
         <div className="mt-5 w-max">
-          <FilledButton color="orange">Learn more</FilledButton>
+          <Link href={`/donation/upcoming-projects/read/${slug}`}>
+            <FilledButton color="orange">Learn more</FilledButton>
+          </Link>
         </div>
 
         {/* <!-- end of title --> */}

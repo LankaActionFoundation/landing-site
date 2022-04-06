@@ -58,16 +58,16 @@ const IndividualBlog = () => {
             <div className="relative min-h-screen">
               <div
                 className="
-            w-full
-            h-full
-            top-0
-            absolute
-            z-30
-            bg-gradient-to-b
-            from-black/90
-            via-black/70
-            to-black/10
-          "
+                w-full
+                h-full
+                top-0
+                absolute
+                z-30
+                bg-gradient-to-b
+                from-black/90
+                via-black/70
+                to-black/10
+              "
               ></div>
 
               <img

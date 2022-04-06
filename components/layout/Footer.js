@@ -198,6 +198,22 @@ const Footer = () => {
                     />
                   </svg>
                 </a>
+                <a
+                  target="blank"
+                  href="https://www.youtube.com/channel/UC1oy0OshwhiBdrmF0CTri4w/featured"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="w-6 h-6 text-customGreen"
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 1024 1024"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M941.3 296.1a112.3 112.3 0 0 0-79.2-79.3C792.2 198 512 198 512 198s-280.2 0-350.1 18.7A112.12 112.12 0 0 0 82.7 296C64 366 64 512 64 512s0 146 18.7 215.9c10.3 38.6 40.7 69 79.2 79.3C231.8 826 512 826 512 826s280.2 0 350.1-18.8c38.6-10.3 68.9-40.7 79.2-79.3C960 658 960 512 960 512s0-146-18.7-215.9zM423 646V378l232 133l-232 135z"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -210,7 +226,7 @@ const Footer = () => {
           <h4>&copy; copyrights {new Date().getFullYear()} by donation</h4>
           <div className="mt-2 md:mt-0 flex items-center justify-center gap-5">
             <h4>Privacy policy</h4>
-            <h4>Terms and use</h4>
+            <h4>Terms and conditions</h4>
           </div>
         </div>
       </div>

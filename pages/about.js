@@ -11,6 +11,7 @@ export default function About() {
         <h1 className="text-7xl mb-10 font-title text-gray-800 text-center">
           About
         </h1>
+
         <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Lanka Vision Action Foundation is a registered, non-profit charity
           dedicated to improving underprivileged communities in rural, Sri
@@ -18,6 +19,7 @@ export default function About() {
           clean water, basic necessities like food and hygiene, as well as,
           education and healthcare support.
         </h4>
+
         <h4 className="mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Our mission is to inspire communities to invest in a movement of
           change; to finally eliminate poverty and provide better circumstance
@@ -28,6 +30,7 @@ export default function About() {
           on-going, while others are created, hosted, and supported by the
           foundations pillars, our partners support.
         </h4>
+
         <h4 className="mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Targeting each community within rural Sri Lanka, individually; we will
           be building sustainable housing for families, providing them with
@@ -51,6 +54,7 @@ export default function About() {
         <h1 className="mt-10 text-7xl mb-10 font-title text-gray-800 text-center">
           Vision
         </h1>
+
         <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Inspiring investment in communities to eliminate poverty by providing
           sustainable opportunities and better circumstance for future
@@ -60,6 +64,7 @@ export default function About() {
         <h1 className="text-7xl my-10 font-title text-gray-800 text-center">
           Mission
         </h1>
+
         <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Create sustainable opportunity and better circumstance for the future
           of Sri Lanka
@@ -68,12 +73,14 @@ export default function About() {
         <h1 className="text-7xl my-10 font-title text-gray-800 text-center">
           Values
         </h1>
+
         <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Integrity to our Values
         </h4>
         <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Respect for our collaborations
         </h4>
+
         <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Sustainable Solutions
         </h4>

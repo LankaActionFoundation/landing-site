@@ -9,11 +9,68 @@ import DonationCard from "../components/DonationCard";
 import BlogCard from "../components/BlogCard";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
 import CircularDonationCard from "../components/CircularDonationCard";
+import axios from "axios";
+import Link from "next/link";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const [amounts, setAmounts] = useState([100, 500, 1000]);
   const [selectedAmount, setSelectedAmount] = useState("");
   const [isMonthlyDonation, setIsMonthlyDonation] = useState(false);
+  const [blogs, setBlogs] = useState(null);
+  const [donations, setDonations] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchHomepageBlog = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/blogs/get_homepage_blogs`,
+        {
+          withCredentials: true,
+        }
+      );
+      setBlogs(data);
+      console.log(data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        console.log({ err });
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchHomepageBlog();
+  }, []);
+
+  const fetchHomepageDonation = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/donation/get_homepage_donations`,
+        {
+          withCredentials: true,
+        }
+      );
+      setDonations(data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        console.log({ err });
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchHomepageDonation();
+  }, []);
 
   return (
     <div className="font-body">
@@ -82,62 +139,6 @@ export default function Home() {
         {/* end of hero */}
 
         {/* 2nd section */}
-        <section className="bg-white w-full">
-          <div className="w-full max-w-6xl mx-auto py-10 px-3 lg:px-0">
-            {/* <h5 className="w-full block text-center text-base md:text-lg text-gray-800">
-              Give a hand to make
-            </h5> */}
-
-            <h2 className="mt-5 text-3xl md:text-4xl font-title text-gray-800 w-full max-w-lg xl:max-w-none mx-auto block text-center font-bold">
-              The smallest donation can change someone’s life. <br />
-              You can be the reason someone eats a meal today. <br />
-              You can be the turning point in someone’s life
-            </h2>
-
-            <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
-              <CircularDonationCard
-                widthFull
-                title="New Chance for children"
-                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                raised={70000}
-                goal={500000}
-              />
-              <CircularDonationCard
-                widthFull
-                title="New Chance for children"
-                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                raised={70000}
-                goal={500000}
-              />
-              <CircularDonationCard
-                widthFull
-                title="New Chance for children"
-                thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                raised={70000}
-                goal={500000}
-              />
-            </div>
-          </div>
-          <div className="bg-brandLightBlue">
-            <div className="hidden py-5 px-3 lg:px-0 w-full max-w-6xl mx-auto md:flex items-center justify-center gap-20">
-              <ul className="list-disc flex items-center justify-center gap-2">
-                <li className="text-sm text-gray-800">100% transparent</li>
-              </ul>
-              <ul className="list-disc flex items-center justify-center gap-2">
-                <li className="text-sm text-gray-800">Dedicated</li>
-              </ul>
-              <ul className="list-disc flex items-center justify-center gap-2">
-                <li className="text-sm text-gray-800">Compassionate</li>
-              </ul>
-              <ul className="list-disc flex items-center justify-center gap-2">
-                <li className="text-sm text-gray-800">Respected</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        {/* end of 2nd section */}
-
-        {/* 3rd section */}
         <section className="bg-brandTealDark w-full">
           <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
             <div className="mt-20 md:mt-0 w-full px-3 xl:px-3">
@@ -246,6 +247,54 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="bg-brandLightBlue">
+            <div className="hidden py-5 px-3 lg:px-0 w-full max-w-6xl mx-auto md:flex items-center justify-center gap-20">
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">100% transparent</li>
+              </ul>
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">Dedicated</li>
+              </ul>
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">Compassionate</li>
+              </ul>
+              <ul className="list-disc flex items-center justify-center gap-2">
+                <li className="text-sm text-gray-800">Respected</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        {/* end of 2nd section */}
+
+        {/* 3rd section */}
+        <section className="bg-white w-full">
+          <div className="w-full max-w-6xl mx-auto py-10 px-3 lg:px-0">
+            {/* <h5 className="w-full block text-center text-base md:text-lg text-gray-800">
+              Give a hand to make
+            </h5> */}
+
+            <h2 className="mt-5 text-3xl md:text-4xl font-title text-gray-800 w-full max-w-lg xl:max-w-none mx-auto block text-center font-bold">
+              The smallest donation can change someone’s life. <br />
+              You can be the reason someone eats a meal today. <br />
+              You can be the turning point in someone’s life
+            </h2>
+
+            {donations && donations.length > 0 && (
+              <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
+                {donations.map((donation) => (
+                  <CircularDonationCard
+                    widthFull
+                    slug={donation.slug}
+                    title={donation.title}
+                    thumbnail={donation.thumbnail}
+                    raised={parseInt(donation.reached)}
+                    goal={parseInt(donation.goal)}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </section>
         {/* end of 3rd section */}
 
@@ -331,53 +380,41 @@ export default function Home() {
                 <img className="w-32 h-32" src="./charity-logo.png" alt="" />
               </div>
             </div> */}
-
             <div className="mt-20">
-              <div className="w-full flex flex-col md:flex-row items-start justify-between">
-                <h2 className="text-3xl md:text-6xl font-title text-gray-800 font-bold">
-                  Latest Articles
-                </h2>
+              {blogs && blogs.length > 0 && (
+                <>
+                  <div className="w-full flex flex-col md:flex-row items-start justify-between">
+                    <h2 className="text-3xl md:text-6xl font-title text-gray-800 font-bold">
+                      Latest Articles
+                    </h2>
 
-                <div className="md:mt-5 w-full md:w-auto">
-                  <FilledButton className="w-full" color="green">
-                    <span className="px-5 text-white uppercase whitespace-nowrap">
-                      All Articles
-                    </span>
-                  </FilledButton>
-                </div>
-              </div>
-              <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
-                <BlogCard
-                  widthFull
-                  title="New Chance for children"
-                  subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
-                  thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  category="photo"
-                  date="2021-10-30T05:46:08.353+00:00"
-                />
-                <BlogCard
-                  widthFull
-                  title="New Chance for children"
-                  subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
-                  thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  category="photo"
-                  date="2021-10-30T05:46:08.353+00:00"
-                />
-                <BlogCard
-                  widthFull
-                  title="New Chance for children"
-                  subTitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                      commodi corrupti, unde dolores autem consequatur? Quae officiis
-                      ducimus eos officia!"
-                  thumbnail="https://images.pexels.com/photos/10152077/pexels-photo-10152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  category="photo"
-                  date="2021-10-30T05:46:08.353+00:00"
-                />
-              </div>
+                    <div className="md:mt-5 w-full md:w-auto">
+                      <Link href="/blog/1">
+                        <FilledButton className="w-full" color="green">
+                          <span className="px-5 text-white uppercase whitespace-nowrap">
+                            All Articles
+                          </span>
+                        </FilledButton>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="mt-10 w-full grid grid-cols-1 md:grid-cols-3 justify-center  items-center gap-14">
+                    {blogs.map((blog) => (
+                      <BlogCard
+                        widthFull
+                        slug={blog.slug}
+                        title={blog.title}
+                        subTitle={blog.subtitle}
+                        thumbnail={blog.thumbnail}
+                        category={blog.category}
+                        date={blog.updated_at}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+              {loading && <Loading />}
             </div>
           </div>
         </section>
