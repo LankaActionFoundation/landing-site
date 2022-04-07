@@ -87,7 +87,7 @@ const IndividualBlog = () => {
               </div>
             </div>
 
-            <section className="w-full">
+            <section className="w-full px-3">
               <div className="w-full min-h-screen max-w-6xl mx-auto py-20">
                 <div
                   className="fr-view"

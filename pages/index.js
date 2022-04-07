@@ -97,7 +97,7 @@ export default function Home() {
           "
             ></div>
             <video
-              muted={true}
+              muted={false}
               loop={true}
               autoPlay={true}
               className="w-full h-full absolute top-0 z-20 object-cover"
@@ -115,13 +115,13 @@ export default function Home() {
                   Nonprofit Foundation
                 </h4>
 
-                <h1 className="mt-6 mb-14 text-5xl md:text-6xl tracking-wide leading-loose text-white">
+                <h1 className="mt-6 mb-14 text-4xl md:text-6xl tracking-wide leading-loose text-white">
                   Transforming the{" "}
-                  <span className="text-brandOrange text-6xl md:text-7xl">
+                  <span className="text-brandOrange text-5xl md:text-7xl">
                     most vulnerable communities
                   </span>{" "}
                   in Sri Lanka towards a
-                  <span className="text-brandOrange text-6xl md:text-7xl">
+                  <span className="text-brandOrange text-5xl md:text-7xl">
                     {" "}
                     sustainable standard of living.
                   </span>

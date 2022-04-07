@@ -114,7 +114,7 @@ const SingleGallery = () => {
 
       <PageWithNavAndFooter>
         <section className="min-h-screen">
-          <div className=" mt-48 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
+          <div className="pt-48 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
             <h1 className="text-gray-800 text-6xl font-title md:text-8xl text-center">
               {title}
             </h1>
