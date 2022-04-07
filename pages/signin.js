@@ -299,62 +299,7 @@ const Signin = () => {
           {!loading && (
             <div className="w-full h-[450px] p-10 px-10 flex flex-col items-center justify-center">
               {/* logo */}
-              <svg className="w-14 h-14" viewBox="0 0 387 260" fill="none">
-                <path
-                  d="M195.341 14.1154L202.707 34.0232L203.489 36.1357L205.601 36.9174L225.509 44.284L205.601 51.6505L203.489 52.4322L202.707 54.5447L195.341 74.4525L187.974 54.5447L187.192 52.4322L185.08 51.6505L165.172 44.284L185.08 36.9174L187.192 36.1357L187.974 34.0232L195.341 14.1154Z"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M364.643 85.0689C339.545 61.3161 291.591 45.6304 257.083 71.1758C224.367 98.9621 211.851 139.03 234.003 177.399"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M330.394 154.775C313.02 154.775 298.936 140.276 298.936 122.391"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M364.629 84.8416L381.283 65.9512V130.718"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M330.394 154.827V177.231L359.856 199.186L381.283 183.504V127.943"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M351.173 115.378L358.013 122.218"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M4.99996 24.4927L235.232 254.725"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M98.0725 44.0869L254.826 200.841"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M49.087 137.159L151.957 240.029"
-                  stroke="currentColor"
-                  strokeWidth="9.7971"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <img src="./logo.png" className="w-20 h-20" alt="" />
               {/* end of logo */}
 
               <h3 className="text-3xl w-full block text-center mt-5 text-gray-800 font-bold">

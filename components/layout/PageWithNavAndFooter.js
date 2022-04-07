@@ -6,7 +6,7 @@ const PageWithNavAndFooter = ({ color, children }) => {
   return (
     <>
       <Navbar color={color} />
-      {children}
+      <div className="w-full h-full bg-customWhite">{children}</div>
       <Footer />
     </>
   );

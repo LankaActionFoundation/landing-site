@@ -29,7 +29,7 @@ const DonationCard = ({
     <div
       className={`
             relative
-             max-h-[450px]
+             h-[450px]
             ${widthFull ? "max-w-none" : "max-w-[300px]"}
             w-full
             rounded-xl

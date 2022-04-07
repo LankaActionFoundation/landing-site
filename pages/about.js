@@ -7,12 +7,12 @@ export default function About() {
       <Head>
         <title>Lanka Action Foundation | About</title>
       </Head>
-      <div className="w-full mt-40 mb-20 px-3">
-        <h1 className="text-7xl mb-10 font-title text-gray-800 text-center">
+      <div className="w-full pt-40 bg-white ">
+        <h1 className="px-3 text-7xl mb-10 font-title text-gray-800 text-center">
           About
         </h1>
 
-        <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
+        <h4 className="px-3 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Lanka Vision Action Foundation is a registered, non-profit charity
           dedicated to improving underprivileged communities in rural, Sri
           Lanka. Lanka Vision provides children and their loved ones access to
@@ -20,7 +20,7 @@ export default function About() {
           education and healthcare support.
         </h4>
 
-        <h4 className="mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
+        <h4 className="px-3 mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Our mission is to inspire communities to invest in a movement of
           change; to finally eliminate poverty and provide better circumstance
           for future generations. With our round the clock staff and volunteers,
@@ -31,7 +31,7 @@ export default function About() {
           foundations pillars, our partners support.
         </h4>
 
-        <h4 className="mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
+        <h4 className="px-3 mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Targeting each community within rural Sri Lanka, individually; we will
           be building sustainable housing for families, providing them with
           necessary resources for livelihood and aid them with education and
@@ -39,7 +39,7 @@ export default function About() {
           based on needs within the given region.
         </h4>
 
-        <h4 className="mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
+        <h4 className="px-3 mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           You can get involved as a local Sri Lankan by volunteering or becoming
           apart of our team. You can also host a fundraiser, become a corporate
           partner to sponsor projects and events, or donate. If you want to
@@ -51,39 +51,30 @@ export default function About() {
           anytime!
         </h4>
 
-        <h1 className="mt-10 text-7xl mb-10 font-title text-gray-800 text-center">
-          Vision
-        </h1>
+        <div className="w-full mt-10 mx-auto grid grid-cols-1 md:grid-cols-3">
+          <img src="./about_01.jpg" className="w-full " alt="" />
+          <img src="./about_02.jpg" className="w-full h-full " alt="" />
+          <img src="./about_03.jpg" className="w-full " alt="" />
+        </div>
 
-        <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
-          Inspiring investment in communities to eliminate poverty by providing
-          sustainable opportunities and better circumstance for future
-          generation
-        </h4>
+        <div className="bg-brandTealDark text-white py-20">
+          <h1 className="text-7xl mb-10 font-title text-center">Vision</h1>
 
-        <h1 className="text-7xl my-10 font-title text-gray-800 text-center">
-          Mission
-        </h1>
+          <h4 className="px-3 text-base font-body max-w-3xl mx-auto text-center tracking-wide">
+            Inspiring investment in communities to eliminate poverty by
+            providing sustainable opportunities and better circumstance for
+            future generation
+          </h4>
 
-        <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
-          Create sustainable opportunity and better circumstance for the future
-          of Sri Lanka
-        </h4>
+          <h1 className="px-3 text-7xl mt-16 my-10 font-title text-center">
+            Mission
+          </h1>
 
-        <h1 className="text-7xl my-10 font-title text-gray-800 text-center">
-          Values
-        </h1>
-
-        <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
-          Integrity to our Values
-        </h4>
-        <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
-          Respect for our collaborations
-        </h4>
-
-        <h4 className="text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
-          Sustainable Solutions
-        </h4>
+          <h4 className="px-3 text-base font-body max-w-3xl mx-auto text-center tracking-wide">
+            Create sustainable opportunity and better circumstance for the
+            future of Sri Lanka
+          </h4>
+        </div>
       </div>
     </PageWithNavAndFooter>
   );

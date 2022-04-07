@@ -119,7 +119,7 @@ const IndividualDonation = () => {
                   href="https://www.gofundme.com/f/help-sri-lanka-free-them-from-labour?utm_source=customer&utm_medium=copy_link_all&utm_campaign=p_cp+share-sheet"
                 >
                   <div className="mt-10 w-32 md:w-auto">
-                    <FilledButton color="orange">
+                    <FilledButton color="yellow">
                       <span className="uppercase whitespace-nowrap text-sm font-bold text-black">
                         Donate now
                       </span>

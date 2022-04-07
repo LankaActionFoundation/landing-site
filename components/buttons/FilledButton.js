@@ -26,10 +26,6 @@ const FilledButton = ({
         "bg-brandYellow hover:bg-brandYellow/80 focus-visible:ring-brandYellow"
       }
       ${
-        color === "teal" &&
-        "bg-brandTealDark hover:bg-brandTealDark/80 focus-visible:ring-brandTealDark"
-      }
-      ${
         color === "orange" &&
         "bg-brandOrange hover:bg-brandOrange/90 focus-visible:ring-brandOrange"
       }

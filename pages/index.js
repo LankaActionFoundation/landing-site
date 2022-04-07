@@ -100,13 +100,13 @@ export default function Home() {
               muted={true}
               loop={true}
               autoPlay={true}
-              className="w-full h-full absolute top-0 z-20"
+              className="w-full h-full absolute top-0 z-20 object-cover"
             >
-              <source type="video/mp4" src="./sample-video.mp4"></source>
+              <source type="video/mp4" src="./home-video.mp4"></source>
             </video>
 
             {/* hero */}
-            <div className="absolute mt-16 md:mt-40 top-0 inset-x-0 z-30">
+            <div className="absolute mt-16 md:mt-96 top-0 inset-x-0 z-30">
               <div className="w-full mt-5 py-3 px-3 xl:px-0 max-w-6xl mx-auto">
                 <h4 className="text-base md:text-2xl text-white">
                   <span className="text-base md:text-xl text-brandOrange">
@@ -115,16 +115,16 @@ export default function Home() {
                   Nonprofit Foundation
                 </h4>
 
-                <h1 className="mt-6 mb-14 font-title text-5xl md:text-6xl tracking-wide font-bold text-white">
+                <h1 className="mt-6 mb-14 text-5xl md:text-6xl tracking-wide leading-loose text-white">
+                  Transforming the{" "}
                   <span className="text-brandOrange text-6xl md:text-7xl">
-                    Improving the lives
+                    most vulnerable communities
                   </span>{" "}
-                  of children families, and communities and
+                  in Sri Lanka towards a
                   <span className="text-brandOrange text-6xl md:text-7xl">
                     {" "}
-                    restoring and protecting
-                  </span>{" "}
-                  our planet.
+                    sustainable standard of living.
+                  </span>
                 </h1>
 
                 {/* card */}
@@ -161,11 +161,16 @@ export default function Home() {
                   </h3>
 
                   <div className="mt-5 w-full flex items-center lg:justify-start justify-center">
-                    <div className="w-full max-w-xs lg:w-36 ">
-                      <FilledButton color="yellow">
-                        <span className="text-black">Donate now</span>
-                      </FilledButton>
-                    </div>
+                    <a
+                      target="_blank"
+                      href="https://www.gofundme.com/f/help-sri-lanka-free-them-from-labour?utm_source=customer&utm_medium=copy_link_all&utm_campaign=p_cp+share-sheet"
+                    >
+                      <div className="w-full max-w-xs lg:w-36 ">
+                        <FilledButton color="yellow">
+                          <span className="text-black">Donate now</span>
+                        </FilledButton>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -276,8 +281,6 @@ export default function Home() {
 
             <h2 className="mt-5 text-3xl md:text-4xl font-title text-gray-800 w-full max-w-lg xl:max-w-none mx-auto block text-center font-bold">
               The smallest donation can change someone’s life. <br />
-              You can be the reason someone eats a meal today. <br />
-              You can be the turning point in someone’s life
             </h2>
 
             {donations && donations.length > 0 && (
@@ -346,7 +349,7 @@ export default function Home() {
 
         {/* 5th section */}
         <section className="bg-white w-full">
-          <div className="w-full pb-20 max-w-6xl mx-auto px-3 lg:px-0">
+          <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
             {/* <div className="w-full mt-5 flex flex-col md:flex-row items-start justify-between gap-10">
               <div className="w-full">
                 <h2 className="text-5xl md:text-7xl font-title text-gray-800 font-bold">
@@ -380,7 +383,7 @@ export default function Home() {
                 <img className="w-32 h-32" src="./charity-logo.png" alt="" />
               </div>
             </div> */}
-            <div className="mt-20">
+            <div className="">
               {blogs && blogs.length > 0 && (
                 <>
                   <div className="w-full flex flex-col md:flex-row items-start justify-between">

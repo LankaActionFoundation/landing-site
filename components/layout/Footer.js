@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/dist/client/link";
+import TextInput from "../../components/inputs/TextInput";
+import FilledButton from "../../components/buttons/FilledButton";
 const Footer = () => {
   const [links, setLinks] = useState([
     {
@@ -12,32 +14,32 @@ const Footer = () => {
         { name: "Careers", url: "/careers" },
       ],
     },
-
-    {
-      title: "Fundraising",
-      links: [
-        { name: "Education", url: "/rural-education-program" },
-        { name: "Water", url: "/water-for-everyone" },
-        { name: "Child", url: "/sponsor-a-child" },
-      ],
-    },
   ]);
   return (
     <footer className="pattern w-full pb-10 px-3 xl:px-0">
       <div className="w-full max-w-6xl mx-auto pt-20 pb-10 px-3 xl:px-0 border-b border-gray-300 border-opacity-60">
         <div className="w-full flex flex-col md:flex-row items-start justify-between gap-20">
-          <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
+          <div className="w-full md:w-[700px] flex flex-col items-center justify-center md:items-start md:justify-start">
             <Link href="/">
               <img src="/Logo.png" className="w-14 h-14 object-cover" alt="" />
             </Link>
 
-            <h3 className="mt-5 text-sm leading-7 text-white w-full min-w-lg flex-shrink-0 text-center md:text-left">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-              laboriosam dolore cumque maiores molestias aliquam soluta corrupti
-              itaque odio labore eum nam, quas praesentium earum suscipit
-              similique iure odit? Reprehenderit velit at dicta inventore sed
-              maiores aut praesentium vel sunt.
+            <h3 className="mt-5 text-white text-sm font-medium">
+              Subscribe to our newsletter
             </h3>
+            <div className="w-full flex items-start justify-between gap-3">
+              <TextInput
+                className="w-full"
+                name="subscribe"
+                placeholder="Email"
+                type="email"
+              />
+              <div className="mt-1 w-min">
+                <FilledButton color="yellow">
+                  <span className="text-gray-800">Subscribe</span>
+                </FilledButton>
+              </div>
+            </div>
           </div>
 
           {/* links */}
@@ -88,7 +90,7 @@ const Footer = () => {
                 </svg>
 
                 <h5 className="text-sm text-white whitespace-nowrap">
-                  0812064264
+                  <a href="tel: +94722999555">+94 722 999 555</a>
                 </h5>
               </div>
 
@@ -115,7 +117,7 @@ const Footer = () => {
                 </svg>
 
                 <h5 className="text-sm text-white whitespace-nowrap">
-                  hello@lankaaction.com
+                  <a href="mailto:info@lankaaction.com">info@lankaaction.com</a>
                 </h5>
               </div>
 
@@ -211,6 +213,34 @@ const Footer = () => {
                     <path
                       fill="currentColor"
                       d="M941.3 296.1a112.3 112.3 0 0 0-79.2-79.3C792.2 198 512 198 512 198s-280.2 0-350.1 18.7A112.12 112.12 0 0 0 82.7 296C64 366 64 512 64 512s0 146 18.7 215.9c10.3 38.6 40.7 69 79.2 79.3C231.8 826 512 826 512 826s280.2 0 350.1-18.8c38.6-10.3 68.9-40.7 79.2-79.3C960 658 960 512 960 512s0-146-18.7-215.9zM423 646V378l232 133l-232 135z"
+                    />
+                  </svg>
+                </a>
+                <a target="blank" href="#">
+                  <svg
+                    aria-hidden="true"
+                    className="w-5 h-5 text-customGreen"
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      d="M17.415 14.382c-.298-.149-1.759-.867-2.031-.967c-.272-.099-.47-.148-.669.15c-.198.296-.767.966-.94 1.164c-.174.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.019-.458.13-.606c.134-.133.297-.347.446-.52c.149-.174.198-.298.297-.497c.1-.198.05-.371-.025-.52c-.074-.149-.668-1.612-.916-2.207c-.241-.579-.486-.5-.668-.51c-.174-.008-.372-.01-.57-.01c-.198 0-.52.074-.792.372c-.273.297-1.04 1.016-1.04 2.479c0 1.462 1.064 2.875 1.213 3.074c.149.198 2.095 3.2 5.076 4.487c.71.306 1.263.489 1.694.625c.712.227 1.36.195 1.872.118c.57-.085 1.758-.719 2.006-1.413c.247-.694.247-1.289.173-1.413c-.074-.124-.272-.198-.57-.347Zm-5.422 7.403h-.004a9.87 9.87 0 0 1-5.032-1.378l-.36-.214l-3.742.982l.999-3.648l-.235-.374a9.861 9.861 0 0 1-1.511-5.26c.002-5.45 4.436-9.884 9.889-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.892 6.993c-.002 5.45-4.436 9.885-9.884 9.885Zm8.412-18.297A11.815 11.815 0 0 0 11.992 0C5.438 0 .102 5.335.1 11.892a11.864 11.864 0 0 0 1.587 5.945L0 24l6.304-1.654a11.881 11.881 0 0 0 5.684 1.448h.005c6.554 0 11.89-5.335 11.892-11.893a11.821 11.821 0 0 0-3.48-8.413"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+                <a target="blank" href="https://www.tiktok.com/@lankaaction">
+                  <svg
+                    aria-hidden="true"
+                    className="w-5 h-5 text-customGreen"
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M16.708.027C18.453 0 20.188.016 21.921 0c.105 2.041.839 4.12 2.333 5.563c1.491 1.479 3.6 2.156 5.652 2.385v5.369c-1.923-.063-3.855-.463-5.6-1.291c-.76-.344-1.468-.787-2.161-1.24c-.009 3.896.016 7.787-.025 11.667c-.104 1.864-.719 3.719-1.803 5.255c-1.744 2.557-4.771 4.224-7.88 4.276c-1.907.109-3.812-.411-5.437-1.369C4.307 29.027 2.412 26.12 2.136 23a22.3 22.3 0 0 1-.016-1.984c.24-2.537 1.495-4.964 3.443-6.615c2.208-1.923 5.301-2.839 8.197-2.297c.027 1.975-.052 3.948-.052 5.923c-1.323-.428-2.869-.308-4.025.495a4.618 4.618 0 0 0-1.819 2.333c-.276.676-.197 1.427-.181 2.145c.317 2.188 2.421 4.027 4.667 3.828c1.489-.016 2.916-.88 3.692-2.145c.251-.443.532-.896.547-1.417c.131-2.385.079-4.76.095-7.145c.011-5.375-.016-10.735.025-16.093z"
                     />
                   </svg>
                 </a>
