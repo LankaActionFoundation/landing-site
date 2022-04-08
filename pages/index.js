@@ -102,7 +102,10 @@ export default function Home() {
               autoPlay={true}
               className="w-full h-full absolute top-0 z-20 object-cover"
             >
-              <source type="video/mp4" src="./home-video.mp4"></source>
+              <source
+                type="video/mp4"
+                src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fhomepage%2Fhome-video.mp4?alt=media&token=4a2e53e2-1557-4c25-923e-d887571aa181"
+              ></source>
             </video>
 
             {/* hero */}

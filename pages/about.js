@@ -52,9 +52,21 @@ export default function About() {
         </h4>
 
         <div className="w-full mt-10 mx-auto grid grid-cols-1 md:grid-cols-3">
-          <img src="./about_01.jpg" className="w-full " alt="" />
-          <img src="./about_02.jpg" className="w-full h-full " alt="" />
-          <img src="./about_03.jpg" className="w-full " alt="" />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fabout%2Fabout_01.jpg?alt=media&token=4fd8e9b3-502d-48f4-9811-f0b024bb95cd"
+            className="w-full "
+            alt=""
+          />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fabout%2Fabout_02.jpg?alt=media&token=8f85bd43-4ad2-404b-b271-6de87661ba2d"
+            className="w-full h-full "
+            alt=""
+          />
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fabout%2Fabout_03.jpg?alt=media&token=947f7010-04fb-4354-864d-cb649f5e5700"
+            className="w-full "
+            alt=""
+          />
         </div>
 
         <div className="bg-brandTealDark text-white py-20">
