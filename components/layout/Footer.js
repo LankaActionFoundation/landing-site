@@ -16,7 +16,7 @@ const Footer = () => {
     },
   ]);
   return (
-    <footer className="pattern w-full pb-10 px-3 xl:px-0">
+    <footer className="pattern w-full pb-20 md:pb-10 px-3 xl:px-0">
       <div className="w-full max-w-6xl mx-auto pt-20 pb-10 px-3 xl:px-0 border-b border-gray-300 border-opacity-60">
         <div className="w-full flex flex-col md:flex-row items-start justify-between gap-20">
           <div className="w-full md:w-[700px] flex flex-col items-center justify-center md:items-start md:justify-start">
