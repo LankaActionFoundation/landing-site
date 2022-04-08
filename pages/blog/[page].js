@@ -5,6 +5,7 @@ import CustomPagination from "../../components/inputs/CustomPagination";
 import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
 import Loading from "../../components/Loading";
 import axios from "axios";
+import Head from "next/head";
 
 const Blogs = () => {
   const router = useRouter();
@@ -62,6 +63,9 @@ const Blogs = () => {
 
   return (
     <PageWithNavAndFooter>
+      <Head>
+        <title>LVAF | Blog</title>
+      </Head>
       {/* <div className="relative min-h-screen">
         <div
           className="

@@ -5,6 +5,7 @@ import CustomPagination from "../../../components/inputs/CustomPagination";
 import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
 import Loading from "../../../components/Loading";
 import axios from "axios";
+import Head from "next/head";
 
 const Donations = () => {
   const router = useRouter();
@@ -61,6 +62,9 @@ const Donations = () => {
 
   return (
     <PageWithNavAndFooter>
+      <Head>
+        <title>LVAF| Past Projects</title>
+      </Head>
       {!loading && donations && (
         <>
           {/* <div className="relative min-h-screen">

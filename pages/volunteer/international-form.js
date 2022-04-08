@@ -82,7 +82,9 @@ export default function InternationalForm() {
   return (
     <>
       {/* <Navbar color="black" /> */}
-
+      <Head>
+        <title>LVAF | Volunteer | international form</title>
+      </Head>
       <div className="mt-32 p-5 2xl:px-0 min-h-screen">
         <div className="mb-10 w-full max-w-4xl mx-auto">
           <VolunteerSVG />

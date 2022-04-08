@@ -72,6 +72,10 @@ export default function LocalForm() {
   });
   return (
     <>
+      <Head>
+        <title>LVAF | Volunteer | local form</title>
+      </Head>
+
       <div className="mt-32 p-5 2xl:px-0 min-h-screen">
         <div className="mb-10 w-full max-w-4xl mx-auto">
           <VolunteerSVG />

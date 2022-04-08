@@ -148,7 +148,7 @@ const reset_password_token = () => {
   return (
     <div className="w-full min-h-screen p-3 flex items-center justify-center">
       <Head>
-        <title>Lanka Action Foundation | Reset password</title>
+        <title>LVAF | Reset password</title>
       </Head>
       <div className="w-full max-w-md flex flex-col items-center justify-center">
         <div className="w-full overflow-hidden max-w-md rounded-2xl border border-gray-300 flex flex-col items-center justify-start">

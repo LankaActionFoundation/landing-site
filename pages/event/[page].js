@@ -5,6 +5,7 @@ import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
 import Loading from "../../components/Loading";
 import axios from "axios";
 import EventCard from "../../components/EventCard";
+import Head from "next/head";
 
 const Donations = () => {
   const router = useRouter();
@@ -61,6 +62,9 @@ const Donations = () => {
 
   return (
     <PageWithNavAndFooter>
+      <Head>
+        <title>LVAF | Events</title>
+      </Head>
       {/* <div className="relative min-h-screen">
         <div
           className="

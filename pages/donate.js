@@ -136,7 +136,7 @@ export default function Donation() {
   return (
     <PageWithNavAndFooter color="bg-blue-900/50">
       <Head>
-        <title>Lanka Action Foundation | Donate</title>
+        <title>LVAF | Donate</title>
       </Head>
       <div className="w-full min-h-[200vh] md:min-h-[160vh] relative h-full z-20">
         <div

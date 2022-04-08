@@ -73,7 +73,7 @@ const IndividualDonation = () => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>{slug}</title>
         <link
           href="../css/froala_style.min.css"
           rel="stylesheet"

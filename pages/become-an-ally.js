@@ -43,6 +43,9 @@ export default function Ally() {
 
   return (
     <>
+      <Head>
+        <title>LVAF | Become an Ally</title>
+      </Head>
       <Navbar color="black" />
       <div className="mt-32 p-5 2xl:px-0 min-h-screen">
         <div className="mb-10 w-full max-w-4xl mx-auto">

@@ -695,7 +695,7 @@ export default function Register() {
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
       <Head>
-        <title>Lanka Action Foundation | Register</title>
+        <title>LVAF | Register</title>
       </Head>
       {/* card */}
       <div className="p-5 w-full max-w-6xl mx-auto">

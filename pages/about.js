@@ -5,7 +5,7 @@ export default function About() {
   return (
     <PageWithNavAndFooter>
       <Head>
-        <title>Lanka Action Foundation | About</title>
+        <title>LVAF | About</title>
       </Head>
       <div className="w-full pt-40 bg-white ">
         <h1 className="px-3 text-7xl mb-10 font-title text-gray-800 text-center">

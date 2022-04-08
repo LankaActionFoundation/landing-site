@@ -70,6 +70,9 @@ export default function Careers() {
   });
   return (
     <>
+      <Head>
+        <title>LVAF | Careers</title>
+      </Head>
       <Navbar color="black" />
 
       <div className="w-full max-w-screen-lg mx-auto mt-32 p-5 py-20 2xl:px-0 min-h-screen">
