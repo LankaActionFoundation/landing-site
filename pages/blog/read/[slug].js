@@ -46,6 +46,13 @@ const IndividualBlog = () => {
     }
   }, [slug]);
 
+  useEffect(() => {
+    if (!loading && blog) {
+      const watermark = document.querySelector('[data-f-id="pbf"]');
+      watermark.classList.add("hidden");
+    }
+  }, [blog, loading]);
+
   return (
     <>
       <Head>
