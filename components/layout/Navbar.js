@@ -145,11 +145,11 @@ const Navbar = ({ color }) => {
                   Volunteer
                 </h3>
               </Link>
-              <Link href="/careers">
+              {/* <Link href="/careers">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
                   Careers
                 </h3>
-              </Link>
+              </Link> */}
               <Link href="/become-an-ally">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
                   Become an ally
@@ -495,7 +495,7 @@ const Navbar = ({ color }) => {
               name="Get involved"
               links={[
                 { name: "Volunteer", url: "/volunteer" },
-                { name: "Careers", url: "/careers" },
+                // { name: "Careers", url: "/careers" },
                 { name: "Become an ally", url: "/become-an-ally" },
               ]}
             />

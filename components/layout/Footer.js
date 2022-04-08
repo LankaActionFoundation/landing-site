@@ -11,7 +11,7 @@ const Footer = () => {
         { name: "News and Article", url: "/blog/1" },
         { name: "Latest Events", url: "/event/1" },
         { name: "Contact", url: "#" },
-        { name: "Careers", url: "/careers" },
+        // { name: "Careers", url: "/careers" },
       ],
     },
   ]);
@@ -40,6 +40,9 @@ const Footer = () => {
                 </FilledButton>
               </div>
             </div>
+            <p className="text-white text-sm">
+              Uplifting and strengtthening vulnerable communities in Sri Lanka
+            </p>
           </div>
 
           {/* links */}
@@ -253,7 +256,10 @@ const Footer = () => {
 
       <div className="w-full max-w-6xl mx-auto pt-5">
         <div className="w-full flex flex-col md:flex-row items-center justify-between text-sm text-white">
-          <h4>&copy; copyrights {new Date().getFullYear()} by donation</h4>
+          <h4>
+            &copy; copyrights {new Date().getFullYear()} by lanka vision action
+            foundation
+          </h4>
           <div className="mt-2 md:mt-0 flex items-center justify-center gap-5">
             <h4>Privacy policy</h4>
             <h4>Terms and conditions</h4>

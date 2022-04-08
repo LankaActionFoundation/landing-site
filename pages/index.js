@@ -268,7 +268,7 @@ export default function Home() {
                 <li className="text-sm text-gray-800">Compassionate</li>
               </ul>
               <ul className="list-disc flex items-center justify-center gap-2">
-                <li className="text-sm text-gray-800">Respected</li>
+                <li className="text-sm text-gray-800">Trustworthy</li>
               </ul>
             </div>
           </div>
