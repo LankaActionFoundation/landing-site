@@ -93,36 +93,58 @@ export default function InternationalForm() {
           Volunteer
         </h1>
 
-        <div className="w-full mb-20 text-base max-w-xl mx-auto tracking-wide leading-snug">
-          <p className="mt-5 text-gray-900">
-            Because as a child of the universe you has to fulfill your
-            responsibility, you need to actively engage to uplift the community
-            and you want to change the world to a better place.
-          </p>
-          <p className="mt-5 text-gray-900">
-            We are always looking for locals on the island to help support Lanka
-            Vision. We need people on sites to collect information, distribute
-            goods, meet other locals for community development, and to lead a
-            variety of projects per region. We are also always looking for extra
-            hands, ears, and support for running the site, programs, and so on.
-            Since we are non profit there is limited paid staff. We count on
-            community support to help those in need.
-          </p>
-          <p className="mt-5 text-gray-900">
-            International volunteers are also always welcome. If you are
-            visiting and want to get hands-on, we may not assign you to teach a
-            class, or check out water sites in regions. Instead, we might ask
-            you to distribute food and medicine or help out at an event.
-          </p>
-          <p className="mt-5 text-gray-900">
-            If you are interested, get in touch and we'll get you organized
-            based on location, interests, time and commitment. Whether you have
-            3 hours or 3 months; there is always room for support. We encourage
-            anyone and everyone to get involved. Bettering communities, you will
-            surely better yourself by giving back to those in need!
-          </p>
+        <div className="w-full mb-20 mt-10 text-base max-w-screen-lg mx-auto tracking-wide leading-snug">
+          <div className="w-full flex flex-col md:flex-row items-start justify-between gap-10">
+            <div className="">
+              <p className="mt-5 text-gray-900">
+                Because as a child of the universe you has to fulfill your
+                responsibility, you need to actively engage to uplift the
+                community and you want to change the world to a better place.
+              </p>
+              <p className="mt-5 text-gray-900">
+                We are always looking for locals on the island to help support
+                Lanka Vision. We need people on sites to collect information,
+                distribute goods, meet other locals for community development,
+                and to lead a variety of projects per region. We are also always
+                looking for extra hands, ears, and support for running the site,
+                programs, and so on. Since we are non profit there is limited
+                paid staff. We count on community support to help those in need.
+              </p>
+            </div>
 
-          <p className="mt-5 text-gray-900">
+            <img
+              className="w-full h-full max-w-lg rounded-sm object-cover"
+              src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fvolunteer%2Fimage_01.jpg?alt=media&token=7aecdec9-d4e9-49ea-ae26-4cf8635d483f"
+              alt=""
+            />
+          </div>
+
+          <div className="mt-10 w-full flex flex-col md:flex-row items-start justify-between gap-10">
+            <img
+              className="w-full h-full max-w-lg rounded-sm object-cover"
+              src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fvolunteer%2Fimage_02.jpg?alt=media&token=ddb45e31-4ea7-4c5b-82b4-73fcb05864c0"
+              alt=""
+            />
+            <div className="">
+              <p className="mt-5 text-gray-900">
+                International volunteers are also always welcome. If you are
+                visiting and want to get hands-on, we may not assign you to
+                teach a class, or check out water sites in regions. Instead, we
+                might ask you to distribute food and medicine or help out at an
+                event.
+              </p>
+              <p className="mt-5 text-gray-900">
+                If you are interested, get in touch and we'll get you organized
+                based on location, interests, time and commitment. Whether you
+                have 3 hours or 3 months; there is always room for support. We
+                encourage anyone and everyone to get involved. Bettering
+                communities, you will surely better yourself by giving back to
+                those in need!
+              </p>
+            </div>
+          </div>
+
+          <p className="w-full text-center mt-5 text-gray-900">
             Join us by clicking the form below
           </p>
 
