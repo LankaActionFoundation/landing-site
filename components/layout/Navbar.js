@@ -167,7 +167,7 @@ const Navbar = ({ color }) => {
                   Upcoming events
                 </h3>
               </Link>
-              <Link href="/">
+              <Link href="/host-an-event">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
                   Host an event
                 </h3>
@@ -503,7 +503,7 @@ const Navbar = ({ color }) => {
               name="Events"
               links={[
                 { name: "upcoming events", url: "/event/1" },
-                { name: "Host an Event", url: "/#" },
+                { name: "Host an Event", url: "/host-an-event" },
               ]}
             />
 
