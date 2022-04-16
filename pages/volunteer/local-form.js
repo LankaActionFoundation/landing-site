@@ -85,9 +85,9 @@ export default function LocalForm() {
         </h1>
 
         <div className="w-full mb-20 mt-10 text-base max-w-screen-lg mx-auto tracking-wide leading-snug">
-          <div className="w-full flex flex-col md:flex-row items-start justify-between gap-10">
-            <div className="">
-              <p className="mt-5 text-gray-900">
+          <div className="w-full relative h-full md:aspect-video flex md:flex-col flex-col-reverse">
+            <div className="bg-white/70 backdrop-blur-md backdrop-filter md:absolute mt-2 md:mt-0 md:p-5 md:m-2 rounded-lg inset-x-0 bottom-0">
+              <p className="text-gray-900">
                 Because as a child of the universe you has to fulfill your
                 responsibility, you need to actively engage to uplift the
                 community and you want to change the world to a better place.
@@ -104,20 +104,15 @@ export default function LocalForm() {
             </div>
 
             <img
-              className="w-full h-full max-w-lg rounded-sm object-cover"
+              className="w-full h-full aspect-square rounded-lg object-cover"
               src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fvolunteer%2Fimage_01.jpg?alt=media&token=7aecdec9-d4e9-49ea-ae26-4cf8635d483f"
               alt=""
             />
           </div>
 
-          <div className="mt-10 w-full flex flex-col md:flex-row items-start justify-between gap-10">
-            <img
-              className="w-full h-full max-w-lg rounded-sm object-cover"
-              src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fvolunteer%2Fimage_02.jpg?alt=media&token=ddb45e31-4ea7-4c5b-82b4-73fcb05864c0"
-              alt=""
-            />
-            <div className="">
-              <p className="mt-5 text-gray-900">
+          <div className="mt-10 w-full relative h-full md:aspect-video flex md:flex-col flex-col-reverse">
+            <div className="bg-white/70 backdrop-blur-md backdrop-filter md:absolute mt-2 md:mt-0 md:p-5 md:m-2 rounded-lg inset-x-0 bottom-0">
+              <p className="text-gray-900">
                 International volunteers are also always welcome. If you are
                 visiting and want to get hands-on, we may not assign you to
                 teach a class, or check out water sites in regions. Instead, we
@@ -133,6 +128,12 @@ export default function LocalForm() {
                 those in need!
               </p>
             </div>
+
+            <img
+              className="w-full h-full rounded-lg aspect-square object-cover"
+              src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fvolunteer%2Fimage_02.jpg?alt=media&token=ddb45e31-4ea7-4c5b-82b4-73fcb05864c0"
+              alt=""
+            />
           </div>
 
           <p className="w-full text-center mt-5 text-gray-900">

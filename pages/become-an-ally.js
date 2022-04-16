@@ -57,22 +57,27 @@ export default function Ally() {
 
         <div className="mt-10 w-full text-base max-w-screen-lg mx-auto tracking-wide leading-snug">
           <div className="w-full flex flex-col md:flex-row items-start justify-between gap-10">
-            <p className="mt-5 text-gray-900">
-              Partners like our donors and volunteers are the pillars of Lanka
-              Vision Action Foundation; fundamental to the organization and
-              support of our mission . Our partners are individuals or
-              organizations committed to longterm support. Some create programs
-              within their business structures to constantly give back while
-              others make it a point to provide resource or commitment
-              long-term. Healthcare practitioners, educators, manufacturers of
-              supplies, and so forth - we need your support, get involved today!
-            </p>
+            <div className="w-full relative h-full md:aspect-video flex md:flex-col flex-col-reverse">
+              <div className="bg-white/70 backdrop-blur-md backdrop-filter md:absolute mt-2 md:mt-0 md:p-5 md:m-2 rounded-lg inset-x-0 bottom-0">
+                <p className="text-gray-900">
+                  Partners like our donors and volunteers are the pillars of
+                  Lanka Vision Action Foundation; fundamental to the
+                  organization and support of our mission . Our partners are
+                  individuals or organizations committed to longterm support.
+                  Some create programs within their business structures to
+                  constantly give back while others make it a point to provide
+                  resource or commitment long-term. Healthcare practitioners,
+                  educators, manufacturers of supplies, and so forth - we need
+                  your support, get involved today!
+                </p>
+              </div>
 
-            <img
-              className="w-full h-full max-w-lg rounded-sm object-cover"
-              src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fally%2Fimage_01.jpg?alt=media&token=10639ab2-ce44-43ae-b74a-9da1db8e4a75"
-              alt=""
-            />
+              <img
+                className="w-full h-full aspect-square rounded-lg object-cover"
+                src="https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Fally%2Fimage_01.jpg?alt=media&token=10639ab2-ce44-43ae-b74a-9da1db8e4a75"
+                alt=""
+              />
+            </div>
           </div>
         </div>
 

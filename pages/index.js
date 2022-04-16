@@ -124,7 +124,7 @@ export default function Home() {
               </video>
 
               {/* hero */}
-              <div className="absolute bottom-0 mt-16 md:mt-96 top-0 inset-x-0 z-30">
+              <div className="absolute bottom-0 mt-16 md:mt-96 xl:mt-[35rem] top-0 inset-x-0 z-30">
                 <div className="relative pb-20 md:pb-0 md:h-auto h-screen md:flex-none flex flex-col justify-end w-full py-3 px-3 xl:px-0 max-w-6xl mx-auto">
                   <h4 className="text-base md:text-2xl text-white">
                     <span className="text-base md:text-2xl text-brandOrange">

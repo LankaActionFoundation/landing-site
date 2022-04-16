@@ -206,12 +206,12 @@ const Navbar = ({ color }) => {
             mx-auto
             md:flex
             items-center
-            justify-between
+            justify-end
             border-b border-gray-300 border-opacity-25
           "
         >
           {/* info */}
-          <div className="hidden md:flex items-start justify-start gap-5">
+          <div className="hidden items-start justify-start gap-5">
             <div className="">
               <span className="flex items-center justify-start gap-2">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
