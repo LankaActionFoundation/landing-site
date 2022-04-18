@@ -157,7 +157,7 @@ export default function Home() {
           {/* end of hero */}
 
           {/* 2nd section */}
-          <section className="bg-brandTealDark w-full">
+          <section className="md:pt-32 2xl:pt-10 bg-brandTealDark w-full">
             <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
               <div className="mt-20 md:mt-0 w-full px-3 xl:px-3">
                 <h4 className="text-xl w-full text-center lg:text-left md:text-2xl text-white">
