@@ -74,7 +74,7 @@ export default function Volunteer() {
           </div>
 
           <p className="w-full text-center mt-5 text-gray-900">
-            Join us by clicking the form below
+            Join us by clicking below
           </p>
 
           <div className="mt-5 w-full flex justify-between gap-10">

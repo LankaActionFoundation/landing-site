@@ -133,13 +133,13 @@ export default function Home() {
                     Lanka Vision Action Foundation{" "}
                   </h4>
 
-                  <h1 className="mt-6 mb-14 text-3xl md:text-6xl tracking-wide leading-loose text-white">
+                  <h1 className="mt-6 mb-14 text-3xl md:text-5xl tracking-wide leading-loose text-white">
                     Transforming the{" "}
-                    <span className="text-brandOrange text-4xl md:text-7xl">
+                    <span className="text-brandOrange text-4xl md:text-6xl">
                       most vulnerable communities
                     </span>{" "}
                     in Sri Lanka towards a
-                    <span className="text-brandOrange text-4xl md:text-7xl">
+                    <span className="text-brandOrange text-4xl md:text-6xl">
                       {" "}
                       sustainable standard of living.
                     </span>
