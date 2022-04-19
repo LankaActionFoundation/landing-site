@@ -318,7 +318,6 @@ export default function Home() {
                 <div className="mt-10 w-full md:w-auto flex flex-col md:flex-row items-center justify-center gap-14">
                   {donations.map((donation) => (
                     <CircularDonationCard
-                      widthFull
                       slug={donation.slug}
                       title={donation.title}
                       thumbnail={donation.thumbnail}
