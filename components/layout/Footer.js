@@ -93,7 +93,8 @@ const Footer = () => {
                 </svg>
 
                 <h5 className="text-sm text-white whitespace-nowrap">
-                  <a href="tel: +94722999555">+94 722 999 555</a>
+                  <a href="tel: +94722999555">+94 722 999 555</a>,{" "}
+                  <a href="tel: +14167883939">+14 167 883 939</a>
                 </h5>
               </div>
 
