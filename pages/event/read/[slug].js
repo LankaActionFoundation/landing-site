@@ -165,9 +165,10 @@ const IndividualDonation = () => {
               ></div>
             </div>
 
-            <div className="w-full px-10 xl:px-0 pb-10 max-w-6xl mx-auto">
-              <div
-                className="
+            {tabs && tabs.length > 0 && (
+              <div className="w-full px-10 xl:px-0 pb-10 max-w-6xl mx-auto">
+                <div
+                  className="
                         w-full
                         p-2
                         mt-5
@@ -179,12 +180,12 @@ const IndividualDonation = () => {
                         justify-evenly
                         gap-2
                       "
-              >
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.name}
-                    onClick={() => setSelectedTab(tab.name)}
-                    className={`
+                >
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.name}
+                      onClick={() => setSelectedTab(tab.name)}
+                      className={`
                         py-3
                         px-3
                         w-full
@@ -204,27 +205,28 @@ const IndividualDonation = () => {
                             : "bg-transparent text-customBlue/80 hover:bg-customBlueHoverLight/[0.092] hover:text-customBlue shadow-none"
                         }
                       `}
-                  >
-                    {tab.name.split("_").join(" ")}
-                  </button>
-                ))}
+                    >
+                      {tab.name.split("_").join(" ")}
+                    </button>
+                  ))}
+                </div>
+                <div className="w-full  py-10 max-w-6xl mx-auto  items-start justify-between">
+                  {tabs.map((tab) => {
+                    if (tab.name === selectedTab) {
+                      return (
+                        <div
+                          key={tab.name}
+                          className="fr-view"
+                          dangerouslySetInnerHTML={{
+                            __html: tab.body,
+                          }}
+                        ></div>
+                      );
+                    }
+                  })}
+                </div>
               </div>
-              <div className="w-full  py-10 max-w-6xl mx-auto  items-start justify-between">
-                {tabs.map((tab) => {
-                  if (tab.name === selectedTab) {
-                    return (
-                      <div
-                        key={tab.name}
-                        className="fr-view"
-                        dangerouslySetInnerHTML={{
-                          __html: tab.body,
-                        }}
-                      ></div>
-                    );
-                  }
-                })}
-              </div>
-            </div>
+            )}
 
             {event.linkType === "gmap" && (
               <div className="w-full px-3 xl:px-0 pb-10 max-w-6xl mx-auto flex flex-col items-start justify-start">
