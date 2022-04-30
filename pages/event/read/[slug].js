@@ -77,7 +77,9 @@ const IndividualDonation = () => {
       value: "unpublished",
     },
   ]);
-  const [selectedTab, setSelectedTab] = useState(tabs[0].name);
+  const [selectedTab, setSelectedTab] = useState(
+    tabs && tabs.length > 0 ? tabs[0].name : ""
+  );
 
   return (
     <>
@@ -124,10 +126,10 @@ const IndividualDonation = () => {
               </h1>
 
               {/* card */}
-              <div className="mx-3 xl:mx-0 mt-10 border border-white/30 shadow-xl w-full max-w-md md:block  rounded-3xl p-2 bg-white/20 backdrop-filter backdrop-blur-sm">
+              <div className="mx-3 xl:mx-0 mt-10 border border-white/30 shadow-xl md:block  rounded-3xl p-2 bg-white/20 backdrop-filter backdrop-blur-sm">
                 <div className="rounded-2xl w-full mx-auto p-1 bg-white/80 shadow-lg">
                   <div className="rounded-xl bg-customBlue w-full p-5">
-                    <h2 className="text-xl w-full text-center md:text02xl font-bold text-white">
+                    <h2 className="text-xl w-full text-center md:text-2xl font-bold text-white">
                       {formatDate(event.date)}
                     </h2>
                   </div>
@@ -137,10 +139,12 @@ const IndividualDonation = () => {
                         key={i}
                         className="w-full flex items-center justify-start "
                       >
-                        <h3 className="mr-2 text-xs font-bold uppercase tracking-wide text-gray-800">
+                        <h3 className="mr-2 text-xs font-bold md:whitespace-nowrap uppercase tracking-wide text-gray-800">
                           {info.field}
                         </h3>
-                        <h4 className="text-sm text-gray-600">{info.value}</h4>
+                        <h4 className="text-sm  md:whitespace-nowrap text-gray-600">
+                          {info.value}
+                        </h4>
                       </div>
                     ))}
                   </div>
