@@ -84,7 +84,7 @@ const IndividualDonation = () => {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>LVAF | [slug]</title>
         <link href="froala_style.min.css" rel="stylesheet" type="text/css" />
         <link
           href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css"
