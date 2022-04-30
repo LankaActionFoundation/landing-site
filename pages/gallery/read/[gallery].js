@@ -135,7 +135,7 @@ const SingleGallery = () => {
                     className="w-full h-full cursor-pointer"
                   >
                     <img
-                      src={image.url}
+                      data-opt-src={image.url}
                       alt=""
                       className="w-full h-full rounded-lg"
                     />
