@@ -71,8 +71,12 @@ const IndividualDonation = () => {
 
   useEffect(() => {
     if (!loading && donation) {
-      const watermark = document.querySelector('[data-f-id="pbf"]');
-      watermark.classList.add("hidden");
+      const watermark = document.querySelectorAll('[data-f-id="pbf"]');
+      if (watermark) {
+        [...watermark].map((w) => {
+          w.classList.add("hidden");
+        });
+      }
     }
   }, [donation, loading]);
 
