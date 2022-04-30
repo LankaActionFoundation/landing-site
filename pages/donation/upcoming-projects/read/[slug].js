@@ -49,7 +49,6 @@ const IndividualDonation = () => {
           withCredentials: true,
         }
       );
-      console.log({ data });
       setDonation(data);
       console.log(data);
       setLoading(false);
@@ -69,6 +68,13 @@ const IndividualDonation = () => {
       fetchSingleDonation();
     }
   }, [slug]);
+
+  useEffect(() => {
+    if (!loading && donation) {
+      const watermark = document.querySelector('[data-f-id="pbf"]');
+      watermark.classList.add("hidden");
+    }
+  }, [donation, loading]);
 
   return (
     <>

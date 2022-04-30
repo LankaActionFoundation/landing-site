@@ -70,6 +70,13 @@ const IndividualDonation = () => {
     }
   }, [slug]);
 
+  useEffect(() => {
+    if (!loading && donation) {
+      const watermark = document.querySelector('[data-f-id="pbf"]');
+      watermark.classList.add("hidden");
+    }
+  }, [donation, loading]);
+
   return (
     <>
       <Head>
