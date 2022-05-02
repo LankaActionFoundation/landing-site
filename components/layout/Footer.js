@@ -41,7 +41,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white text-sm">
-              Uplifting and strengtthening vulnerable communities in Sri Lanka
+              Uplifting and strengthening vulnerable communities in Sri Lanka
             </p>
           </div>
 
