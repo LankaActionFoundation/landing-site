@@ -22,6 +22,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const fetchHomepageBlog = async () => {
+    console.log("local variable", process.env.NEXT_PUBLIC_SERVER_ROUTE);
     try {
       setLoading(true);
 
@@ -34,6 +35,7 @@ export default function Home() {
       setBlogs(data);
       console.log(data);
       setLoading(false);
+      
     } catch (error) {
       setLoading(false);
       if (error?.response?.data?.msg) {
@@ -125,7 +127,7 @@ export default function Home() {
 
               {/* hero */}
               <div className="absolute bottom-0 mt-16 md:mt-96 xl:mt-[35rem] top-0 inset-x-0 z-30">
-                <div className="relative pb-20 md:pb-0 md:h-auto h-screen md:flex-none flex flex-col justify-end w-full py-3 px-3 xl:px-0 max-w-6xl mx-auto">
+                <div className="absolute bottom-0 pb-20 md:pb-0 md:h-auto h-screen md:flex-none flex flex-col justify-end w-full py-3 px-3 xl:px-0 max-w-6xl mx-auto" style={{marginLeft:"50%",transform:"translate(-50%)"}}>
                   <h4 className="text-base md:text-2xl text-white">
                     <span className="text-base md:text-2xl text-brandOrange">
                       We,{" "}
@@ -133,13 +135,13 @@ export default function Home() {
                     Lanka Vision Action Foundation{" "}
                   </h4>
 
-                  <h1 className="mt-6 mb-14 text-3xl md:text-5xl tracking-wide leading-loose text-white">
+                  <h1 className="mt-2 mb-7 text-xl md:text-5xl tracking-wide leading-loose text-white">
                     Transforming the{" "}
-                    <span className="text-brandOrange text-4xl md:text-6xl">
+                    <span className="text-brandOrange text-xl md:text-6xl">
                       most vulnerable communities
                     </span>{" "}
                     in Sri Lanka towards a
-                    <span className="text-brandOrange text-4xl md:text-6xl">
+                    <span className="text-brandOrange text-xl md:text-6xl">
                       {" "}
                       sustainable standard of living.
                     </span>
@@ -158,8 +160,8 @@ export default function Home() {
 
           {/* 2nd section */}
           <section className="md:pt-32 2xl:pt-10 bg-brandTealDark w-full">
-            <div className="w-full py-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
-              <div className="mt-20 md:mt-0 w-full px-3 xl:px-3">
+            <div className="w-full py-5 pb-20 max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+              <div className="mt-2 md:mt-0 w-full px-3 xl:px-3">
                 <h4 className="text-xl w-full text-center lg:text-left md:text-2xl text-white">
                   What we do
                   <div className="mt-2 flex items-center lg:justify-start justify-center">
