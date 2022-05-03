@@ -305,6 +305,11 @@ export default function Home() {
           </section>
           {/* end of 2nd section */}
 
+{/* Donate banner */}
+          <section className="md:pt-32 2xl:pt-10 bg-brandLightBlue w-full">
+
+          </section>
+{/*end of  Donate banner */}
           {/* 3rd section */}
           <section className="bg-white w-full">
             <div className="w-full max-w-6xl mx-auto py-10 px-3 lg:px-0">
