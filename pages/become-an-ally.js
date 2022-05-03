@@ -62,11 +62,11 @@ export default function Ally() {
                 <p className="text-gray-900">
                   Partners like our donors and volunteers are the pillars of
                   Lanka Vision Action Foundation; fundamental to the
-                  organization and support of our mission . Our partners are
+                  organization and support our mission. Our partners are
                   individuals or organizations committed to longterm support.
                   Some create programs within their business structures to
                   constantly give back while others make it a point to provide
-                  resource or commitment long-term. Healthcare practitioners,
+                  resources or commitment long-term. Healthcare practitioners,
                   educators, manufacturers of supplies, and so forth - we need
                   your support, get involved today!
                 </p>

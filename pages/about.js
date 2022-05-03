@@ -22,32 +22,32 @@ export default function About() {
 
         <h4 className="px-3 mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Our mission is to inspire communities to invest in a movement of
-          change; to finally eliminate poverty and provide better circumstance
+          change; to finally eliminate poverty and provide better circumstances
           for future generations. With our round the clock staff and volunteers,
           we are always looking for more people to get involved; and donors to
           help fund our projects. Each project is specific to a cause, some like
           our "Clean Water for Everyone" and "Rural Education Program" are
-          on-going, while others are created, hosted, and supported by the
+          ongoing, while others are created, hosted, and supported by the
           foundations pillars, our partners support.
         </h4>
 
         <h4 className="px-3 mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           Targeting each community within rural Sri Lanka, individually; we will
           be building sustainable housing for families, providing them with
-          necessary resources for livelihood and aid them with education and
+          necessary resources for livelihood and aiding them with education and
           healthcare. Specific support, programs, and projects will be placed
           based on needs within the given region.
         </h4>
 
         <h4 className="px-3 mt-5 text-gray-800 text-base font-body max-w-3xl mx-auto text-left tracking-wide">
           You can get involved as a local Sri Lankan by volunteering or becoming
-          apart of our team. You can also host a fundraiser, become a corporate
-          partner to sponsor projects and events, or donate. If you want to
-          further commit from project based support, feel free to Sponsor a
-          Child. All these programs are what ensures the safety, security, and
+          a part of our team. You can also host a fundraiser, become a corporate
+          partner to sponsor projects and events or donate. If you want to
+          further commit to project-based support, feel free to Sponsor a
+          Child. All these programs are what ensure the safety, security, and
           development of rural communities in need. International volunteers are
           welcome as well. Use the links provided on the home page to learn
-          more. Our online chat and email support is available 24/7 - contact us
+          more. Our online chat and e-mail support are available 24/7 - contact us
           anytime!
         </h4>
 
@@ -74,7 +74,7 @@ export default function About() {
 
           <h4 className="px-3 text-base font-body max-w-3xl mx-auto text-center tracking-wide">
             Inspiring investment in communities to eliminate poverty by
-            providing sustainable opportunities and better circumstance for
+            providing sustainable opportunities and better circumstances for the
             future generation
           </h4>
 
@@ -83,7 +83,7 @@ export default function About() {
           </h1>
 
           <h4 className="px-3 text-base font-body max-w-3xl mx-auto text-center tracking-wide">
-            Create sustainable opportunity and better circumstance for the
+            Create sustainable opportunities and better circumstances for the
             future of Sri Lanka
           </h4>
         </div>

@@ -25,7 +25,7 @@ export default function Volunteer() {
           <div className="w-full relative h-full md:aspect-video flex md:flex-col flex-col-reverse">
             <div className="bg-white/70 backdrop-blur-md backdrop-filter md:absolute mt-2 md:mt-0 md:p-5 md:m-2 rounded-lg inset-x-0 bottom-0">
               <p className="text-gray-900">
-                Because as a child of the universe you has to fulfill your
+                Because as a child of the universe you have to fulfill your
                 responsibility, you need to actively engage to uplift the
                 community and you want to change the world to a better place.
               </p>
@@ -33,9 +33,9 @@ export default function Volunteer() {
                 We are always looking for locals on the island to help support
                 Lanka Vision. We need people on sites to collect information,
                 distribute goods, meet other locals for community development,
-                and to lead a variety of projects per region. We are also always
+                and lead a variety of projects per region. We are also always
                 looking for extra hands, ears, and support for running the site,
-                programs, and so on. Since we are non profit there is limited
+                programs, and so on. Since we are non-profit there is limited
                 paid staff. We count on community support to help those in need.
               </p>
             </div>
