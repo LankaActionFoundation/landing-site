@@ -68,7 +68,7 @@ const IndividualDonation = () => {
   }, [slug]);
 
   useEffect(() => {
-    if (!loading && blog) {
+    if (!loading && event) {
       const watermark = document.querySelectorAll('[data-f-id="pbf"]');
       if (watermark) {
         [...watermark].map((w) => {
