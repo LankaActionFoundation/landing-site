@@ -135,5 +135,24 @@
     transform: rotate(360deg);
   }
 }
+.textWrap {
+  word-break: break-word; 
+}
+
+.fullHeight{
+  height:auto;
+  min-height: 80vh;
+}
+.backgroundCover{
+  background-size: cover;
+}
+
+.backgroundTopRight{
+  background-position: center;
+}
+
+.backgroundOverlay{
+
+}
 
 @tailwind utilities;

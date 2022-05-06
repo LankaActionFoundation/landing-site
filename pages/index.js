@@ -9,6 +9,8 @@ import DonationCard from "../components/DonationCard";
 import BlogCard from "../components/BlogCard";
 import PageWithNavAndFooter from "../components/layout/PageWithNavAndFooter";
 import CircularDonationCard from "../components/CircularDonationCard";
+import ImpactSection from "../components/ImpactSection";
+import DonateRequestSection from "./DonateRequestSection";
 import axios from "axios";
 import Link from "next/link";
 import Loading from "../components/Loading";
@@ -35,7 +37,6 @@ export default function Home() {
       setBlogs(data);
       console.log(data);
       setLoading(false);
-      
     } catch (error) {
       setLoading(false);
       if (error?.response?.data?.msg) {
@@ -127,7 +128,10 @@ export default function Home() {
 
               {/* hero */}
               <div className="absolute bottom-0 mt-16 md:mt-96 xl:mt-[35rem] top-0 inset-x-0 z-30">
-                <div className="absolute bottom-0 pb-20 md:pb-0 md:h-auto h-screen md:flex-none flex flex-col justify-end w-full py-3 px-3 xl:px-0 max-w-6xl mx-auto" style={{marginLeft:"50%",transform:"translate(-50%)"}}>
+                <div
+                  className="absolute bottom-0 pb-20 md:pb-0 md:h-auto h-screen md:flex-none flex flex-col justify-end w-full py-3 px-3 xl:px-0 max-w-6xl mx-auto"
+                  style={{ marginLeft: "50%", transform: "translate(-50%)" }}
+                >
                   <h4 className="text-base md:text-2xl text-white">
                     <span className="text-base md:text-2xl text-brandOrange">
                       We,{" "}
@@ -317,7 +321,7 @@ export default function Home() {
               </h2>
 
               {donations && donations.length > 0 && (
-                <div className="mt-10 w-full md:w-auto flex flex-col md:flex-row items-center justify-center gap-14">
+                <div className="mt-10 w-full md:w-auto flex flex-col md:flex-row items-baseline justify-center gap-14">
                   {donations.map((donation) => (
                     <CircularDonationCard
                       slug={donation.slug}
@@ -333,6 +337,9 @@ export default function Home() {
           </section>
           {/* end of 3rd section */}
 
+          {/* impact of your donation */}
+          <ImpactSection />
+          {/*end of  impact of your donation */}
           {/* 4th section */}
           <section className="bg-brandTealDark w-full">
             <div className="w-full py-20 max-w-6xl mx-auto px-3 lg:px-0">
@@ -409,6 +416,10 @@ export default function Home() {
             </div>
           </section>
           {/* end of 4th section */}
+
+          {/* Donate Request Section */}
+          <DonateRequestSection/>
+          {/* end of the donate request section */}
 
           {/* 5th section */}
           <section className="bg-white w-full">
