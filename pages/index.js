@@ -110,7 +110,7 @@ export default function Home() {
           {/* end of 2nd section */}
 
           {/* Donate Request Section one */}
-          <DonateRequestSectionOne />
+          {/* <DonateRequestSectionOne /> */}
           {/* end of the donate request section one */}
 
           {/* 3rd section */}
@@ -118,10 +118,10 @@ export default function Home() {
           {/* end of 3rd section */}
 
           {/* impact of your donation */}
-          <ImpactSection />
+          {/* <ImpactSection /> */}
           {/*end of  impact of your donation */}
           {/* Donate Request Section */}
-          <DonateRequestSectionTwo />
+          {/* <DonateRequestSectionTwo /> */}
           {/* end of the donate request section */}
           {/* 4th section */}
 
