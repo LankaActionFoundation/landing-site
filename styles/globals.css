@@ -258,6 +258,7 @@ a{
   text-align: center;
   line-height: 60px;
   color: #000;
+  cursor: pointer;
 }
 .heading-2 h2{
   font-family: 'Source Sans Pro', sans-serif !important;
