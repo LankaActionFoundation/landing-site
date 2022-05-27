@@ -18,6 +18,7 @@ import Qualities from "./home/Qualities";
 import Mission from "./home/Mission";
 import Projects from './home/Projects';
 import Blogs from './home/Blogs';
+import UpcommingEvents from './home/UpcommingEvents';
 
 export default function Home() {
   const [amounts, setAmounts] = useState([100, 500, 1000]);
@@ -112,6 +113,12 @@ export default function Home() {
           {/* Donate Request Section one */}
           <DonateRequestSectionOne />
           {/* end of the donate request section one */}
+
+          {/* upcomming events */}
+
+          {/* <UpcommingEvents /> */}
+
+          {/* end upcomming events */}
 
           {/* 3rd section */}
           <Mission />
