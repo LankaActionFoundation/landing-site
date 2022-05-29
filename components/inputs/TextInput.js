@@ -2,12 +2,14 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const TextInput = ({
+  name = "",
   type = "text",
   label,
   error,
   placeholder,
   onBlur,
   value,
+  onChange,
   handler,
 }) => {
   const textInput = useRef(null);
@@ -35,26 +37,19 @@ const TextInput = ({
         className="mt-1 border border-gray-300 rounded-xl shadow-sm"
       >
         <input
-          id={label}
-          value={value}
           type={type}
+          value={value}
+          onChange={onChange}
           onBlur={onBlur}
-          onChange={handler}
+          id={name.toLowerCase()}
+          className={` w-full px-3 py-2 bg-white border ${
+            error ? "border-red-300" : "border-gray-300"
+          }  text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-offset-1 focus:ring-brandTealDark focus:outline-none ${
+            error
+              ? "ring-2 ring-offset-1 ring-red-500 focus:ring-red-500"
+              : "focus:ring-blue-500"
+          }`}
           placeholder={placeholder}
-          className={`
-           focus:outline-none focus:ring-2
-            w-full
-            px-2
-            py-2
-            sm:text-sm
-            border-gray-300
-            rounded-xl
-
-            ${
-              error
-                ? "focus:ring-customRed ring-2 ring-customRed"
-                : "focus:ring-customBlue"
-            }`}
         />
       </div>
 

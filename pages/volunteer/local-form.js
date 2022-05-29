@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import FilledButton from "../../components/buttons/FilledButton";
@@ -15,9 +16,21 @@ import axios from "axios";
 import Link from "next/link";
 import VolunteerSVG from "../../components/VolunteerSVG";
 import { useRouter } from "next/router";
+import ReCAPTCHA from "react-google-recaptcha";
 export default function LocalForm() {
   const [projectList, setProjectList] = useState([]);
   const router = useRouter();
+  
+  const recaptchaRef = React.createRef();
+  const onReCAPTCHAChange = (captchaCode) => {
+    // If the reCAPTCHA code is null or undefined indicating that
+    // the reCAPTCHA was expired then return early
+    if(!captchaCode) {
+      return;
+    }
+
+    recaptchaRef.current.reset();
+  }
   const getProjects = async () => {
     const { data } = await axios.get(
       `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/donation/get_projects`
@@ -35,13 +48,40 @@ export default function LocalForm() {
     setProjectList(projectArr);
   };
 
-  const createVolunteer = async (form) => {
-    const { data } = await axios.post(
-      `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/volunteer`,
-      form
-    );
+  const volunteerEmail = async (form) => {
+    const sProject = form.project;
+    var sProjectName = '';
+    projectList.forEach(project => {
 
-    console.log(data);
+      if(sProject == project._id)
+      {
+        sProjectName = project.name;
+      }
+      form.project = sProjectName;
+    });
+
+    await fetch('/api/volunteer', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    }).then((res) => {
+      console.log(res.status);
+    });
+
+  };
+
+  const createVolunteer = async (form) => {
+    recaptchaRef.current.execute();
+    await volunteerEmail(form).then(async () => {
+      await axios
+        .post(`${process.env.NEXT_PUBLIC_SERVER_ROUTE}/volunteer`, form)
+        .then((data) => {
+          // console.log(data);
+        });
+    });
   };
 
   useEffect(() => {
@@ -176,7 +216,7 @@ export default function LocalForm() {
               city: "",
               state: "",
               starting_date: new Date(),
-              project: projectList.length > 0 ? projectList[0]._id : "",
+              project: projectList.length > 0 ? projectList[0].name : "",
               why_do_you_want_to_work: "",
             }}
             validationSchema={personalInformationSchema}
@@ -199,8 +239,10 @@ export default function LocalForm() {
             }) => (
               <form
                 className="border rounded-lg bg-white/80 backdrop-blur-md backdrop-filter"
+                style={{overflow:'hidden'}}
                 onSubmit={handleSubmit}
               >
+                
                 <div className="px-5 py-5 pb-3 border-b  flex items-center justify-between">
                   <h3 className="w-full text-xl font-semibold text-gray-800 ">
                     Local Volunteer
@@ -382,7 +424,13 @@ export default function LocalForm() {
                         name="Select a project"
                         label="Select a project"
                         onChange={(e) => {
-                          values.project = e._id;
+                          const pName = e._id;
+                          values.project = pName;
+                          // console.log(pName);
+                          // if(e)
+                          // {
+                          //   values.project = e.name;
+                          // }
                         }}
                         value={values.project}
                         opts={projectList}
@@ -404,20 +452,29 @@ export default function LocalForm() {
                           : ""
                       }
                     />
+                    
                   </div>
+                  <ReCAPTCHA
+	    ref={recaptchaRef}
+	    size="invisible"
+	    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+      onChange={onReCAPTCHAChange}
+	  />
                 </div>
-                <div className="w-full flex gap-3 justify-end py-4 px-5 bg-brandTealLight/20 border-t rounded-b-lg">
+                <div className="w-full flex gap-3 justify-center py-4 px-5 bg-brandTealLight/20 border-t rounded-b-lg">
                   <div className="">
                     <FilledButton type="submit" color="teal">
                       <span className="text-sm font-medium">Send</span>
                     </FilledButton>
                   </div>
                 </div>
+                
               </form>
             )}
           </Formik>
         </div>
       </div>
+      
     </>
   );
 }

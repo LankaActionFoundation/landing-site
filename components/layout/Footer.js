@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import Link from "next/dist/client/link";
 import TextInput from "../../components/inputs/TextInput";
 import FilledButton from "../../components/buttons/FilledButton";
+import { Formik } from "formik";
+import * as yup from "yup";
+import { useRouter } from "next/router";
+import Input from "../inputs/Input";
+import ReCAPTCHA from "react-google-recaptcha";
 const Footer = () => {
   const [links, setLinks] = useState([
     {
@@ -15,6 +20,41 @@ const Footer = () => {
       ],
     },
   ]);
+
+  const router = useRouter();
+  const recaptchaRef = React.createRef();
+
+  const subscribeForm = async (form) => {
+
+    recaptchaRef.current.execute();
+    await fetch('/api/newsletter', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    }).then((res) => {
+      console.log(res.status);
+    });
+  }
+
+  const onReCAPTCHAChange = (captchaCode) => {
+    // If the reCAPTCHA code is null or undefined indicating that
+    // the reCAPTCHA was expired then return early
+    if(!captchaCode) {
+      return;
+    }
+    recaptchaRef.current.reset();
+  }
+
+  const personalInformationSchema = yup.object({
+    email: yup
+      .string()
+      .email("Invalid email format")
+      .required("Email is required"),
+  });
+
   return (
     <footer className="pattern w-full pb-20 md:pb-10 px-3 xl:px-0">
       <div className="w-full max-w-6xl mx-auto pt-20 pb-10 px-3 xl:px-0 border-b border-gray-300 border-opacity-60">
@@ -27,19 +67,66 @@ const Footer = () => {
             <h3 className="mt-5 text-white text-sm font-medium">
               Subscribe to our newsletter
             </h3>
-            <div className="w-full flex items-start justify-between gap-3">
-              <TextInput
+            
+            <Formik
+            initialValues={{
+              email: "",
+            }}
+            validationSchema={personalInformationSchema}
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+              console.log({ values });
+              subscribeForm({ ...values, type: "local" });
+              setSubmitting(false);
+              resetForm();
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
+              <form
                 className="w-full"
-                name="subscribe"
-                placeholder="Email"
-                type="email"
-              />
-              <div className="mt-1 w-min">
-                <FilledButton color="yellow">
+                onSubmit={handleSubmit}
+              >
+                <ReCAPTCHA
+	    ref={recaptchaRef}
+	    size="invisible"
+	    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+      onChange={onReCAPTCHAChange}
+	  />
+                <div className="w-full flex items-start justify-between gap-3"> 
+                    <TextInput
+                    className="w-full"
+                    
+                      name="Email"
+                      placeholder="Email"
+                      value={values.email}
+                      isTouched={touched.email}
+                      onChange={handleChange("email")}
+                      onBlur={handleBlur("email")}
+                      error={
+                        errors.email && touched.email && errors.email
+                          ? errors.email
+                          : ""
+                      }
+                    />
+                  
+                  <div className="mt-1 w-min">
+                  <FilledButton color="yellow" type="submit">
                   <span className="text-gray-800">Subscribe</span>
                 </FilledButton>
-              </div>
-            </div>
+                  </div>
+                </div>
+                    
+                  
+              </form>
+            )}
+          </Formik>
             <p className="text-white text-sm">
               Uplifting and strengthening vulnerable communities in Sri Lanka
             </p>
