@@ -68,7 +68,7 @@ const IndividualDonation = () => {
   }, [slug]);
 
   useEffect(() => {
-    if (!loading && blog) {
+    if (!loading && event) {
       const watermark = document.querySelectorAll('[data-f-id="pbf"]');
       if (watermark) {
         [...watermark].map((w) => {
@@ -132,7 +132,7 @@ const IndividualDonation = () => {
             />
 
             <div className="absolute px-3 mt-10 xl:px-0 inset-0 z-30 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
-              <h1 className="text-white text-6xl font-title md:text-8xl text-center">
+              <h1 className="text-white text-4xl font-title md:text-5xl text-center">
                 {event.title}
               </h1>
 

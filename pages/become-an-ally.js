@@ -289,7 +289,7 @@ export default function Ally() {
                   <div className="w-full flex gap-3 justify-end py-4 px-5 bg-brandTealLight/20 border-t rounded-b-lg">
                     <div className="">
                       <FilledButton type="submit" color="teal">
-                        <span className="text-sm font-medium">Save</span>
+                        <span className="text-sm font-medium">Send</span>
                       </FilledButton>
                     </div>
                   </div>

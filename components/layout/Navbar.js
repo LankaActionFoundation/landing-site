@@ -534,8 +534,8 @@ const Navbar = ({ color }) => {
               <div className="flex flex-col items-start justify-start">
                 <h6 className="text-xs text-gray-200">Call Anytime</h6>
                 <h6 className="text-sm text-brandOrange">
-                  <a href="tel: +94722999555">+94 722 999 555</a>,{" "}
-                  <a href="tel: +14167883939">+14 167 883 939</a>
+                  <a href="tel:+94722999555">+94 722 999 555</a>,{" "}
+                  <a href="tel:+14379974357">+1 437 997 4357</a>
                 </h6>
               </div>
             </div>
