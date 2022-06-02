@@ -14,7 +14,7 @@ const DonateRequestSectionTwo = () => {
                   
 
                   <h2 className="mt-2 mb-7 text-xl md:text-4xl tracking-wide leading-loose text-white" style={{textWrap:'break-word'}}>
-                  We can all make a difference in the lives of others in need because it is the most simple of gestures that make the most significant of differences.
+                  We can all make a difference in the lives of others, because it is the most simple of gestures that make the most significant of differences.
                   </h2>
                   
                   <div className='relative w-32 align-center invisible md:visible'>

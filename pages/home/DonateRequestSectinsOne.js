@@ -14,7 +14,7 @@ const DonateRequestSectionOne = () => {
                   
 
                   <h2 className="mt-2 mb-7 text-3xl md:text-4xl tracking-wide leading-loose text-white" style={{textWrap:'break-word'}}>
-                  Children are like flowers. When a flower fails to blossom, you must change the environment which it grows.
+                  Children are like flowers. When a flower fails to blossom, you must change the environment in which it grows.
                   </h2>
                   
                   <div className='relative w-32 align-center invisible md:visible'>
