@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
+import PageWithNavAndFooter from "../../../../components/layout/PageWithNavAndFooter";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Loading from "../../../components/Loading";
+import Loading from "../../../../components/Loading";
 import dateFormat from "dateformat";
 import link from "next/link";
 
@@ -52,7 +52,7 @@ const IndividualDonation = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      router.push("/event/1");
+      router.push("/event/past-events/1");
       console.log(error);
       if (error?.response?.data?.msg) {
         let err = error.response.data.msg;

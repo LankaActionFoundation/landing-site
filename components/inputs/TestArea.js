@@ -14,6 +14,7 @@ const TextArea = ({
   isTouched,
   onChange,
   additionalInfo,
+  required
 }) => {
   const input_container = useRef(null);
   useEffect(() => {
@@ -70,6 +71,8 @@ const TextArea = ({
               : "focus:ring-blue-500"
           }`}
           placeholder={placeholder}
+          required={required}
+          
         />
       </div>
       <div className="mt-1 text-sm text-red-600">{error}</div>

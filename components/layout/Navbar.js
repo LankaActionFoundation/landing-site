@@ -483,7 +483,8 @@ const Navbar = ({ color }) => {
             <PopoverBtn
               name="Events"
               links={[
-                { name: "upcoming events", url: "/event/1" },
+                { name: "Upcoming Events", url: "/event/upcomming-events/1" },
+                { name: "Past Events", url: "/event/past-events/1" },
                 { name: "Host an Event", url: "/host-an-event" },
               ]}
             />

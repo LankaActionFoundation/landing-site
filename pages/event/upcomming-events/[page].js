@@ -1,12 +1,12 @@
 import { useRouter } from "next/dist/client/router";
 import React, { useEffect, useState } from "react";
-import CustomPagination from "../../components/inputs/CustomPagination";
-import PageWithNavAndFooter from "../../components/layout/PageWithNavAndFooter";
-import Loading from "../../components/Loading";
+import CustomPagination from "../../../components/inputs/CustomPagination";
+import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFooter";
+import Loading from "../../../components/Loading";
 import axios from "axios";
-import EventCard from "../../components/EventCard";
+import EventCard from "../../../components/EventCard";
 import Head from "next/head";
-import NoResultsFound from "../../components/NoResultsFound";
+import NoResultsFound from "../../../components/NoResultsFound";
 
 const Donations = () => {
   const router = useRouter();
@@ -35,9 +35,18 @@ const Donations = () => {
           withCredentials: true,
         }
       );
-      setEvents(data.data);
+      var upcommingEvents = [];
+        var rawData = [];
+        rawData =  data.data;
+        rawData.forEach((val) => {
+          if(val.isComplete == false){
+            upcommingEvents.push(val);
+          }
+        });
+        setEvents(upcommingEvents);
+      // setEvents(data.data);
       setPageCount(data.pages);
-      console.log(data);
+      // console.log(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -57,10 +66,10 @@ const Donations = () => {
 
   const handlePageNavigate = (page) => {
     if (page) {
-      router.push(`/event/${page}`);
+      router.push(`/event/upcomming-events/${page}`);
     }
   };
-
+console.log("events", events);
   return (
     <PageWithNavAndFooter>
       <Head>
@@ -114,7 +123,7 @@ const Donations = () => {
                 title={event.title}
                 subTitle={event.subtitle}
                 thumbnail={event.thumbnail}
-                slug={event.slug}
+                slug={`/event/upcomming-events/read/`+event.slug}
               />
             ))}
           </div>

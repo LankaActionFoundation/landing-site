@@ -25,6 +25,7 @@ const Select2 = ({
       setSelected(cn);
     }
   }, [value]);
+  console.log('aaaaaaa',opts);
 
   return (
     <div className="w-full">

@@ -11,6 +11,7 @@ const TextInput = ({
   value,
   onChange,
   handler,
+  required,
 }) => {
   const textInput = useRef(null);
 
@@ -50,6 +51,8 @@ const TextInput = ({
               : "focus:ring-blue-500"
           }`}
           placeholder={placeholder}
+
+          required={required}
         />
       </div>
 

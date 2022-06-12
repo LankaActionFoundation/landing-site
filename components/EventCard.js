@@ -116,7 +116,7 @@ const EventCard = ({
         </div>
 
         {/* <!-- title --> */}
-        <Link href={`/event/read/${slug}`}>
+        <Link href={`${slug}`}>
           <h2 className="mt-5 cursor-pointer hover:underline text-lg md:text-xl font-bold text-gray-800">
             {title}
           </h2>
