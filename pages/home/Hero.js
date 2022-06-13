@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Hero = () => {
@@ -28,7 +29,8 @@ const Hero = () => {
             muted={true}
             loop={true}
             autoPlay={true}
-            className="w-full h-full absolute top-0 z-20 object-cover"
+            className="w-full h-full absolute top-0 z-20 object-cover 
+            "
           >
             <source
               type="video/mp4"
@@ -36,34 +38,9 @@ const Hero = () => {
             ></source>
           </video>
 
-          {/* hero */}
-          {/* <div className="absolute bottom-0 mt-16 md:mt-96 xl:mt-[35rem] top-0 inset-x-0 z-30">
-            <div
-              className="absolute bottom-0 pb-20 md:pb-0 md:h-auto h-screen md:flex-none flex flex-col justify-end w-full py-3 px-3 xl:px-0 max-w-6xl mx-auto"
-              style={{ marginLeft: "50%", transform: "translate(-50%)" }}
-            >
-              <h4 className="text-base md:text-2xl text-white">
-                <span className="text-base md:text-2xl text-brandOrange">
-                  We,{" "}
-                </span>
-                Lanka Vision Action Foundation{" "}
-              </h4>
+          {/* <Image className="" src={`https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2FdonateRequest%2Fdonate-one.jpg?alt=media&token=b404cc55-d903-4f94-bb9b-cfc115b7d53f`} alt="card thumbanail" layout="fill" objectFit="cover"/> */}
 
-              <h1 className="mt-2 mb-7 text-xl md:text-5xl tracking-wide leading-loose text-white">
-                Transforming the{" "}
-                <span className="text-brandOrange text-xl md:text-6xl">
-                  most vulnerable communities
-                </span>{" "}
-                in Sri Lanka towards a
-                <span className="text-brandOrange text-xl md:text-6xl">
-                  {" "}
-                  sustainable standard of living.
-                </span>
-              </h1>
-
-              
-            </div>
-          </div> */}
+          
           {/* end of hero */}
         </div>
         <a href="#sectionNext"><span></span></a>

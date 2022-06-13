@@ -2,6 +2,7 @@ import React from "react";
 import Progress from "./Progress";
 import Link from "next/link";
 import FilledButton from "./buttons/FilledButton";
+import Image from 'next/image';
 
 const calcPercentage = (amount, goal) => {
   return Math.floor((amount * 100) / goal);
@@ -85,7 +86,7 @@ const CircularDonationCard = ({
     <>
       <div className="flex flex-col LVProjectCard">
         <div className="ProjectImageCont">
-          <img className="" src={thumbnail} alt="card thumbanail" />
+          <Image className="" src={thumbnail} alt="card thumbanail" layout="fill" objectFit="cover"/>
         </div>
         <div className="ProjectTextCont">
           <div className="w-full mt-2">

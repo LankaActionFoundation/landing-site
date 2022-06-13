@@ -6,6 +6,7 @@ import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFoote
 import Loading from "../../../components/Loading";
 import axios from "axios";
 import Head from "next/head";
+import CircularDonationCard from "../../../components/CircularDonationCard";
 
 const Donations = () => {
   const router = useRouter();
@@ -48,6 +49,8 @@ const Donations = () => {
     }
   };
 
+ 
+
   useEffect(() => {
     if (currentPage) {
       fetchDonations();
@@ -67,46 +70,12 @@ const Donations = () => {
       </Head>
       {!loading && donations && (
         <>
-          {/* <div className="relative min-h-screen">
-            <div
-              className="
-            w-full
-            h-full
-            top-0
-            absolute
-            z-30
-            bg-gradient-to-b
-            from-black
-            via-black/70
-            to-black/20
-          "
-            ></div>
-
-            <img
-              className="w-full h-full absolute top-0 z-20 object-cover"
-              src="https://images.pexels.com/photos/939702/pexels-photo-939702.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="cover"
-            />
-
-            <div className="absolute inset-0 z-30 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
-              <h1 className="text-white text-6xl font-title md:text-8xl text-center">
-                Case One
-              </h1>
-
-              <h3 className="mt-5 text-sm italic text-white leading-6 w-full max-w-2xl text-center">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-                rerum cum? Optio minus numquam, id iusto eaque eos nesciunt
-                provident excepturi tempore corporis facere! Ab culpa mollitia
-                non totam porro soluta veritatis ullam quisquam! Omnis quas ab
-                dolor possimus cumque. Sint hic natus beatae labore!
-              </h3>
-            </div>
-          </div> */}
+          
 
           <div className="w-full mt-20 max-w-6xl mx-auto py-20 px-3 xl:px-0">
             <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {donations.map((donation) => (
-                <DonationCard
+                <CircularDonationCard
                   key={donation._id}
                   widthFull
                   title={donation.title}
@@ -115,6 +84,7 @@ const Donations = () => {
                   raised={donation.reached}
                   goal={donation.goal}
                   slug={donation.slug}
+                  subtitle={donation.subtitle}
                 />
               ))}
             </div>

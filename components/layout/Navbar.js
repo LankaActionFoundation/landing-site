@@ -162,14 +162,19 @@ const Navbar = ({ color }) => {
             </h3>
 
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
-              <Link href="/event/1">
+              <Link href="/event/upcomming-events/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Upcoming events
+                  Upcoming Events
+                </h3>
+              </Link>
+              <Link href="/event/past-events/1">
+                <h3 className="cursor-pointer hover:underline text-white text-sm">
+                  Past Events
                 </h3>
               </Link>
               <Link href="/host-an-event">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Host an event
+                  Host an Event
                 </h3>
               </Link>
             </div>
@@ -182,6 +187,12 @@ const Navbar = ({ color }) => {
             <Link href="/gallery/1">
               <h3 className="cursor-pointer hover:underline text-white text-xs font-bold tracking-wide uppercase">
                 Gallery
+              </h3>
+            </Link>
+
+            <Link href="/contact">
+              <h3 className="text-white cursor-pointer hover:underline text-xs font-bold tracking-wide uppercase">
+                Contact us
               </h3>
             </Link>
           </div>
@@ -465,10 +476,10 @@ const Navbar = ({ color }) => {
               name="Projects"
               links={[
                 {
-                  name: "Upcoming projects",
+                  name: "Upcoming Projects",
                   url: "/donation/upcoming-projects/1",
                 },
-                { name: "Past projects", url: "/donation/past-projects/1" },
+                { name: "Past Projects", url: "/donation/past-projects/1" },
               ]}
             />
 
@@ -497,6 +508,12 @@ const Navbar = ({ color }) => {
             <Link href="/gallery/1">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 Gallery
+              </button>
+            </Link>
+
+            <Link href="/contact">
+              <button className="px-3 py-2 text-sm text-white rounded-xl ">
+                Contact us
               </button>
             </Link>
           </div>
