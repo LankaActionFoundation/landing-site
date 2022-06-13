@@ -240,7 +240,7 @@ const IndividualDonation = () => {
             )}
 
             {event.linkType === "gmap" && (
-              <div className="w-full px-3 xl:px-0 pb-10 max-w-6xl mx-auto flex flex-col items-start justify-start">
+              <div className="w-full px-3 xl:px-0 pb-10 max-w-6xl mx-auto flex flex-col items-start justify-start" style={{overflow:"hidden"}}>
                 <h3 className="mb-5 px-3 py-2 text-sm md:text-base bg-customOrange rounded-3xl text-white font-semibold">
                   Google Map
                 </h3>
