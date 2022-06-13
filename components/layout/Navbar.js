@@ -164,7 +164,7 @@ const Navbar = ({ color }) => {
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
               <Link href="/event/upcomming-events/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Upcoming Events
+                  Ongoing Events
                 </h3>
               </Link>
               <Link href="/event/past-events/1">
@@ -476,7 +476,7 @@ const Navbar = ({ color }) => {
               name="Projects"
               links={[
                 {
-                  name: "Upcoming Projects",
+                  name: "Ongoing Projects",
                   url: "/donation/upcoming-projects/1",
                 },
                 { name: "Past Projects", url: "/donation/past-projects/1" },
