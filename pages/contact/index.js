@@ -15,6 +15,7 @@ const Contact = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitState, setSubmitState] = useState(false);
   const [initialState, setInitialState] = useState(true);
+  const [sentMessage, setSentMessage] = useState('');
 
   const [donations, setDonations] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -129,7 +130,8 @@ for (const [name, value] of formData) {
   pairs[name] = value;
 }
 
-console.log('aaaaaaaaa', JSON.stringify(pairs, null, 2));
+// console.log('aaaaaaaaa', JSON.stringify(pairs, null, 2));
+setSentMessage("Message recieved, thank you for contacting us");
 form.target.reset();
 setCurrentStep(1);
 setSubmitState(false);
@@ -165,9 +167,12 @@ setSubmitState(false);
               <h2 className="mt-5 text-3xl md:text-5xl font-title text-gray-800  sm:w-auto  mx-auto block text-left font-bold pull-left">
                 Contact us
               </h2>
+              
               <div className="clear-both"></div>
             </div>
             <br />
+            <h3 className="text-center text-xl">{sentMessage}</h3>
+            <br/>
 
             <div className="stepCont">
               <form onSubmit={(e)=>handleSubmit(e)}>
