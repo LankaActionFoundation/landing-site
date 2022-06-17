@@ -9,6 +9,7 @@ import TextArea from "../../components/inputs/TestArea";
 import Select from "../../components/inputs/Select";
 import Select2 from "../../components/inputs/Select2";
 import Projects from "../home/Projects";
+import { Input } from "postcss";
 
 const Contact = () => {
   const [projectList, setProjectList] = useState([]);
@@ -224,7 +225,7 @@ setSubmitState(false);
                   </div>
                   <br/>
                   <h3 className="StepHeading text-2xl">What is the biggest struggle you're facing</h3>
-                  
+                  <input type={'hidden'} name='project' value={'Emergency Relief'} />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
                     <div class="flex items-center border-b border-teal-500 py-2 mt-4">
                       <textarea
