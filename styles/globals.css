@@ -640,7 +640,7 @@ a{
   z-index: 1;
   overflow: hidden;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 .ContactContainer::before{
   content: ' ';

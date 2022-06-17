@@ -157,7 +157,7 @@ setSubmitState(false);
 
       <section className="bg-white w-full">
         <div
-          className="ContactContainer grid grid-cols-1 md:grid-cols-2 gap-0 bg-orange"
+          className="ContactContainer grid grid-cols-1 md:grid-cols-2 gap-0"
           style={{
             backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Femergency%2Femergency-2.jpg?alt=media&token=82ac56ce-74e7-4040-b2d7-438c5c3019c9)`,
           }}
