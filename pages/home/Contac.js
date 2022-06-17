@@ -15,12 +15,12 @@ const Contact = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitState, setSubmitState] = useState(false);
   const [initialState, setInitialState] = useState(true);
-  const [sentMessage, setSentMessage] = useState('');
+  const [sentMessage, setSentMessage] = useState(' ');
 
   const [donations, setDonations] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const stepCount = 2;
+  const stepCount = 1;
 
   const fetchHomepageDonation = async () => {
     try {
@@ -156,14 +156,14 @@ setSubmitState(false);
         <div
           className="ContactContainer grid grid-cols-1 md:grid-cols-2 gap-0"
           style={{
-            backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2FdonateRequest%2Fdonate.jpg?alt=media&token=6efa6a85-6d91-41eb-ab67-65446ad1092d)`,
+            backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/donation-admin-bec44.appspot.com/o/static%2Femergency%2Femergency.jpg?alt=media&token=58ab89b9-5fba-4688-92d2-c263dac30bd8)`,
           }}
         >
           <div></div>
           <div className="contactForm">
             <div className="heading-2">
               <h2 className="mt-5 text-3xl md:text-5xl font-title text-gray-800  sm:w-auto  mx-auto block text-left font-bold pull-left">
-                Contact us
+                Request for Support
               </h2>
               
               <div className="clear-both"></div>
@@ -222,12 +222,27 @@ setSubmitState(false);
                       ></textarea>
                     </div>
                   </div>
+                  <br/>
+                  <h3 className="StepHeading text-2xl">What is the biggest struggle you're facing</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
+                    <div class="flex items-center border-b border-teal-500 py-2 mt-4">
+                      <textarea
+                        name="message"
+                        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        placeholder="Message"
+                        aria-label="Full name"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
                 </div>
 
-                <div
+                {/* <div
                   className={currentStep === 2 ? "step active-step" : "step"}
                 >
-                  <h3 className="StepHeading text-2xl">Request Details</h3>
+                  <h3 className="StepHeading text-2xl">What is the biggest </h3>
+                  <br/>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                     <div style={{ position: "relative" }}>
                       {projectList ? (
@@ -272,7 +287,7 @@ setSubmitState(false);
                       ></textarea>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="clear-both mt-8">
                   {!initialState ? (

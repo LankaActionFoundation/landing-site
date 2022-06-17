@@ -109,7 +109,7 @@ export default function Home() {
 
           {/* Emergency contact */}
 
-          {/* <Contact /> */}
+          <Contact />
 
           {/* End of Emergency contact */}
 
