@@ -18,6 +18,7 @@ import Qualities from "./home/Qualities";
 import Mission from "./home/Mission";
 import Projects from './home/Projects';
 import Blogs from './home/Blogs';
+import Contact from './home/Contac';
 import UpcommingEvents from './home/UpcommingEvents';
 
 export default function Home() {
@@ -105,6 +106,12 @@ export default function Home() {
           {/* hero */}
           <Hero />
           {/* end of hero */}
+
+          {/* Emergency contact */}
+
+          {/* <Contact /> */}
+
+          {/* End of Emergency contact */}
 
           {/* 2nd section */}
           <Projects donations={donations}/>
