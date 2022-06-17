@@ -72,7 +72,7 @@ const Donations = () => {
         <>
           
 
-          <div className="w-full mt-20 max-w-6xl mx-auto py-20 px-3 xl:px-0">
+          <div className="w-full max-w-7xl mx-auto px-3 lg:px-0 pt-20 mt-20">
             <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {donations.map((donation) => (
                 <CircularDonationCard
