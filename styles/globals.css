@@ -166,7 +166,7 @@
 
 }
 
-#section05 a {
+/* #section05 a {
   padding-top: 70px;
 }
 #section05 a span {
@@ -210,7 +210,7 @@
     transform: rotate(-45deg) translate(-20px, 20px);
     opacity: 0;
   }
-}
+} */
 a{
   cursor: pointer;
 }
@@ -253,6 +253,23 @@ a{
   width:150px;
   height: 60px;
   position: absolute;
+  bottom: 15px;
+  left: 50%;
+  background-color: #FFBD2A;
+  transform: translateX(-50%);
+  border-radius: 50px;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-size: 16px;
+  font-weight:600;
+  text-align: center;
+  line-height: 60px;
+  color: #000;
+  cursor: pointer;
+}
+.viewMore2{
+  width:150px;
+  height: 60px;
+  position: relative;
   bottom: 15px;
   left: 50%;
   background-color: #FFBD2A;
@@ -631,10 +648,10 @@ a{
   top: 0 !important;
   right: 0 !important;
   bottom: 0 !important;
-  width:calc(50% + 100px);
+  width:calc(50% + 200px);
   background-color: #fff !important;
   z-index: 2 !important;
-  transform: skew(-15deg) translateX(100px);
+  transform: skew(-15deg) translateX(150px);
 }
 
 .contactForm{
@@ -696,6 +713,11 @@ a{
   .stepCont{
     height: unset;
   }
+}
+
+.heroTextCont {
+  left:50%;
+  transform: translateX(-50%)
 }
 
 @tailwind utilities;

@@ -190,11 +190,11 @@ const Navbar = ({ color }) => {
               </h3>
             </Link>
 
-            <Link href="/contact">
+            {/* <Link href="/contact">
               <h3 className="text-white cursor-pointer hover:underline text-xs font-bold tracking-wide uppercase">
                 Contact us
               </h3>
-            </Link>
+            </Link> */}
           </div>
         </nav>
       )}
@@ -511,11 +511,11 @@ const Navbar = ({ color }) => {
               </button>
             </Link>
 
-            <Link href="/contact">
+            {/* <Link href="/contact">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 Contact us
               </button>
-            </Link>
+            </Link> */}
           </div>
           {/* end of links */}
 

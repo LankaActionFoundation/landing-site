@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import FilledButton from "../../components/buttons/FilledButton";
 
 const Hero = () => {
 
@@ -24,7 +26,33 @@ const Hero = () => {
             via-brandTealDark/20
             to-brandTealDark
           "
-          style={{top: '50%',  }}></div>
+          style={{top: '50%',  }}>
+            <div
+                  className="absolute bottom-0  md:flex-none flex flex-col justify-end py-10 px-3 xl:py-10 max-w-6xl mx-auto  homeTextCont heroTextCont"
+                  style={{}}
+                >
+                  
+
+                  <h2 className="mt-2 mb-7 text-2xl md:text-5xl tracking-wide leading-loose text-white px-2 py-2" style={{textWrap:'break-word', color:'#000', backgroundColor: '#fff'}}>
+                  Sri Lankan economic crisis puts millions at risk.
+                  </h2>
+                  
+                  <div className='relative w-32 align-center clear-both'>
+                  <a
+              href="/request"
+            >
+              {/* <FilledButton color="yellow">
+                <span className="text-black">Request help</span>
+              </FilledButton> */}
+              <div className="viewMore2 mx-2">Request Help</div>
+            </a>
+            {/* <a href={`/request`}><div className="viewMore clear-both">View More</div></a> */}
+                  </div>
+                  {/* card */}
+
+                  {/* end of card */}
+                </div>
+          </div>
           <video
             muted={true}
             loop={true}
@@ -43,7 +71,7 @@ const Hero = () => {
           
           {/* end of hero */}
         </div>
-        <a href="#sectionNext"><span></span></a>
+        {/* <a href="#sectionNext"><span></span></a> */}
         {/* end of bg image */}
       </section>
     </>
