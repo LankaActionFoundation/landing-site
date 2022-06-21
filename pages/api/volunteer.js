@@ -1,6 +1,6 @@
 export default function (req, res) {
     console.log('req', req.body);
-    console.log('pass', process.env.GOOGLE_PASSWORD);
+    console.log('pass', process.env.NEXT_PUBLIC_GOOGLE_PASSWORD);
     let nodemailer = require('nodemailer');
   const transporter = nodemailer.createTransport({port: 465,
     host: "smtp.gmail.com",
