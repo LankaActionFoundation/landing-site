@@ -125,12 +125,12 @@ const Navbar = ({ color }) => {
             <div className="ml-5 flex flex-col items-start justify-center gap-5">
               <Link href="/donation/upcoming-projects/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Upcoming projects
+                  Ongoing projects
                 </h3>
               </Link>
               <Link href="/donation/past-projects/1">
                 <h3 className="cursor-pointer hover:underline text-white text-sm">
-                  Past projects
+                  Upcoming Projects
                 </h3>
               </Link>
             </div>
@@ -190,11 +190,11 @@ const Navbar = ({ color }) => {
               </h3>
             </Link>
 
-            <Link href="/contact">
+            {/* <Link href="/contact">
               <h3 className="text-white cursor-pointer hover:underline text-xs font-bold tracking-wide uppercase">
                 Contact us
               </h3>
-            </Link>
+            </Link> */}
           </div>
         </nav>
       )}
@@ -479,7 +479,7 @@ const Navbar = ({ color }) => {
                   name: "Ongoing Projects",
                   url: "/donation/upcoming-projects/1",
                 },
-                { name: "Past Projects", url: "/donation/past-projects/1" },
+                { name: "Upcoming Projects", url: "/donation/past-projects/1" },
               ]}
             />
 
@@ -511,11 +511,11 @@ const Navbar = ({ color }) => {
               </button>
             </Link>
 
-            <Link href="/contact">
+            {/* <Link href="/contact">
               <button className="px-3 py-2 text-sm text-white rounded-xl ">
                 Contact us
               </button>
-            </Link>
+            </Link> */}
           </div>
           {/* end of links */}
 

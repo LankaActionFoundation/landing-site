@@ -16,9 +16,10 @@ import Loading from "../components/Loading";
 import Hero from "./home/Hero";
 import Qualities from "./home/Qualities";
 import Mission from "./home/Mission";
-import Projects from './home/Projects';
-import Blogs from './home/Blogs';
-import UpcommingEvents from './home/UpcommingEvents';
+import Projects from "./home/Projects";
+import Blogs from "./home/Blogs";
+import Contact from "./home/Contac";
+import UpcommingEvents from "./home/UpcommingEvents";
 
 export default function Home() {
   const [amounts, setAmounts] = useState([100, 500, 1000]);
@@ -106,8 +107,41 @@ export default function Home() {
           <Hero />
           {/* end of hero */}
 
+          {/* Emergency contact */}
+
+          <section className="bg-white w-full">
+            <div className="grid grid-col-1 w-full max-w-7xl mx-auto py-10 px-3 lg:px-0">
+              <div className="flex flex-col">
+                <h2
+                  className="mt-2 mb-7 text-2xl md:text-5xl tracking-wide leading-loose text-white px-2 py-2 text-justify"
+                  style={{
+                    textWrap: "break-word",
+                    color: "#1f6e7a",
+                    backgroundColor: "",
+                    fontWeight:"600"
+                  }}
+                >
+                  We are here to help during this time of crisis. If you need
+                  food, medical aid, clothing, and/or school supply.
+                </h2>
+
+                <div><div className="relative w-32 align-center clear-both float-left right-0">
+                  <a href="/request">
+                    {/* <FilledButton color="yellow">
+                <span className="text-black">Request help</span>
+              </FilledButton> */}
+                    <div className="viewMore2 mx-2">Request Help</div>
+                  </a>
+                  {/* <a href={`/request`}><div className="viewMore clear-both">View More</div></a> */}
+                </div></div>
+              </div>
+            </div>
+          </section>
+
+          {/* End of Emergency contact */}
+
           {/* 2nd section */}
-          <Projects donations={donations}/>
+          <Projects donations={donations} />
           {/* end of 2nd section */}
 
           {/* Donate Request Section one */}
@@ -137,7 +171,7 @@ export default function Home() {
           {/* end of 4th section */}
 
           {/* 5th section */}
-          <Blogs blogs={blogs}/>
+          <Blogs blogs={blogs} />
 
           {loading && <Loading />}
           {/* end of 5th section */}
