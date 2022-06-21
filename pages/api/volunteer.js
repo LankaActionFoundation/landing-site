@@ -5,8 +5,8 @@ export default function (req, res) {
   const transporter = nodemailer.createTransport({port: 465,
     host: "smtp.gmail.com",
     auth: {
-      user: process.env.GOOGLE_USERNAME,
-      pass: process.env.GOOGLE_PASSWORD,
+      user: process.env.NEXT_PUBLIC_GOOGLE_USERNAME,
+      pass: process.env.NEXT_PUBLIC_GOOGLE_PASSWORD,
     },
     secure: true,
 });
