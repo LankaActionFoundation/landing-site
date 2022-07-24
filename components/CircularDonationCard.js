@@ -100,7 +100,7 @@ const CircularDonationCard = ({
             <h2 className="mt-5 text-left text-white text-lg md:text-3xl font-bold text-gray-800">
               {title}
             </h2>
-            <p className="mt-5 text-left text-white">{subtitle}</p>
+            <p className="mt-5 text-justify text-white">{subtitle}</p>
             
           </div>
           <Link href={`/donation/upcoming-projects/read/${slug}`}><div className="viewMore">View More</div></Link>

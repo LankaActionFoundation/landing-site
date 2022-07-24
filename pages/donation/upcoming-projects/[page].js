@@ -7,12 +7,14 @@ import Loading from "../../../components/Loading";
 import axios from "axios";
 import Head from "next/head";
 import CircularDonationCard from "../../../components/CircularDonationCard";
+import Link from "next/link";
 
 const Donations = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState();
   const [pageCount, setPageCount] = useState(5);
   const [donations, setDonations] = useState(null);
+  const [featured, setFeatured] =  useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -49,34 +51,28 @@ const Donations = () => {
     }
   };
 
+
+  const fetchFeaturedProject = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_SERVER_ROUTE}/donation/get_featured_project`,
+        {
+          withCredentials: true,
+        }
+      );
+      setFeatured(data.data);
+    } catch (error) {
+      console.log(error);
+      if (error?.response?.data?.msg) {
+        let err = error.response.data.msg;
+        console.log({ err });
+      }
+    }
+  };
+
   const fetchAPI = async () => {
-  //   var data = JSON.stringify({
-  //     "collection": "donations",
-  //     "database": "myFirstDatabase",
-  //     "dataSource": "lankaaction",
-  //     "filter": {
-  //       "isComplete": "true"
-  //     },
-  // });
-              
-  // var config = {
-  //     method: 'post',
-  //     url: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/action/find`,
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //         'Access-Control-Request-Headers': '*',
-  //         'api-key': `${process.env.NEXT_PUBLIC_API_KEY}`,
-  //     },
-  //     data : data
-  // };
-              
-  // axios(config)
-  //     .then(function (response) {
-  //         console.log('api-projects',JSON.stringify(response.data));
-  //     })
-  //     .catch(function (error) {
-  //         console.log('api-error',error);
-  //     });
+ 
 
 
   const response = await fetch('/api/getpastprojects', {
@@ -90,7 +86,7 @@ const Donations = () => {
 
   const data = await response.json();
 
-  console.log('aaaaaaaaaaaa', data.data.documents);
+  // console.log('aaaaaaaaaaaa', data.data.documents);
 
   }
 
@@ -98,6 +94,7 @@ const Donations = () => {
     if (currentPage) {
       fetchDonations();
       fetchAPI();
+      fetchFeaturedProject();
       // console.log('api',`${process.env.NEXT_PUBLIC_API_ENDPOINT}`);
     }
   }, [currentPage]);
@@ -116,8 +113,35 @@ const Donations = () => {
       {!loading && donations && (
         <>
           
+          <div className="w-full">
 
-          <div className="w-full max-w-7xl mx-auto px-3 lg:px-0 pt-20 mt-20">
+            <div className="w-full max-w-7xl mx-auto px-3 lg:px-0 pt-20 md:mt-20">
+              
+                {featured? featured.map((f) => (
+                    <>
+                    <div className="featured-project-image" style={{}}>
+                      <img src={f.thumbnail}/>
+                      </div>
+                      <div className="featured-project-text pt-10 md:pt-40">
+                <h2 className="mt-5 text-left text-teal text-lg md:text-4xl font-bold text-gray-800 text-center">
+                  {f.title}
+                </h2>
+                <p className="mt-5 text-justify featured-project-paragraph text-md md:text-3xl p-5 pt-0 text-bold">
+                  {f.subtitle}
+                </p>
+
+                <Link href={`/donation/upcoming-projects/read/${f.slug}`}><div className="viewMore">View More</div></Link>
+              </div>
+                    </>
+                  )): ""}
+              
+
+              <div className="clear-both"></div>
+
+            </div>
+
+          </div>
+          <div className="w-full max-w-7xl mx-auto px-3 lg:px-0 pt-20">
             <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {donations.map((donation) => (
                 <CircularDonationCard
