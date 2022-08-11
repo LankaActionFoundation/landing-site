@@ -170,7 +170,7 @@ imgDetails.push(imgDetail);
                   </div>
                 ))} */}
 
-                <ImgGallery />
+                {/* <ImgGallery /> */}
                 
               </div>
             )}
