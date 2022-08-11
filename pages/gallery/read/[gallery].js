@@ -83,6 +83,18 @@ imgDetails.push(imgDetail);
     }
   }, [id, currentPage]);
 
+  const ImgGallery = () => {
+    if (typeof window !== 'undefined') {
+      //here `window` is available
+      return (<>
+      <ResponsiveGallery images={imgs} useLightBox={true}/>
+      </>);
+    }
+    else{
+      return(<></>);
+    }
+  }
+
   return (
     <>
       {/* {selectedImage.url.length > 0 && (
@@ -157,7 +169,9 @@ imgDetails.push(imgDetail);
                     />
                   </div>
                 ))} */}
-                <ResponsiveGallery images={imgs} useLightBox={true}/>,
+
+                <ImgGallery />
+                
               </div>
             )}
             {loading && (
