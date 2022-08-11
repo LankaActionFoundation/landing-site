@@ -89,15 +89,7 @@ const SingleGallery = () => {
   }, [id, currentPage]);
 
   const ImgGallery = () => {
-    // if (typeof window !== 'undefined') {
-    //   //here `window` is available
-    //   return (<>
-    //   <ResponsiveGallery images={imgs} useLightBox={true}/>
-    //   </>);
-    // }
-    // else{
-    //   return(<></>);
-    // }
+    
   };
   const clickImage = (e) => {
     // console.log("e", e);
@@ -113,48 +105,7 @@ const SingleGallery = () => {
 
   return (
     <>
-      {/* {selectedImage.url.length > 0 && (
-        <div
-          onClick={() => setSelectedImage({ url: "", caption: "", desc: "" })}
-          className="w-screen h-full z-[300] fixed inset-0 bg-black/70 backdrop-filter backdrop-blur-xl"
-        >
-          <button
-            onClick={() => setSelectedImage({ url: "", caption: "", desc: "" })}
-            className="fixed top-0 right-0 z-[500] w-8 h-8 mt-10 mr-10 focus:outline-none bg-gray-600 outline-none rounded-md md:mt-10 md:mr-10 text-white"
-          >
-            <svg className=" text-white" fill="none" viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M17.25 6.75L6.75 17.25"
-              ></path>
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M6.75 6.75L17.25 17.25"
-              ></path>
-            </svg>
-          </button>
-
-          <div className="w-full flex flex-col md:flex-row items-start justify-center h-full">
-            <img
-              src={selectedImage.url}
-              alt=""
-              className="object-contain md:object-cover w-full h-full md:w-4/6 md:h-full"
-            />
-
-            <div className="w-full md:w-2/6 flex-shrink-0 md:h-screen overflow-y-auto">
-              <p className="p-5 pb-20 md:pb-0 md:p-5 md:mt-20 w-full flex-shrink-0 whitespace-pre-line text-white">
-                {selectedImage.desc}
-              </p>
-            </div>
-          </div>
-        </div>
-      )} */}
+      
 
 {isOpen && imgs.length > 0 && (
  
@@ -194,27 +145,7 @@ const SingleGallery = () => {
           <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
             {!loading && imgs.length > 0 && (
               <div className="">
-                {/* {images.map((image) => (
-                  <div
-                    onClick={() => {
-                      setSelectedImage({
-                        url: image.url,
-                        caption: image.caption,
-                        desc: image.description,
-                      });
-                    }}
-                    className="w-full h-full cursor-pointer"
-                  >
-                    <img
-                      src={image.url}
-                      alt=""
-                      className="w-full h-full rounded-lg"
-                    />
-                  </div>
-                ))} */}
-
-                {/* <ImgGallery /> */}
-                {/* {imgs.length} */}
+               
                 <div className="image-list">{ImagesComp}</div>
               </div>
             )}
