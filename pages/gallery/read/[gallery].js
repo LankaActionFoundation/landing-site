@@ -4,6 +4,7 @@ import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFoote
 import Loading from "../../../components/Loading";
 import axios from "axios";
 import CustomPagination from "../../../components/inputs/CustomPagination";
+import ResponsiveGallery from 'react-responsive-gallery';
 
 const SingleGallery = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,6 +19,8 @@ const SingleGallery = () => {
   const [id, setId] = useState(null);
   const [title, setTitle] = useState("");
   const router = useRouter();
+const [imgs, setImgs] =  useState([]);
+
 
   const handlePageNavigate = (page) => {
     if (page) {
@@ -36,6 +39,19 @@ const SingleGallery = () => {
       // }
     }
   }, [router]);
+
+  useEffect(() => {
+    var imgDetails = [];
+    images.forEach(img => {
+      var imgDetail= {
+        src: img.url,
+        lightboxTitle: img.caption,
+        lightboxdescription: img.description
+      };
+imgDetails.push(imgDetail);
+    });
+    setImgs(imgDetails);
+  }, [images]);
 
   const fetchGallery = async () => {
     try {
@@ -69,7 +85,7 @@ const SingleGallery = () => {
 
   return (
     <>
-      {selectedImage.url.length > 0 && (
+      {/* {selectedImage.url.length > 0 && (
         <div
           onClick={() => setSelectedImage({ url: "", caption: "", desc: "" })}
           className="w-screen h-full z-[300] fixed inset-0 bg-black/70 backdrop-filter backdrop-blur-xl"
@@ -110,7 +126,7 @@ const SingleGallery = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       <PageWithNavAndFooter>
         <section className="min-h-screen">
@@ -121,9 +137,9 @@ const SingleGallery = () => {
           </div>
 
           <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
-            {!loading && images.length > 0 && (
-              <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {images.map((image) => (
+            {!loading && imgs.length > 0 && (
+              <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 ">
+                {/* {images.map((image) => (
                   <div
                     onClick={() => {
                       setSelectedImage({
@@ -140,7 +156,8 @@ const SingleGallery = () => {
                       className="w-full h-full rounded-lg"
                     />
                   </div>
-                ))}
+                ))} */}
+                <ResponsiveGallery images={imgs} useLightBox={true}/>,
               </div>
             )}
             {loading && (
