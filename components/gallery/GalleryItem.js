@@ -17,7 +17,7 @@ const  setImageSpans = () => {
   if(imageRef)
   {
     const height = imageRef.current.clientHeight;
-  const imageSpans = Math.ceil(height / 200);
+  const imageSpans = Math.ceil(height / 300);
   setSpans(imageSpans);
   }
   
