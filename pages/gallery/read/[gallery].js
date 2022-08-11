@@ -4,7 +4,10 @@ import PageWithNavAndFooter from "../../../components/layout/PageWithNavAndFoote
 import Loading from "../../../components/Loading";
 import axios from "axios";
 import CustomPagination from "../../../components/inputs/CustomPagination";
-import ResponsiveGallery from 'react-responsive-gallery';
+// import ResponsiveGallery from 'react-responsive-gallery';
+import GalleryItem from "../../../components/gallery/GalleryItem";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 const SingleGallery = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,8 +22,10 @@ const SingleGallery = () => {
   const [id, setId] = useState(null);
   const [title, setTitle] = useState("");
   const router = useRouter();
-const [imgs, setImgs] =  useState([]);
-
+  const [imgs, setImgs] = useState([]);
+  const [imgUrls, setImgUrls] = useState([]);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handlePageNavigate = (page) => {
     if (page) {
@@ -42,15 +47,16 @@ const [imgs, setImgs] =  useState([]);
 
   useEffect(() => {
     var imgDetails = [];
-    images.forEach(img => {
-      var imgDetail= {
+    images.forEach((img) => {
+      var imgDetail = {
         src: img.url,
-        lightboxTitle: img.caption,
-        lightboxdescription: img.description
+        caption: img.caption,
       };
-imgDetails.push(imgDetail);
+      imgUrls.push(img.url);
+      imgDetails.push(imgDetail);
     });
     setImgs(imgDetails);
+    // console.log("imgs", imgUrls);
   }, [images]);
 
   const fetchGallery = async () => {
@@ -65,7 +71,6 @@ imgDetails.push(imgDetail);
       setImages(data.medias);
       setTitle(data.title);
       setPageCount(data.pages);
-      console.log(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -84,16 +89,27 @@ imgDetails.push(imgDetail);
   }, [id, currentPage]);
 
   const ImgGallery = () => {
-    if (typeof window !== 'undefined') {
-      //here `window` is available
-      return (<>
-      <ResponsiveGallery images={imgs} useLightBox={true}/>
-      </>);
-    }
-    else{
-      return(<></>);
-    }
+    // if (typeof window !== 'undefined') {
+    //   //here `window` is available
+    //   return (<>
+    //   <ResponsiveGallery images={imgs} useLightBox={true}/>
+    //   </>);
+    // }
+    // else{
+    //   return(<></>);
+    // }
+  };
+  const clickImage = (e) => {
+    // console.log("e", e);
+    setPhotoIndex(e);
+    setIsOpen(true);
+    console.log("photo index", imgs[photoIndex]);
   }
+  const ImagesComp = imgs.map((imgDetail, i) => {
+    return <GalleryItem image={imgDetail} clickImage={clickImage} imageIndex={i}/>;
+  });
+
+  
 
   return (
     <>
@@ -140,6 +156,33 @@ imgDetails.push(imgDetail);
         </div>
       )} */}
 
+{isOpen && imgs.length > 0 && (
+ 
+          <Lightbox
+            mainSrc={imgs[photoIndex].src}
+            imageTitle={imgs[photoIndex].caption}
+            nextSrc={imgs[(photoIndex + 1) % imgs.length]}
+            prevSrc={imgs[(photoIndex + imgs.length - 1) % imgs.length]}
+            onCloseRequest={() => setIsOpen(false)}
+            onMovePrevRequest={() =>
+              {
+                const photoI = (photoIndex + imgs.length - 1) % imgs.length;
+                setPhotoIndex(photoI);
+              }
+              
+            }
+            onMoveNextRequest={() =>
+              {
+                
+                  const photoI = (photoIndex + 1) % imgs.length;
+                  setPhotoIndex(photoI);
+
+              }
+              
+            }
+          />
+        )}
+
       <PageWithNavAndFooter>
         <section className="min-h-screen">
           <div className="pt-48 w-full max-w-6xl mx-auto flex flex-col items-center justify-center ">
@@ -150,7 +193,7 @@ imgDetails.push(imgDetail);
 
           <div className="w-full max-w-6xl mx-auto py-20 px-3 xl:px-0">
             {!loading && imgs.length > 0 && (
-              <div className="px-3 items-center justify-center gap-10 grid grid-cols-1 ">
+              <div className="">
                 {/* {images.map((image) => (
                   <div
                     onClick={() => {
@@ -171,7 +214,8 @@ imgDetails.push(imgDetail);
                 ))} */}
 
                 {/* <ImgGallery /> */}
-                
+                {/* {imgs.length} */}
+                <div className="image-list">{ImagesComp}</div>
               </div>
             )}
             {loading && (
